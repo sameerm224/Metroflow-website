@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canonical Metrics vs. Dashboard SQL: End the MRR Debate | Metroflow Blog</title>
+<meta name="description" content="Stop MRR metric drift between finance, product, and BI. Learn canonical metric definitions, KPI reconciliation, and lineage-backed governance for modern data teams.">
+<meta name="keywords" content="canonical metrics, MRR reconciliation, metric drift, data governance KPI, certified metrics, revenue metrics data warehouse">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="../theme.js"></script>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body data-page="blog">
+
+<div id="site-header"></div>
+
+<main>
+  <article>
+    <header class="blog-article-hero">
+      <div class="wrap">
+        <a href="../blog.html" class="blog-back hover-pop">← All articles</a>
+        <div class="blog-card-meta">
+          <span class="blog-card-badge" style="position:static;display:inline-block;margin-bottom:12px;">Metrics &amp; Trust</span>
+          <span>Jun 24, 2026</span><span class="dot"></span><span>8 min read</span>
+        </div>
+        <h1>Canonical Metrics vs. Dashboard SQL: End the MRR Debate</h1>
+        <p class="blog-article-deck">Finance says $4.2M. Product's Looker tile says $4.05M. Your VP asks which number is "real." Here's how canonical metrics and reconciliation fix it — with lineage your auditors can export.</p>
+      </div>
+    </header>
+
+    <div class="blog-article-cover reveal">
+      <img src="../assets/blog/canonical-metrics-mrr.jpg" alt="Visualization comparing conflicting dashboard metrics versus one certified MRR KPI with lineage" width="960" height="540">
+    </div>
+
+    <div class="blog-article-body reveal">
+      <p><strong>Monthly recurring revenue (MRR)</strong> is the most argued metric in B2B SaaS. Not because teams can't write SQL — because every team writes <em>different</em> SQL and calls it MRR.</p>
+      <p>This guide explains <strong>canonical metrics</strong>: a governed definition layer that sits on your semantic graph, pushes the same KPI to BI and notebooks, and gives RevOps an audit trail when board prep week gets stressful.</p>
+
+      <h2>The three-definition problem (you've lived it)</h2>
+      <ul>
+        <li><strong>Finance MRR</strong> — net of credits, aligned to billing system cutoffs</li>
+        <li><strong>Product MRR</strong> — activation cohorts, sometimes gross, sometimes annualized monthly</li>
+        <li><strong>BI MRR</strong> — whatever the Looker explore author typed in 2023</li>
+      </ul>
+      <p>Each definition is defensible in isolation. Together they destroy trust. That's <strong>metric drift</strong> — and it's an SEO problem for your data team because execs Google "why don't our dashboards match" long before they file a Jira ticket.</p>
+
+      <div class="blog-visual">
+        <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="720" height="260" fill="#0a0a0a"/>
+          <text x="120" y="36" fill="#F59E0B" font-family="monospace" font-size="10">BEFORE — 3 definitions</text>
+          <rect x="40" y="50" width="160" height="70" rx="10" fill="#1a0a0a" stroke="#F59E0B" stroke-width="1" opacity="0.8"/>
+          <text x="120" y="82" text-anchor="middle" fill="#F59E0B" font-size="14" font-family="monospace">$4.05M</text>
+          <text x="120" y="100" text-anchor="middle" fill="#666" font-size="8" font-family="monospace">Looker</text>
+          <rect x="220" y="50" width="160" height="70" rx="10" fill="#1a0a0a" stroke="#F59E0B" stroke-width="1" opacity="0.8"/>
+          <text x="300" y="82" text-anchor="middle" fill="#F59E0B" font-size="14" font-family="monospace">$4.20M</text>
+          <text x="300" y="100" text-anchor="middle" fill="#666" font-size="8" font-family="monospace">Finance</text>
+          <rect x="400" y="50" width="160" height="70" rx="10" fill="#1a0a0a" stroke="#F59E0B" stroke-width="1" opacity="0.8"/>
+          <text x="480" y="82" text-anchor="middle" fill="#F59E0B" font-size="14" font-family="monospace">$4.11M</text>
+          <text x="480" y="100" text-anchor="middle" fill="#666" font-size="8" font-family="monospace">Product</text>
+          <text x="360" y="150" fill="#22E59A" font-family="monospace" font-size="10">AFTER — 1 certified metric</text>
+          <rect x="180" y="165" width="360" height="80" rx="14" fill="#052e22" stroke="#22E59A" stroke-width="2"/>
+          <text x="360" y="205" text-anchor="middle" fill="#22E59A" font-size="20" font-family="monospace" class="blog-anim-pulse">$4.18M MRR</text>
+          <text x="360" y="228" text-anchor="middle" fill="#888" font-size="8" font-family="monospace">certified · reconciled · lineage → fct_revenue</text>
+          <rect x="0" y="120" width="720" height="2" fill="url(#scan)" class="blog-anim-scan" opacity="0.3"/>
+        </svg>
+        <div class="blog-visual-caption">Fig 1 — Canonical metrics collapse drift into one governed number with provenance.</div>
+      </div>
+
+      <div class="blog-pullquote">A canonical metric isn't a dashboard. It's a contract: definition, owner, lineage, certification status, and reconciliation rules — all queryable.</div>
+
+      <h2>Canonical metrics 101: four layers</h2>
+      <h3>1. Definition</h3>
+      <p>Write the business logic once — filters, grain, time zone, handling of trials and refunds. Store it on the semantic layer, not in a Notion doc.</p>
+      <h3>2. Lineage</h3>
+      <p>Link MRR to <code>fct_revenue</code> → <code>stg_orders</code> → <code>raw_stripe_charges</code>. When finance asks "where does this come from?", you click — not grep Slack.</p>
+      <h3>3. Certification</h3>
+      <p>Status: draft → certified → deprecated. Only certified metrics appear in exec dashboards and Enterprise Brain answers.</p>
+      <h3>4. Reconciliation</h3>
+      <p>When Looker differs by 2%, run a diff report: definition version, upstream model change, or explore override. Close the ticket with evidence.</p>
+
+      <div class="code-block" style="margin:28px 0;">
+<span class="tok-kw">metric:</span> monthly_recurring_revenue<br>
+<span class="tok-kw">grain:</span> account · month (UTC)<br>
+<span class="tok-kw">source:</span> <span class="tok-str">fct_revenue</span> → stg_orders → raw_stripe<br>
+<span class="tok-kw">owners:</span> @finance-ops, @data-platform<br>
+<span class="diff-add">status: certified · last_reconciled: 2026-06-20</span>
+      </div>
+
+      <h2>SEO keywords your metrics layer should own</h2>
+      <p>Data teams win internal search and external discovery when content maps to how people actually ask questions:</p>
+      <ul>
+        <li>"canonical metric definition"</li>
+        <li>"MRR reconciliation data warehouse"</li>
+        <li>"metric drift between dashboards"</li>
+        <li>"certified KPI governance"</li>
+        <li>"single source of truth revenue metrics"</li>
+      </ul>
+      <p>Publishing playbooks on these topics — like this one — signals expertise to Google and to your CFO.</p>
+
+      <h2>Rollout plan (2 sprints)</h2>
+      <ol>
+        <li><strong>Sprint 1</strong> — Pick one exec KPI (MRR or NRR). Document definition with finance. Map lineage in Metroflow. Certify.</li>
+        <li><strong>Sprint 2</strong> — Point Looker/Hex explores at certified definition. Enable reconciliation alerts on model changes. Train product on Enterprise Brain queries.</li>
+      </ol>
+      <p>Deep dive on the <a href="../metrics-trust.html">Metrics &amp; Trust Layer</a> or walk through <a href="../guides.html#metrics-how">how canonical metrics work</a> in our how-to guide.</p>
+    </div>
+
+    <aside class="blog-related">
+      <h2>Keep reading</h2>
+      <div class="blog-related-grid">
+        <a href="agentic-control-plane-data-stack.html" class="blog-card blog-card-compact hover-pop">
+          <div class="blog-card-img"><img src="../assets/blog/agentic-control-plane.jpg" alt="" loading="lazy"></div>
+          <div class="blog-card-body"><h3>Agentic Control Plane for Your Data Stack</h3><span class="blog-card-arrow">Read →</span></div>
+        </a>
+        <a href="dbt-lineage-impact-analysis-pr.html" class="blog-card blog-card-compact hover-pop">
+          <div class="blog-card-img"><img src="../assets/blog/dbt-lineage-impact.jpg" alt="" loading="lazy"></div>
+          <div class="blog-card-body"><h3>dbt PR Lineage Impact in 10 Minutes</h3><span class="blog-card-arrow">Read →</span></div>
+        </a>
+      </div>
+    </aside>
+  </article>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="../logo.js"></script>
+<script src="../layout.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

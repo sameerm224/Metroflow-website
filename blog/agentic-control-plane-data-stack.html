@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is an Agentic Control Plane for Your Data Stack? | Metroflow Blog</title>
+<meta name="description" content="Learn how an agentic data control plane unifies dbt, Airflow, and Snowflake metadata for grounded AI agents — without replacing your warehouse or orchestrator.">
+<meta name="keywords" content="agentic control plane, data stack, dbt, Airflow, Snowflake, data lineage, metadata graph, AI agents data engineering">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="../theme.js"></script>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../blog.css">
+</head>
+<body data-page="blog">
+
+<div id="site-header"></div>
+
+<main>
+  <article>
+    <header class="blog-article-hero">
+      <div class="wrap">
+        <a href="../blog.html" class="blog-back hover-pop">← All articles</a>
+        <div class="blog-card-meta">
+          <span class="blog-card-badge" style="position:static;display:inline-block;margin-bottom:12px;">Architecture</span>
+          <span>Jul 2, 2026</span><span class="dot"></span><span>9 min read</span>
+        </div>
+        <h1>What Is an Agentic Control Plane for Your Data Stack?</h1>
+        <p class="blog-article-deck">Why dbt + Airflow + Snowflake teams are moving <em>above</em> the warehouse — not ripping it out — and how to evaluate control-plane architecture in 2026.</p>
+      </div>
+    </header>
+
+    <div class="blog-article-cover reveal">
+      <img src="../assets/blog/agentic-control-plane.jpg" alt="Abstract visualization of an agentic data control plane connecting Snowflake, dbt, and Airflow" width="960" height="540">
+    </div>
+
+    <div class="blog-article-body reveal">
+      <p>If you manage a modern data stack, you've heard both buzzwords: <strong>agentic AI</strong> and <strong>data control plane</strong>. Vendors use them interchangeably. Engineers use them skeptically. Finance uses them in RFPs.</p>
+      <p>This post defines what an <strong>agentic control plane for your data stack</strong> actually means — with enough specificity to compare tools, write architecture docs, and improve SEO on topics your team already owns: lineage, metadata graphs, dbt manifests, Airflow DAGs, and governed AI over Snowflake.</p>
+
+      <h2>Control plane vs. data plane (in one paragraph)</h2>
+      <p>Your <strong>data plane</strong> moves and stores rows: Snowflake tables, Fivetran loads, Spark jobs. Your <strong>control plane</strong> understands <em>what exists</em>, <em>how it connects</em>, and <em>what's allowed to change</em> — schemas, DAG dependencies, dbt refs, metric definitions, ownership.</p>
+      <p>An <strong>agentic</strong> control plane adds a third layer: AI agents that <em>reason</em> over that metadata graph before acting — impact analysis before a dbt merge, pool-slot recommendations when Airflow retries, cited answers when an exec asks about board revenue.</p>
+
+      <div class="blog-visual">
+        <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="cp-g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#22E59A"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient>
+          </defs>
+          <rect width="720" height="280" fill="#0a0a0a"/>
+          <g opacity="0.15"><path d="M0 40h720M0 80h720M0 120h720" stroke="#fff"/><path d="M60 0v280M120 0v280M180 0v280" stroke="#fff"/></g>
+          <rect x="260" y="90" width="200" height="100" rx="16" fill="none" stroke="url(#cp-g)" stroke-width="2" class="blog-anim-pulse"/>
+          <text x="360" y="135" text-anchor="middle" fill="#22E59A" font-family="monospace" font-size="11">AGENTIC CONTROL PLANE</text>
+          <text x="360" y="158" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">lineage · metrics · agents</text>
+          <circle cx="120" cy="140" r="28" fill="#111" stroke="#22E59A" stroke-width="1.5"/>
+          <text x="120" y="144" text-anchor="middle" fill="#22E59A" font-size="10" font-family="monospace">dbt</text>
+          <circle cx="600" cy="100" r="28" fill="#111" stroke="#22E59A" stroke-width="1.5"/>
+          <text x="600" y="104" text-anchor="middle" fill="#22E59A" font-size="9" font-family="monospace">Snowflake</text>
+          <circle cx="600" cy="180" r="28" fill="#111" stroke="#22E59A" stroke-width="1.5"/>
+          <text x="600" y="184" text-anchor="middle" fill="#22E59A" font-size="9" font-family="monospace">Airflow</text>
+          <path d="M148 140 L260 140" stroke="#22E59A" stroke-width="1.5" class="blog-anim-flow" fill="none"/>
+          <path d="M460 125 L572 105" stroke="#8B5CF6" stroke-width="1.5" class="blog-anim-flow" fill="none" style="animation-delay:.5s"/>
+          <path d="M460 155 L572 175" stroke="#8B5CF6" stroke-width="1.5" class="blog-anim-flow" fill="none" style="animation-delay:1s"/>
+        </svg>
+        <div class="blog-visual-caption">Fig 1 — Control plane sits above orchestration and warehouse; agents read metadata, not raw prompts.</div>
+      </div>
+
+      <h2>Why generic AI copilots fail on data stacks</h2>
+      <p>SQL copilots autocomplete syntax. They don't know that <code>customer_id</code> in <code>stg_orders</code> feeds <code>fct_revenue</code>, which powers your Looker explore and board slide #7.</p>
+      <ul>
+        <li><strong>No manifest context</strong> — dbt refs and tests are invisible</li>
+        <li><strong>No DAG context</strong> — Airflow retries and pool slots aren't linked to downstream dashboards</li>
+        <li><strong>No metric context</strong> — "revenue" means three different things to finance, product, and BI</li>
+      </ul>
+
+      <div class="blog-pullquote">The fix isn't a better prompt. It's a semantic graph built from the metadata you already emit — then agents grounded in that graph.</div>
+
+      <h2>Five capabilities to demand in an agentic control plane</h2>
+      <ol>
+        <li><strong>Metadata-only ingestion</strong> — crawls Snowflake information_schema, dbt manifest.json, Airflow DAG metadata without copying row data</li>
+        <li><strong>Unified lineage graph</strong> — upstream/downstream queries across tools in one UI</li>
+        <li><strong>Canonical metric layer</strong> — certified KPIs with provenance, not orphaned SQL</li>
+        <li><strong>Infrastructure-aware agents</strong> — impact analysis, test generation, ops debugging with citations</li>
+        <li><strong>Self-host path</strong> — VPC deployment for teams that can't send metadata to a SaaS black box</li>
+      </ol>
+      <p>Metroflow ships all five in the open-source workspace — which is why teams searching for <em>dbt lineage tool</em>, <em>data control plane open source</em>, or <em>agentic data engineering</em> land on a single product story instead of five duct-taped tools.</p>
+
+      <h2>Evaluation checklist for platform teams</h2>
+      <p>Before your next stack review, score candidates on these concrete workflows:</p>
+      <div class="blog-code-compare">
+        <div class="code-block">
+<span class="tok-kw"># Impact before merge</span><br>
+"What breaks if I rename<br>
+ customer_id in stg_orders?"<br>
+<span class="diff-add">→ 4 models, 2 dashboards</span>
+        </div>
+        <div class="code-block">
+<span class="tok-kw"># Ops with stack context</span><br>
+"Why is extract_charges<br>
+ retrying — what dashboards<br>
+ go stale?"<br>
+<span class="diff-add">→ AF → dbt → Looker chain</span>
+        </div>
+      </div>
+
+      <h2>Where to go next</h2>
+      <p>Connect your stack in under five minutes with the <a href="../index.html#workspace">live demo</a>, explore the <a href="../workspace.html">workspace features</a>, or read how <a href="canonical-metrics-mrr-reconciliation.html">canonical metrics end the MRR debate</a> between finance and data.</p>
+    </div>
+
+    <aside class="blog-related">
+      <h2>Keep reading</h2>
+      <div class="blog-related-grid">
+        <a href="canonical-metrics-mrr-reconciliation.html" class="blog-card blog-card-compact hover-pop">
+          <div class="blog-card-img"><img src="../assets/blog/canonical-metrics-mrr.jpg" alt="" loading="lazy"></div>
+          <div class="blog-card-body"><h3>Canonical Metrics vs. Dashboard SQL</h3><span class="blog-card-arrow">Read →</span></div>
+        </a>
+        <a href="dbt-lineage-impact-analysis-pr.html" class="blog-card blog-card-compact hover-pop">
+          <div class="blog-card-img"><img src="../assets/blog/dbt-lineage-impact.jpg" alt="" loading="lazy"></div>
+          <div class="blog-card-body"><h3>dbt PR Lineage Impact in 10 Minutes</h3><span class="blog-card-arrow">Read →</span></div>
+        </a>
+      </div>
+    </aside>
+  </article>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="../logo.js"></script>
+<script src="../layout.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

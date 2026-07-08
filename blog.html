@@ -3,34 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Metroflow</title>
-<meta name="description" content="Technical deep dives, launch announcements, contributor spotlights, and roadmap updates from Metroflow.">
+<title>Blog — Metroflow | Data Stack Intelligence, Lineage &amp; Canonical Metrics</title>
+<meta name="description" content="Technical guides on agentic control planes, dbt lineage impact analysis, canonical metrics, MRR reconciliation, and modern data stack operations from the Metroflow team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="blog.css">
 </head>
-<body data-page="blog">
+<body data-page="blog" data-cta-title="Put these playbooks to work in your stack" data-cta-sub="Self-host Metroflow, connect dbt + Snowflake + Airflow, and query lineage in minutes." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started — Open Source" data-cta-secondary-href="index.html#workspace" data-cta-secondary-label="Try the live demo">
 
 <div id="site-header"></div>
 
 <main>
-  <section class="page-hero">
+  <section class="page-hero blog-hero-wrap">
+    <div class="blog-hero-mesh" aria-hidden="true"></div>
     <div class="wrap">
       <div class="eyebrow" style="justify-content:center">Blog</div>
-      <h1>Honest and detailed.</h1>
-      <p>Technical deep dives, launch announcements, contributor spotlights, and roadmap updates.</p>
+      <h1>Deep dives for data teams shipping in production.</h1>
+      <p>Agentic control planes, canonical metrics, dbt lineage workflows, and stack operations — written for analytics engineers, platform leads, and RevOps teams searching for real answers.</p>
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section blog-featured">
     <div class="wrap">
-      <div class="feature-card reveal" style="max-width:640px; margin:0 auto;">
-        <span class="fc-num">Coming soon</span>
-        <h3>Why P0 shipped as the workspace, not the metrics layer</h3>
-        <p>Our first post covers the decision to launch infrastructure intelligence first — and what that means for data teams adopting Metroflow today.</p>
-        <a href="changelog.html" class="link-arrow">Read the launch changelog →</a>
+      <div class="blog-section-head reveal">
+        <div>
+          <h2>Featured</h2>
+          <p>Start here — the three posts data teams bookmark most.</p>
+        </div>
+        <span class="blog-count" id="blogCount">3 articles</span>
       </div>
+      <div class="blog-featured-grid reveal" id="blogFeatured"></div>
+
+      <div class="blog-section-head reveal" style="margin-top:16px;">
+        <div>
+          <h2>All articles</h2>
+          <p>Search-engine friendly guides you can share with finance, product, and platform.</p>
+        </div>
+      </div>
+      <div class="blog-all-grid reveal" id="blogAll"></div>
     </div>
   </section>
 </main>
@@ -39,7 +52,9 @@
 <div id="site-footer"></div>
 
 <script src="logo.js"></script>
+<script src="blog-data.js"></script>
 <script src="layout.js"></script>
+<script src="blog.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
