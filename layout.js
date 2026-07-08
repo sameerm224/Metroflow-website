@@ -173,13 +173,13 @@
       ${navLinks.filter(l => l.id !== 'home').map(l => navLink(l, active)).join('')}
     </nav>
     <div class="nav-right">
-      ${THEME_ICON}
       <a href="${GITHUB}" class="btn btn-ghost btn-github hover-pop" target="_blank" rel="noopener">
         ${GITHUB_ICON}
         <span>Star on GitHub</span>
       </a>
       <a href="${DISCORD}" class="btn btn-ghost btn-discord hover-pop" target="_blank" rel="noopener">Join Discord</a>
       <a href="open-source.html#get-started" class="btn btn-primary hover-pop">Get Started</a>
+      ${THEME_ICON}
     </div>
   </div>
 </header>

@@ -30,4 +30,30 @@
       toggleTheme();
     }
   });
+
+  // Hide theme toggle on scroll down, show on scroll up
+  let lastScrollY = window.scrollY;
+  let scrollTicking = false;
+
+  function updateThemeToggleVisibility() {
+    const toggle = document.getElementById('themeToggle');
+    if (!toggle) return;
+    const y = window.scrollY;
+    if (y <= 24) {
+      toggle.classList.remove('is-scroll-hidden');
+    } else if (y > lastScrollY + 4) {
+      toggle.classList.add('is-scroll-hidden');
+    } else if (y < lastScrollY - 4) {
+      toggle.classList.remove('is-scroll-hidden');
+    }
+    lastScrollY = y;
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(updateThemeToggleVisibility);
+    }
+  }, { passive: true });
 })();

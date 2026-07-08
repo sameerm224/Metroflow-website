@@ -160,29 +160,36 @@
         <p style="color:var(--text-muted); max-width:520px; margin:12px auto 0; font-size:15px;">Concrete playbooks — not generic "data workflows." Pick a persona below.</p>
       </div>
       <div class="reveal uc-preview-wrap">
-        <label class="uc-preview-label" for="ucPreviewSelect">I am a…</label>
+        <label class="uc-preview-label" id="ucPreviewLabel">I am a…</label>
         <div class="uc-preview-select-wrap">
-          <select id="ucPreviewSelect" class="uc-preview-select" aria-label="Choose a use case by role or industry">
-            <optgroup label="By role">
-              <option value="analytics-engineer" selected>Analytics Engineer</option>
-              <option value="platform-engineer">Data Platform Engineer</option>
-              <option value="head-of-data">Head of Data / VP</option>
-              <option value="finance-ops">Finance &amp; RevOps</option>
-              <option value="bi-lead">BI &amp; Analytics Lead</option>
-              <option value="ml-engineer">ML Engineer</option>
-              <option value="product-manager">Product Manager</option>
-              <option value="governance-lead">Data Governance Lead</option>
-            </optgroup>
-            <optgroup label="By industry">
-              <option value="fintech">Fintech &amp; Banking</option>
-              <option value="b2b-saas">B2B SaaS</option>
-              <option value="ecommerce">E-commerce &amp; Retail</option>
-              <option value="healthcare">Healthcare &amp; Life Sciences</option>
-              <option value="media">Media &amp; Gaming</option>
-              <option value="manufacturing">Manufacturing &amp; Logistics</option>
-            </optgroup>
-          </select>
-          <svg class="uc-preview-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="uc-custom-select" id="ucCustomSelect">
+            <button type="button" class="uc-custom-select-trigger" id="ucCustomSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="ucPreviewLabel">
+              <span class="uc-custom-select-value">Analytics Engineer</span>
+              <svg class="uc-preview-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="uc-custom-select-menu" id="ucCustomSelectMenu" role="listbox" hidden>
+              <div class="uc-custom-select-group" role="group" aria-label="By role">
+                <div class="uc-custom-select-group-label">By role</div>
+                <button type="button" class="uc-custom-select-option selected" role="option" data-value="analytics-engineer" aria-selected="true">Analytics Engineer</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="platform-engineer">Data Platform Engineer</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="head-of-data">Head of Data / VP</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="finance-ops">Finance &amp; RevOps</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="bi-lead">BI &amp; Analytics Lead</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="ml-engineer">ML Engineer</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="product-manager">Product Manager</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="governance-lead">Data Governance Lead</button>
+              </div>
+              <div class="uc-custom-select-group" role="group" aria-label="By industry">
+                <div class="uc-custom-select-group-label">By industry</div>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="fintech">Fintech &amp; Banking</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="b2b-saas">B2B SaaS</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="ecommerce">E-commerce &amp; Retail</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="healthcare">Healthcare &amp; Life Sciences</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="media">Media &amp; Gaming</button>
+                <button type="button" class="uc-custom-select-option" role="option" data-value="manufacturing">Manufacturing &amp; Logistics</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div data-uc-panel="analytics-engineer" class="uc-panel active">

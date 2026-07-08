@@ -12,15 +12,56 @@
     });
   });
 
-  // Use case preview dropdown (homepage)
-  const ucSelect = document.getElementById('ucPreviewSelect');
-  if (ucSelect) {
-    const panels = ucSelect.closest('.uc-preview-wrap')?.querySelectorAll('[data-uc-panel]');
+  // Use case preview custom dropdown (homepage)
+  const ucCustom = document.getElementById('ucCustomSelect');
+  if (ucCustom) {
+    const trigger = document.getElementById('ucCustomSelectTrigger');
+    const menu = document.getElementById('ucCustomSelectMenu');
+    const valueEl = ucCustom.querySelector('.uc-custom-select-value');
+    const options = ucCustom.querySelectorAll('.uc-custom-select-option');
+    const panels = ucCustom.closest('.uc-preview-wrap')?.querySelectorAll('[data-uc-panel]');
+
     const showPanel = (id) => {
       panels?.forEach(p => p.classList.toggle('active', p.dataset.ucPanel === id));
     };
-    ucSelect.addEventListener('change', () => showPanel(ucSelect.value));
-    showPanel(ucSelect.value);
+
+    const setOpen = (open) => {
+      ucCustom.classList.toggle('is-open', open);
+      trigger?.setAttribute('aria-expanded', String(open));
+      if (menu) menu.hidden = !open;
+    };
+
+    const selectOption = (opt) => {
+      const id = opt.dataset.value;
+      options.forEach(o => {
+        const on = o === opt;
+        o.classList.toggle('selected', on);
+        o.setAttribute('aria-selected', String(on));
+      });
+      if (valueEl) valueEl.textContent = opt.textContent.trim();
+      showPanel(id);
+      setOpen(false);
+    };
+
+    trigger?.addEventListener('click', () => setOpen(!ucCustom.classList.contains('is-open')));
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => selectOption(opt));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!ucCustom.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    const initial = ucCustom.querySelector('.uc-custom-select-option.selected') || options[0];
+    if (initial) {
+      selectOption(initial);
+      setOpen(false);
+    }
   }
 
   // FAQ accordion
