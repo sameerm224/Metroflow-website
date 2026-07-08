@@ -19,43 +19,49 @@
     { href: 'docs.html', label: 'Docs', id: 'docs' }
   ];
 
+  const FEATURE_PAGES = ['features', 'workspace', 'metrics-trust', 'ai-agents', 'guides'];
+
   const featuresMenu = [
     {
       title: 'Workspace',
+      href: 'workspace.html',
       desc: 'The technical foundation for data teams',
       links: [
-        { href: 'features.html#workspace', label: 'Context-aware editors', sub: 'SQL, dbt, Python with live stack context' },
-        { href: 'features.html#workspace', label: 'Living semantic catalog', sub: 'Lineage, schemas, ownership — always fresh' },
-        { href: 'features.html#workspace', label: 'Infrastructure understanding', sub: 'DAGs, models, and dependencies unified' },
+        { href: 'workspace.html#editors', label: 'Context-aware editors', sub: 'SQL, dbt, Python with live stack context' },
+        { href: 'workspace.html#catalog', label: 'Living semantic catalog', sub: 'Lineage, schemas, ownership — always fresh' },
+        { href: 'workspace.html#infrastructure', label: 'Infrastructure understanding', sub: 'DAGs, models, and dependencies unified' },
         { href: 'open-source.html#get-started', label: 'Self-host & local dev', sub: 'Docker, Apache 2.0, your infra' }
       ]
     },
     {
       title: 'Metrics & Trust Layer',
+      href: 'metrics-trust.html',
       desc: 'Canonical KPIs for operators and leaders',
       links: [
-        { href: 'features.html#metrics', label: 'Canonical metric definitions', sub: 'One source of truth for every KPI' },
-        { href: 'features.html#metrics', label: 'KPI standardization', sub: 'Same numbers in every tool and dashboard' },
-        { href: 'features.html#metrics', label: 'Define once. Trust everywhere.', sub: 'End metric drift across teams' },
-        { href: 'features.html#metrics', label: 'Reconciliation & governance', sub: 'Trusted business metrics with audit trail' }
+        { href: 'metrics-trust.html#definitions', label: 'Canonical metric definitions', sub: 'One source of truth for every KPI' },
+        { href: 'metrics-trust.html#standardization', label: 'KPI standardization', sub: 'Same numbers in every tool and dashboard' },
+        { href: 'metrics-trust.html#trust', label: 'Define once. Trust everywhere.', sub: 'End metric drift across teams' },
+        { href: 'metrics-trust.html#reconciliation', label: 'Reconciliation & governance', sub: 'Trusted business metrics with audit trail' }
       ]
     },
     {
       title: 'AI & Agents',
+      href: 'ai-agents.html',
       desc: 'Reasoning over infrastructure and business context',
       links: [
-        { href: 'features.html#ai-agents', label: 'Infrastructure-aware AI', sub: 'Answers grounded in your actual metadata' },
-        { href: 'features.html#ai-agents', label: 'Enterprise Brain', sub: 'Technical + business reasoning in one layer' },
-        { href: 'features.html#ai-agents', label: 'Specialized agents', sub: 'Document, test, debug, and orchestrate' },
-        { href: 'features.html#ai-agents', label: 'NL queries over stack & metrics', sub: 'Ask in plain English, get cited answers' }
+        { href: 'ai-agents.html#infrastructure-ai', label: 'Infrastructure-aware AI', sub: 'Answers grounded in your actual metadata' },
+        { href: 'ai-agents.html#enterprise-brain', label: 'Enterprise Brain', sub: 'Technical + business reasoning in one layer' },
+        { href: 'ai-agents.html#specialized-agents', label: 'Specialized agents', sub: 'Document, test, debug, and orchestrate' },
+        { href: 'ai-agents.html#nl-queries', label: 'NL queries over stack & metrics', sub: 'Ask in plain English, get cited answers' }
       ]
     },
     {
       title: 'In-Depth & How-To',
+      href: 'guides.html',
       desc: 'Guides for engineers and decision-makers',
       links: [
-        { href: 'features.html#how-to', label: 'How Metroflow understands infrastructure', sub: 'Metadata crawl → semantic graph' },
-        { href: 'features.html#how-to', label: 'How canonical metrics work', sub: 'From definition to trusted KPI' },
+        { href: 'guides.html#infrastructure-how', label: 'How Metroflow understands infrastructure', sub: 'Metadata crawl → semantic graph' },
+        { href: 'guides.html#metrics-how', label: 'How canonical metrics work', sub: 'From definition to trusted KPI' },
         { href: 'quickstart.html', label: 'Getting started guides', sub: 'Connect, sync, query in minutes' },
         { href: 'use-cases.html', label: 'Use cases & playbooks', sub: 'For data teams and business leaders' },
         { href: 'docs.html', label: 'Full documentation →', sub: 'API reference, connectors, deployment' }
@@ -116,7 +122,7 @@
             ${menu.map(col => `
               <div class="nav-mega-col">
                 <div class="nav-mega-col-head">
-                  <h4>${col.title}</h4>
+                  <h4>${col.href ? `<a href="${col.href}" class="nav-mega-col-title hover-pop">${col.title}</a>` : col.title}</h4>
                   <p>${col.desc}</p>
                 </div>
                 <ul class="nav-mega-links">
@@ -132,7 +138,7 @@
   function renderFeaturesMega(active) {
     return renderMegaDropdown(
       'navFeaturesDropdown', 'navFeaturesTrigger', 'navMegaMenu', 'Features',
-      active === 'features', featuresMenu, 4,
+      FEATURE_PAGES.includes(active), featuresMenu, 4,
       'Explore Metroflow', 'Infrastructure intelligence + trusted metrics — available at launch', 'features.html'
     );
   }
@@ -151,7 +157,7 @@
       <div class="nav-mobile-features-panel" id="${panelId}" hidden>
         ${menu.map(col => `
           <div class="nav-mobile-feat-col">
-            <h5>${col.title}</h5>
+            <h5>${col.href ? `<a href="${col.href}">${col.title}</a>` : col.title}</h5>
             ${col.links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
           </div>`).join('')}
         <a href="${allHref}" class="nav-mobile-feat-all">${allLabel}</a>

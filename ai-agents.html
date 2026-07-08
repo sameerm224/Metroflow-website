@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Agents — Metroflow</title>
+<meta name="description" content="Infrastructure-aware AI, Enterprise Brain, and specialized agents — reasoning over your stack and canonical metrics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="ai-agents" data-cta-title="Ready for AI that understands your stack?" data-cta-sub="Enterprise Brain ships with the workspace — grounded answers, not prompt guessing." data-cta-primary-href="index.html#workspace" data-cta-primary-label="Try the live demo" data-cta-secondary-href="features.html" data-cta-secondary-label="All features">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">AI &amp; Agents</div>
+      <h1>Reasoning over infrastructure and business context</h1>
+      <p>Infrastructure-aware AI that reads your metadata and metric definitions before answering. Not prompt guessing — cited, grounded intelligence.</p>
+      <p style="margin-top:16px;"><a href="features.html" class="link-arrow">← All features</a></p>
+    </div>
+  </section>
+
+  <section id="infrastructure-ai" class="content-section">
+    <div class="wrap">
+      <div class="capability reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Infrastructure-aware AI</span>
+          <h3>Ask about your actual stack</h3>
+          <ul class="cap-list">
+            <li>"What depends on this table?"</li>
+            <li>"Impact of this schema change?"</li>
+            <li>"Why did this dbt test fail?"</li>
+          </ul>
+        </div>
+        <div class="cap-visual">
+          <div class="code-block" style="width:100%; max-width:340px;">
+<span class="tok-kw">you:</span> What depends on fct_revenue?<br>
+<span class="tok-kw">agent:</span> 3 downstream · exec_dashboard<br>
+<span class="diff-add">grounded in synced manifest</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="enterprise-brain" class="content-section alt">
+    <div class="wrap">
+      <div class="capability reverse reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Enterprise Brain</span>
+          <h3>Technical + business reasoning in one layer</h3>
+          <p>Combine infrastructure lineage with canonical metrics. Ask why KPIs moved and get answers that trace to source data and pipeline changes.</p>
+          <ul class="cap-list">
+            <li>"Why did churn increase last week?"</li>
+            <li>"Which models feed our board-level revenue metric?"</li>
+            <li>"Reconcile MRR between finance and product dashboards"</li>
+          </ul>
+        </div>
+        <div class="cap-visual">
+          <div class="code-block" style="width:100%; max-width:340px;">
+<span class="tok-kw">agent:</span> Enterprise Brain<br>
+<span class="tok-kw">context:</span> lineage + metrics + DAGs<br>
+<span class="diff-add">+ cited sources in every answer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specialized-agents" class="content-section">
+    <div class="wrap">
+      <div class="capability reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Specialized agents</span>
+          <h3>Document, test, debug, and orchestrate</h3>
+          <p>Generate documentation, suggest tests, debug pipelines, propose optimizations — with deep understanding of your environment and governance rules.</p>
+        </div>
+        <div class="cap-visual">
+          <div class="code-block" style="width:100%; max-width:340px;">
+<span class="tok-kw">agents:</span> docs · tests · lineage · ops<br>
+<span class="diff-add">+ PR-ready outputs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nl-queries" class="content-section alt">
+    <div class="wrap">
+      <div class="capability reverse reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Natural language queries</span>
+          <h3>Ask in plain English over stack &amp; metrics</h3>
+          <p>Query lineage, impact, and certified KPIs without writing SQL. Every answer cites the models, tables, and metric definitions it used.</p>
+          <a href="index.html#workspace" class="link-arrow" style="margin-top:16px;">Try in the live demo →</a>
+        </div>
+        <div class="cap-visual">
+          <div class="code-block" style="width:100%; max-width:340px;">
+<span class="tok-kw">you:</span> Why did NRR drop last week?<br>
+<span class="tok-kw">brain:</span> Pipeline delay in stg_orders<br>
+<span class="diff-add">+ lineage to board MRR metric</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

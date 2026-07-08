@@ -10,6 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var map = {
+    workspace: 'workspace.html',
+    metrics: 'metrics-trust.html',
+    'ai-agents': 'ai-agents.html',
+    'how-to': 'guides.html'
+  };
+  var hash = location.hash.replace('#', '');
+  if (hash && map[hash]) location.replace(map[hash] + (location.hash || ''));
+})();
+</script>
 </head>
 <body data-page="features" data-cta-title="Ready for infrastructure intelligence and trusted metrics?" data-cta-sub="Open source. Self-host in minutes. Enterprise Brain included." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started - Open Source" data-cta-secondary-href="integrations.html" data-cta-secondary-label="View Integrations">
 
@@ -24,192 +36,33 @@
     </div>
   </section>
 
-  <section id="workspace" class="content-section">
+  <section class="content-section">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Workspace</div>
-        <h2>The technical foundation</h2>
-        <p>Context-aware editors, a living semantic catalog, and infrastructure understanding — built for developers who need their stack to finally make sense.</p>
-      </div>
-
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Context-aware editors</span>
-          <h3>Write with live context from your stack</h3>
-          <p>SQL, dbt models, Python, and orchestration files with autocomplete that knows your schemas, refs, and lineage — not generic suggestions.</p>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
-<span class="tok-kw">-- models/fct_revenue.sql</span><br>
-<span class="tok-kw">select</span> customer_id, revenue<br>
-<span class="tok-kw">from</span> <span class="tok-str">{{ ref('stg_orders') }}</span><br>
-<span class="tok-comment">-- ↑ validated against catalog</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="capability reverse reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Living semantic catalog</span>
-          <h3>Lineage that stays fresh automatically</h3>
-          <p>Schemas, ownership, governance, and dependencies — discovered from Snowflake, dbt manifests, and orchestration metadata. Searchable and explainable.</p>
-        </div>
-        <div class="cap-visual illus-anim" data-diagram-inline="lineage-dag"></div>
-      </div>
-
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Self-host &amp; local development</span>
-          <h3>Your infrastructure. Your rules.</h3>
-          <p>Apache 2.0. Docker Compose in minutes. Metadata-only crawls — credentials never leave your network.</p>
-          <ul class="cap-list">
-            <li>Run locally or in your VPC</li>
-            <li>Full audit logs and RBAC</li>
-            <li>Open source core, forever</li>
-          </ul>
-        </div>
-        <div class="cap-visual illus-anim" data-diagram-inline="self-host-vpc"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="metrics" class="content-section alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Metrics &amp; Trust Layer</div>
-        <h2>Define once. Trust everywhere.</h2>
-        <p>Canonical metric definitions on the same semantic foundation as your infrastructure — so every dashboard, report, and executive briefing agrees.</p>
-      </div>
-
-      <div class="feature-grid reveal">
-        <div class="feature-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
-          <span class="fc-num">Canonical definitions</span>
-          <h3>One source of truth per KPI</h3>
-          <p>Revenue, churn, activation — defined once with full lineage to upstream models and source tables.</p>
-        </div>
-        <div class="feature-card glow-card hover-pop">
-          <span class="fc-num">Standardization</span>
-          <h3>Same number in every tool</h3>
-          <p>Push trusted definitions to BI, notebooks, and agents. End the "which dashboard is right?" debate.</p>
-        </div>
-        <div class="feature-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
-          <span class="fc-num">Reconciliation</span>
-          <h3>Audit trail for business metrics</h3>
-          <p>See how a KPI was calculated, what changed, and which models feed it — with governance built in.</p>
-        </div>
-        <div class="feature-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
-          <span class="fc-num">For leaders</span>
-          <h3>Decision intelligence</h3>
-          <p>Operators and executives get metrics they can defend in the boardroom — not spreadsheet archaeology.</p>
-        </div>
-      </div>
-
-      <div class="capability reverse reveal" style="padding-top:48px;">
-        <div class="cap-text">
-          <h3>Metrics grounded in infrastructure</h3>
-          <p>Because canonical metrics sit on Metroflow's semantic graph, every KPI links back to dbt models, warehouse tables, and lineage — not orphaned SQL in a wiki.</p>
-        </div>
-        <div class="cap-visual glow-card hover-pop">
-          <div class="code-block">
-<span class="tok-kw">metric:</span> monthly_recurring_revenue<br>
-<span class="tok-kw">source:</span> <span class="tok-str">fct_revenue</span> → stg_orders → raw_stripe<br>
-<span class="tok-kw">owners:</span> @finance, @data-eng<br>
-<span class="diff-add">status: certified · reconciled</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ai-agents" class="content-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">AI &amp; Agents</div>
-        <h2>Enterprise Brain — technical and business reasoning</h2>
-        <p>Infrastructure-aware AI that reads your metadata and metric definitions before answering. Not prompt guessing — cited, grounded intelligence.</p>
-      </div>
-
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Infrastructure-aware AI</span>
-          <h3>Ask about your actual stack</h3>
-          <ul class="cap-list">
-            <li>"What depends on this table?"</li>
-            <li>"Impact of this schema change?"</li>
-            <li>"Why did this dbt test fail?"</li>
-          </ul>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
-<span class="tok-kw">you:</span> What depends on fct_revenue?<br>
-<span class="tok-kw">agent:</span> 3 downstream · exec_dashboard<br>
-<span class="diff-add">grounded in synced manifest</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="capability reverse reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Enterprise Brain</span>
-          <h3>Business questions with full context</h3>
-          <p>Combine infrastructure lineage with canonical metrics. Ask why KPIs moved and get answers that trace to source data and pipeline changes.</p>
-          <ul class="cap-list">
-            <li>"Why did churn increase last week?"</li>
-            <li>"Which models feed our board-level revenue metric?"</li>
-            <li>"Reconcile MRR between finance and product dashboards"</li>
-          </ul>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
-<span class="tok-kw">agent:</span> Enterprise Brain<br>
-<span class="tok-kw">context:</span> lineage + metrics + DAGs<br>
-<span class="diff-add">+ cited sources in every answer</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Specialized agents</span>
-          <h3>Purpose-built for data work</h3>
-          <p>Generate documentation, suggest tests, debug pipelines, propose optimizations — with deep understanding of your environment and governance rules.</p>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
-<span class="tok-kw">agents:</span> docs · tests · lineage · ops<br>
-<span class="diff-add">+ PR-ready outputs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how-to" class="content-section alt">
-    <div class="wrap">
-      <div class="section-head center reveal">
-        <div class="eyebrow" style="justify-content:center">In-depth &amp; how-to</div>
-        <h2>Learn how it works</h2>
-        <p>Guides for data engineers and business stakeholders — from first connection to trusted metrics.</p>
-      </div>
-      <div class="phase-grid reveal">
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Infrastructure</div>
-          <h3>How Metroflow understands your stack</h3>
-          <p>Connect sources → crawl metadata → build semantic graph → query lineage and impact. No data movement.</p>
-          <a href="quickstart.html" class="link-arrow" style="margin-top:12px;">Quickstart guide →</a>
-        </div>
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Metrics</div>
-          <h3>How canonical metrics work</h3>
-          <p>Define KPIs on the semantic layer → certify → reconcile → expose to BI and Enterprise Brain.</p>
-          <a href="docs.html" class="link-arrow" style="margin-top:12px;">Metrics docs →</a>
-        </div>
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Use cases</div>
-          <h3>Playbooks for every audience</h3>
-          <p>Analytics engineering, platform ops, ML, and executive decision support — with real workflows.</p>
-          <a href="use-cases.html" class="link-arrow" style="margin-top:12px;">All use cases →</a>
-        </div>
+      <div class="feature-hub-grid reveal">
+        <a href="workspace.html" class="feature-hub-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
+          <span class="fc-num">Workspace</span>
+          <h3>The technical foundation for data teams</h3>
+          <p>Context-aware editors, living catalog, infrastructure understanding, and self-host ready.</p>
+          <span class="link-arrow">Explore workspace →</span>
+        </a>
+        <a href="metrics-trust.html" class="feature-hub-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="fc-num">Metrics &amp; Trust Layer</span>
+          <h3>Canonical KPIs for operators and leaders</h3>
+          <p>Define once, standardize everywhere, reconcile with full lineage and audit trails.</p>
+          <span class="link-arrow">Explore metrics →</span>
+        </a>
+        <a href="ai-agents.html" class="feature-hub-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="fc-num">AI &amp; Agents</span>
+          <h3>Reasoning over infrastructure and business context</h3>
+          <p>Infrastructure-aware AI, Enterprise Brain, specialized agents, and plain-English queries.</p>
+          <span class="link-arrow">Explore AI →</span>
+        </a>
+        <a href="guides.html" class="feature-hub-card glow-card hover-pop">
+          <span class="fc-num">In-Depth &amp; How-To</span>
+          <h3>Guides for engineers and decision-makers</h3>
+          <p>How Metroflow understands your stack, how metrics work, quickstart, and playbooks.</p>
+          <span class="link-arrow">Read guides →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -220,8 +73,6 @@
 
 <script src="logo.js"></script>
 <script src="layout.js"></script>
-<script src="diagrams.js"></script>
-<script src="illus-anim.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

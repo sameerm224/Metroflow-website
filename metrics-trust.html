@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metrics &amp; Trust Layer — Metroflow</title>
+<meta name="description" content="Canonical KPIs for operators and leaders. Define once, trust everywhere — with reconciliation and full lineage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="metrics-trust" data-cta-title="Ready for metrics your whole org can trust?" data-cta-sub="Canonical definitions, reconciliation, and Enterprise Brain — from day one." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started — Open Source" data-cta-secondary-href="features.html" data-cta-secondary-label="All features">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Metrics &amp; Trust Layer</div>
+      <h1>Canonical KPIs for operators and leaders</h1>
+      <p>Define once. Trust everywhere. Metric definitions on the same semantic foundation as your infrastructure — so every dashboard, report, and executive briefing agrees.</p>
+      <p style="margin-top:16px;"><a href="features.html" class="link-arrow">← All features</a></p>
+    </div>
+  </section>
+
+  <section id="definitions" class="content-section">
+    <div class="wrap">
+      <div class="feature-grid reveal">
+        <div class="feature-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
+          <span class="fc-num">Canonical definitions</span>
+          <h3>One source of truth per KPI</h3>
+          <p>Revenue, churn, activation — defined once with full lineage to upstream models and source tables.</p>
+        </div>
+        <div id="standardization" class="feature-card glow-card hover-pop">
+          <span class="fc-num">Standardization</span>
+          <h3>Same number in every tool</h3>
+          <p>Push trusted definitions to BI, notebooks, and agents. End the "which dashboard is right?" debate.</p>
+        </div>
+        <div id="trust" class="feature-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="fc-num">Define once. Trust everywhere.</span>
+          <h3>End metric drift across teams</h3>
+          <p>Finance, product, and BI pull from certified definitions — not siloed SQL and spreadsheet logic.</p>
+        </div>
+        <div id="reconciliation" class="feature-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="fc-num">Reconciliation</span>
+          <h3>Audit trail for business metrics</h3>
+          <p>See how a KPI was calculated, what changed, and which models feed it — with governance built in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section alt">
+    <div class="wrap">
+      <div class="capability reverse reveal">
+        <div class="cap-text">
+          <h3>Metrics grounded in infrastructure</h3>
+          <p>Because canonical metrics sit on Metroflow's semantic graph, every KPI links back to dbt models, warehouse tables, and lineage — not orphaned SQL in a wiki.</p>
+          <p style="margin-top:12px; color:var(--text-muted); font-size:14px;">For leaders: decision intelligence with metrics you can defend in the boardroom — not spreadsheet archaeology.</p>
+        </div>
+        <div class="cap-visual glow-card hover-pop">
+          <div class="code-block">
+<span class="tok-kw">metric:</span> monthly_recurring_revenue<br>
+<span class="tok-kw">source:</span> <span class="tok-str">fct_revenue</span> → stg_orders → raw_stripe<br>
+<span class="tok-kw">owners:</span> @finance, @data-eng<br>
+<span class="diff-add">status: certified · reconciled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

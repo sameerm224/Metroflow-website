@@ -1,12 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=features.html">
-<link rel="canonical" href="features.html">
-<title>Redirecting to Features — Metroflow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workspace — Metroflow</title>
+<meta name="description" content="Context-aware editors, living semantic catalog, and infrastructure understanding — the technical foundation for data teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-<p>Redirecting to <a href="features.html">Features</a>…</p>
+<body data-page="workspace" data-cta-title="Ready to work in a stack-aware workspace?" data-cta-sub="Self-host in minutes. Metadata-only crawls. Apache 2.0." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started — Open Source" data-cta-secondary-href="features.html" data-cta-secondary-label="All features">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Workspace</div>
+      <h1>The technical foundation for data teams</h1>
+      <p>Context-aware editors, a living semantic catalog, and unified infrastructure understanding — built for developers who need their stack to finally make sense.</p>
+      <p style="margin-top:16px;"><a href="features.html" class="link-arrow">← All features</a></p>
+    </div>
+  </section>
+
+  <section id="editors" class="content-section">
+    <div class="wrap">
+      <div class="capability reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Context-aware editors</span>
+          <h3>Write with live context from your stack</h3>
+          <p>SQL, dbt models, Python, and orchestration files with autocomplete that knows your schemas, refs, and lineage — not generic suggestions.</p>
+        </div>
+        <div class="cap-visual">
+          <div class="code-block" style="width:100%; max-width:340px;">
+<span class="tok-kw">-- models/fct_revenue.sql</span><br>
+<span class="tok-kw">select</span> customer_id, revenue<br>
+<span class="tok-kw">from</span> <span class="tok-str">{{ ref('stg_orders') }}</span><br>
+<span class="tok-comment">-- ↑ validated against catalog</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog" class="content-section alt">
+    <div class="wrap">
+      <div class="capability reverse reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Living semantic catalog</span>
+          <h3>Lineage that stays fresh automatically</h3>
+          <p>Schemas, ownership, governance, and dependencies — discovered from Snowflake, dbt manifests, and orchestration metadata. Searchable and explainable.</p>
+        </div>
+        <div class="cap-visual illus-anim" data-diagram-inline="lineage-dag"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="infrastructure" class="content-section">
+    <div class="wrap">
+      <div class="capability reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Infrastructure understanding</span>
+          <h3>DAGs, models, and dependencies unified</h3>
+          <p>One graph connects orchestration, transformation, and warehouse layers. Trace impact across Airflow, dbt, and Snowflake without tab-hopping.</p>
+          <ul class="cap-list">
+            <li>Upstream and downstream impact in seconds</li>
+            <li>Connector health alongside semantic context</li>
+            <li>Ownership and freshness surfaced automatically</li>
+          </ul>
+        </div>
+        <div class="cap-visual illus-anim" data-diagram-inline="lineage-dag"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="self-host" class="content-section alt">
+    <div class="wrap">
+      <div class="capability reveal glow-card hover-pop">
+        <div class="cap-text">
+          <span class="cap-tag">Self-host &amp; local development</span>
+          <h3>Your infrastructure. Your rules.</h3>
+          <p>Apache 2.0. Docker Compose in minutes. Metadata-only crawls — credentials never leave your network.</p>
+          <ul class="cap-list">
+            <li>Run locally or in your VPC</li>
+            <li>Full audit logs and RBAC</li>
+            <li>Open source core, forever</li>
+          </ul>
+          <a href="open-source.html#get-started" class="link-arrow" style="margin-top:16px;">Self-host guide →</a>
+        </div>
+        <div class="cap-visual illus-anim" data-diagram-inline="self-host-vpc"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="diagrams.js"></script>
+<script src="illus-anim.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
