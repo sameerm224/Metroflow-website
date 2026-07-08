@@ -309,8 +309,12 @@ html[data-theme="light"] .icon-sun { display: block; }
   display: none; position: fixed; top: 0; right: 0; bottom: 0; z-index: 260;
   width: min(320px, 85vw); background: var(--bg);
   border-left: 1px solid var(--border);
-  padding: 80px 28px 28px; flex-direction: column; gap: 4px;
+  padding: 72px 24px 28px; flex-direction: column; gap: 4px;
   transform: translateX(100%); transition: transform 0.3s ease;
+  overflow-y: auto; overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  max-height: 100dvh;
 }
 .nav-mobile.is-open { display: flex; transform: translateX(0); }
 .nav-mobile a { padding: 12px 0; font-size: 15px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
@@ -1084,24 +1088,118 @@ footer { padding: 56px 0 28px; }
 
 @media (max-width: 900px) {
   .nav-links { display: none; }
-  .nav-toggle { display: flex; }
-  .nav-right .btn-discord, .nav-right .btn-github span { display: none; }
-}
-@media (max-width: 720px) {
-  .hero-ctas .btn { width: 100%; justify-content: center; }
-  .nav-right .btn-primary { display: none; }
-  .nav-right #themeToggle {
-    position: fixed; bottom: 20px; right: 20px; z-index: 210;
+  .nav-inner {
+    padding: 0 16px;
+    height: 60px;
+    gap: 16px;
+  }
+  .nav-toggle { display: flex; flex-shrink: 0; margin-left: auto; }
+  .nav-right { display: none; }
+  .brand { min-width: 0; flex-shrink: 1; }
+
+  .theme-toggle-nav { display: none !important; }
+  .theme-toggle-float {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 210;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     background: color-mix(in srgb, var(--bg) 92%, transparent);
     backdrop-filter: blur(14px);
   }
-  html[data-theme="light"] .nav-right #themeToggle {
+  html[data-theme="light"] .theme-toggle-float {
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
   }
-  #themeToggle.is-scroll-hidden {
+  #themeToggleFloat.is-scroll-hidden {
+    opacity: 0;
     transform: translateY(80px) scale(0.92);
+    pointer-events: none;
   }
+}
+@media (min-width: 901px) {
+  .theme-toggle-float { display: none !important; }
+}
+@media (max-width: 720px) {
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+
+  .hero { padding: 36px 0 28px; }
+  .wrap-wide { padding: 0 16px; }
+  .hero-copy { margin-bottom: 20px; }
+  .hero-copy h1 { font-size: clamp(1.7rem, 7.5vw, 2.35rem); }
+  .hero-sub { font-size: 15px; line-height: 1.6; }
+
+  .hero-workspace-wrap {
+    margin-bottom: 28px;
+    isolation: isolate;
+  }
+  .hero-workspace-wrap .ws-orb { display: none; }
+  .hero-workspace-wrap .ws-card,
+  .hero-workspace-wrap .dm-shell-card {
+    min-height: auto;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+  .dm-app {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .dm-sidebar { display: none; }
+  .dm-topbar {
+    padding: 8px 12px;
+    font-size: 10px;
+    gap: 8px;
+  }
+  .dm-top-left {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dm-top-brand { flex-shrink: 0; }
+  .dm-top-brand span { display: none; }
+  .ws-stepper {
+    padding: 8px 10px;
+    gap: 0;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ws-stepper::-webkit-scrollbar { display: none; }
+  .ws-step-label { display: none; }
+  .ws-step-line { width: 10px; margin: 0 3px; flex-shrink: 0; }
+  .ws-step { flex-shrink: 0; }
+  .dm-content {
+    padding: 12px 14px 14px;
+    overflow-y: auto;
+    max-height: min(56vh, 460px);
+    -webkit-overflow-scrolling: touch;
+  }
+  .dm-welcome h2 { font-size: 1.1rem; }
+  .dm-sub { font-size: 12px; margin-bottom: 12px; padding: 0 4px; }
+  .dm-conn-pick { gap: 8px; margin-bottom: 8px; }
+  .dm-conn-opt { padding: 12px; }
+  .dm-send-btn {
+    width: 100%;
+    max-width: none;
+    margin-top: 4px;
+  }
+  .glow-border-dm { margin: 0 auto 10px; }
+  .dm-prompt-inner { padding: 14px 14px 44px; min-height: 100px; }
+  .dm-cards-row { gap: 8px; }
+  .hero-demo-caption {
+    font-size: 10px;
+    line-height: 1.55;
+    padding: 0 4px;
+    margin-top: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .ws-stats { padding: 10px 12px; }
+  .ws-stage { min-height: auto; padding: 14px; }
 }
 
 /* Dataman-style workspace UI */

@@ -5,10 +5,10 @@
 
   const GITHUB_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.4 7.86 10.94.58.1.79-.25.79-.56v-1.96c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.68-1.29-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.71 5.4-5.29 5.68.42.36.78 1.07.78 2.17v3.22c0 .31.21.67.8.56C20.71 21.39 24 17.1 24 12c0-6.35-5.15-11.5-12-11.5z"/></svg>`;
 
-  const THEME_ICON = `<button class="theme-toggle hover-pop" id="themeToggle" aria-label="Toggle theme">
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-  </button>`;
+  const THEME_SVG = `<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>`;
+  const THEME_ICON = `<button class="theme-toggle theme-toggle-nav hover-pop" id="themeToggle" aria-label="Toggle theme">${THEME_SVG}</button>`;
+  const THEME_FLOAT = `<button class="theme-toggle theme-toggle-float hover-pop" id="themeToggleFloat" aria-label="Toggle theme" data-theme-toggle>${THEME_SVG}</button>`;
 
   const navLinks = [
     { href: 'index.html', label: 'Home', id: 'home' },
@@ -183,6 +183,7 @@
     </div>
   </div>
 </header>
+${THEME_FLOAT}
 <div class="nav-mobile-overlay" id="navOverlay"></div>
 <nav class="nav-mobile" id="navMobile" aria-hidden="true">
   <a href="index.html"${active === 'home' ? ' class="active"' : ''}>Home</a>
