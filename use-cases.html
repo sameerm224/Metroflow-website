@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Cases — Metroflow</title>
+<meta name="description" content="Concrete Metroflow playbooks by role and industry — analytics engineers, platform teams, finance, healthcare, fintech, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="use-cases" data-cta-title="See your playbook in the live demo" data-cta-sub="Walk through sign-in ? connect ? workspace with synthetic data and working queries." data-cta-primary-href="index.html#workspace" data-cta-primary-label="Try the demo" data-cta-secondary-href="open-source.html#get-started" data-cta-secondary-label="Get Started">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Use Cases</div>
+      <h1>Built for your role.<br/>Proven in your industry.</h1>
+      <p>Not generic "data workflows" — specific playbooks with real queries, outcomes, and time saved. Pick your role or sector below.</p>
+    </div>
+  </section>
+
+  <section id="by-role" class="content-section">
+    <div class="wrap">
+      <div class="uc-section-title reveal">
+        <h2>By role</h2>
+        <p>What you do Monday morning — and how Metroflow changes it.</p>
+      </div>
+      <div class="uc-role-grid reveal">
+
+        <article id="analytics-engineer" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Analytics Engineer</span>
+          <h3>Ship dbt PRs without breaking production</h3>
+          <p class="uc-persona">You own the staging → analytics layer. Every column rename is a guessing game.</p>
+          <p class="uc-pain"><strong>Before:</strong> Slack asks, manual lineage spreadsheets, surprise failures on merge.</p>
+          <ul class="uc-steps">
+            <li>Open fct_revenue in the stack-aware editor</li>
+            <li>Run impact query before opening PR</li>
+            <li>Agent generates schema.yml tests from manifest</li>
+            <li>PR ships with lineage diff attached</li>
+          </ul>
+          <div class="uc-query">"What breaks if I rename customer_id in stg_orders?"</div>
+          <p class="uc-outcome">Outcome: <span>4× faster</span> impact analysis · fewer rollback PRs</p>
+        </article>
+
+        <article id="platform-engineer" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Data Platform Engineer</span>
+          <h3>Debug DAG failures with full stack context</h3>
+          <p class="uc-persona">You're on-call for Airflow, Snowflake, and the 2am pages.</p>
+          <p class="uc-pain"><strong>Before:</strong> Five browser tabs, grep logs, ping the AE who wrote the model two years ago.</p>
+          <ul class="uc-steps">
+            <li>See daily_revenue DAG linked to dbt models</li>
+            <li>Agent reads retry logs + rate-limit context</li>
+            <li>Trace downstream dashboards that will stale</li>
+            <li>Apply fix with pool-slot recommendation</li>
+          </ul>
+          <div class="uc-query">"Why is extract_charges retrying — and what dashboards are affected?"</div>
+          <p class="uc-outcome">Outcome: <span>60% fewer</span> escalations · MTTR under 2 hours</p>
+        </article>
+
+        <article id="head-of-data" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Head of Data / VP</span>
+          <h3>One map of the stack — and ROI you can show</h3>
+          <p class="uc-persona">You answer to the CEO about data team velocity and platform spend.</p>
+          <p class="uc-pain"><strong>Before:</strong> No single view of lineage, onboarding takes weeks, metrics disputed in exec meetings.</p>
+          <ul class="uc-steps">
+            <li>Living catalog shows coverage &amp; connector health</li>
+            <li>New hires productive in days with guided workspace</li>
+            <li>Canonical metrics end dashboard debates</li>
+            <li>Enterprise Brain answers board prep questions</li>
+          </ul>
+          <div class="uc-query">"Show me everything that feeds our board revenue number."</div>
+          <p class="uc-outcome">Outcome: <span>3-day</span> onboarding vs 3 weeks · trusted exec KPIs</p>
+        </article>
+
+        <article id="ml-engineer" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">ML Engineer</span>
+          <h3>Feature stores with provenance you can defend</h3>
+          <p class="uc-persona">You train models on warehouse features — until schema drift silently degrades AUC.</p>
+          <p class="uc-pain"><strong>Before:</strong> Undocumented feature sources, manual notebooks tracing columns.</p>
+          <ul class="uc-steps">
+            <li>Trace churn_features → dim_customers → raw_hubspot</li>
+            <li>Get alerted when upstream schema changes</li>
+            <li>Agent explains which training jobs consume the asset</li>
+            <li>Document feature DAG for compliance review</li>
+          </ul>
+          <div class="uc-query">"Which production models consume columns from orders_v2?"</div>
+          <p class="uc-outcome">Outcome: <span>2h</span> debug vs 2 days · 100% feature lineage</p>
+        </article>
+
+        <article id="bi-lead" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">BI &amp; Analytics Lead</span>
+          <h3>Dashboards that match the certified number</h3>
+          <p class="uc-persona">You own Looker/Tableau — and the weekly "why doesn't this match finance?" ticket.</p>
+          <p class="uc-pain"><strong>Before:</strong> Three definitions of MRR, no lineage from explore to warehouse.</p>
+          <ul class="uc-steps">
+            <li>Publish canonical MRR from metrics layer</li>
+            <li>BI tools pull certified definition</li>
+            <li>Lineage shows explore → dbt model → source</li>
+            <li>Reconcile when finance flags a delta</li>
+          </ul>
+          <div class="uc-query">"Why does Looker MRR differ from the finance sheet by 2%?"</div>
+          <p class="uc-outcome">Outcome: <span>One</span> trusted revenue number · fewer fire drills</p>
+        </article>
+
+        <article id="finance-ops" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Finance &amp; RevOps</span>
+          <h3>Board-ready metrics without a data ticket</h3>
+          <p class="uc-persona">You need ARR, churn, and cohort numbers you can cite in audits.</p>
+          <p class="uc-pain"><strong>Before:</strong> Wait days for analyst SQL, numbers change between decks.</p>
+          <ul class="uc-steps">
+            <li>Query certified metrics via Enterprise Brain</li>
+            <li>See lineage proof for every KPI</li>
+            <li>Reconciliation report when definitions change</li>
+            <li>Export audit trail for quarterly close</li>
+          </ul>
+          <div class="uc-query">"Walk me through how net revenue retention is calculated."</div>
+          <p class="uc-outcome">Outcome: <span>Same-day</span> answers · audit-ready provenance</p>
+        </article>
+
+        <article id="product-manager" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Product Manager</span>
+          <h3>Self-serve product metrics — no SQL queue</h3>
+          <p class="uc-persona">You ship features and need activation, retention, and funnel data weekly.</p>
+          <p class="uc-pain"><strong>Before:</strong> Jira tickets to data team, stale numbers by the time you decide.</p>
+          <ul class="uc-steps">
+            <li>Ask Enterprise Brain in plain English</li>
+            <li>Get answers tied to product_event models</li>
+            <li>Trust certified activation &amp; retention KPIs</li>
+            <li>Drill into lineage if something looks off</li>
+          </ul>
+          <div class="uc-query">"Did activation rate change after the onboarding redesign last Tuesday?"</div>
+          <p class="uc-outcome">Outcome: <span>Hours</span> not weeks · fewer analyst interrupts</p>
+        </article>
+
+        <article id="governance-lead" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Data Governance Lead</span>
+          <h3>Policy and lineage without quarterly scrambles</h3>
+          <p class="uc-persona">You map PII, ownership, and retention — always one audit behind.</p>
+          <p class="uc-pain"><strong>Before:</strong> Static diagrams, manual tagging, no link to live pipelines.</p>
+          <ul class="uc-steps">
+            <li>Auto-discovered ownership &amp; classification</li>
+            <li>Lineage exports for SOC2 / GDPR reviews</li>
+            <li>Impact analysis before policy changes</li>
+            <li>Audit log of who queried sensitive assets</li>
+          </ul>
+          <div class="uc-query">"List all downstream consumers of tables with email columns."</div>
+          <p class="uc-outcome">Outcome: <span>Always-current</span> graph · faster audit cycles</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="by-industry" class="content-section alt">
+    <div class="wrap">
+      <div class="uc-section-title reveal">
+        <h2>By industry</h2>
+        <p>Sector-specific constraints — compliance, velocity, and the metrics that matter.</p>
+      </div>
+      <div class="uc-role-grid reveal">
+
+        <article id="fintech" class="uc-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
+          <span class="uc-card-tag">Fintech &amp; Banking</span>
+          <h3>Regulatory lineage + fraud metrics you can defend</h3>
+          <p class="uc-pain">Regulators ask for provenance. Fraud teams need real-time feature lineage. Every KPI must reconcile.</p>
+          <ul class="uc-steps">
+            <li>Self-host in VPC · metadata-only crawls</li>
+            <li>Lineage from transaction models to regulatory reports</li>
+            <li>Certified fraud-rate &amp; exposure metrics</li>
+            <li>Enterprise Brain for examiner questions</li>
+          </ul>
+          <div class="uc-query">"Show lineage from raw_swift_messages to regulatory_report_AML."</div>
+          <p class="uc-outcome">Outcome: audit-ready graph · <span>single</span> certified exposure KPI</p>
+        </article>
+
+        <article id="ecommerce" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">E-commerce &amp; Retail</span>
+          <h3>Revenue attribution across Shopify, ads, and warehouse</h3>
+          <p class="uc-pain">Black Friday DAGs fail silently. Marketing and finance report different GMV.</p>
+          <ul class="uc-steps">
+            <li>Connect Fivetran + dbt + Airflow in one graph</li>
+            <li>Debug inventory sync DAGs with linked models</li>
+            <li>Canonical GMV &amp; contribution margin metrics</li>
+            <li>Impact analysis before promo-season schema changes</li>
+          </ul>
+          <div class="uc-query">"What depends on fct_orders — and will the 2am sync break it?"</div>
+          <p class="uc-outcome">Outcome: <span>one</span> GMV number · faster peak-season ops</p>
+        </article>
+
+        <article id="healthcare" class="uc-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="uc-card-tag">Healthcare &amp; Life Sciences</span>
+          <h3>HIPAA-friendly workspace with clinical provenance</h3>
+          <p class="uc-pain">PHI boundaries, clinical trial pipelines, and months-long audit prep.</p>
+          <ul class="uc-steps">
+            <li>Deploy on-prem or private cloud</li>
+            <li>Tag &amp; trace PHI-adjacent tables automatically</li>
+            <li>Lineage for trial cohort → outcomes models</li>
+            <li>Governance agents for access policy checks</li>
+          </ul>
+          <div class="uc-query">"Which models consume patient_id from clinical_staging?"</div>
+          <p class="uc-outcome">Outcome: VPC control · <span>full</span> clinical data provenance</p>
+        </article>
+
+        <article id="b2b-saas" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">B2B SaaS</span>
+          <h3>Product-led growth metrics the whole exec team trusts</h3>
+          <p class="uc-pain">Churn, NRR, and activation defined differently in product, finance, and sales ops.</p>
+          <ul class="uc-steps">
+            <li>Sync Segment + Snowflake + dbt manifest</li>
+            <li>Certify NRR, logo churn, and activation</li>
+            <li>Enterprise Brain for weekly business reviews</li>
+            <li>Lineage from product events to board slides</li>
+          </ul>
+          <div class="uc-query">"Why did NRR drop — pipeline issue or definition change?"</div>
+          <p class="uc-outcome">Outcome: <span>aligned</span> exec metrics · faster board prep</p>
+        </article>
+
+        <article id="media" class="uc-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="uc-card-tag">Media &amp; Gaming</span>
+          <h3>Event pipelines and content metrics at scale</h3>
+          <p class="uc-pain">Kafka streams, session data, and content KPIs — owned by different teams, never aligned.</p>
+          <ul class="uc-steps">
+            <li>Kafka + Flink metadata in semantic graph</li>
+            <li>Trace engagement metrics to raw event topics</li>
+            <li>Debug stream job failures with warehouse impact</li>
+            <li>Certified DAU / watch-time definitions</li>
+          </ul>
+          <div class="uc-query">"What dashboards break if the sessionize_stream job fails?"</div>
+          <p class="uc-outcome">Outcome: <span>unified</span> stream + batch lineage</p>
+        </article>
+
+        <article id="manufacturing" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Manufacturing &amp; Logistics</span>
+          <h3>IoT ingestion and supply chain KPIs</h3>
+          <p class="uc-pain">Sensor data, ERP exports, and OT/IT silos — OTIF calculated five different ways.</p>
+          <ul class="uc-steps">
+            <li>Ingest IoT + ERP metadata into catalog</li>
+            <li>Lineage from sensor raw → OTIF dashboards</li>
+            <li>Canonical supply chain &amp; defect-rate metrics</li>
+            <li>Impact alerts before plant schema migrations</li>
+          </ul>
+          <div class="uc-query">"Trace OTIF calculation to source plant sensor tables."</div>
+          <p class="uc-outcome">Outcome: <span>one</span> OTIF definition · fewer plant outages</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

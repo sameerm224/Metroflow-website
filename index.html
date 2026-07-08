@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metroflow — Agentic Control Plane for Your Data Stack</title>
+<meta name="description" content="The open-source agentic control plane for modern data teams. AI agents grounded in lineage, DAGs, and canonical metrics — above Snowflake, dbt, and Airflow. No prompts. No guesswork.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+
+<div id="site-header"></div>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="wrap-wide">
+      <div class="hero-stacked">
+        <div class="hero-copy reveal">
+          <div class="mf-logo-hero" data-mf-logo="brand" data-mf-logo-size="64" data-mf-logo-text="false"></div>
+          <div class="eyebrow" style="justify-content:center">Open source · Agentic AI · Data control plane</div>
+          <h1>The <span class="grad-text">agentic control plane</span> for your data stack.</h1>
+          <p class="hero-sub">AI agents that reason over live lineage, DAGs, and canonical metrics — not prompts and guesses. One layer above Snowflake, dbt, and Airflow to operate pipelines, certify KPIs, and deploy agentic AI with governed context.</p>
+          <div class="hero-ctas">
+            <a href="open-source.html#get-started" class="btn btn-primary btn-lg hover-pop">Get Started — Open Source</a>
+            <a href="#workspace" class="btn btn-ghost btn-lg hover-pop">Try the live demo ↓</a>
+          </div>
+          <div class="hero-trust">
+            <span class="ht"><span class="ht-check">✓</span> Apache 2.0</span>
+            <span class="ht"><span class="ht-check">✓</span> Self-host ready</span>
+            <span class="ht"><span class="ht-check">✓</span> 40+ integrations</span>
+            <span class="ht"><span class="ht-check">✓</span> Agentic AI included</span>
+            <span class="ht"><span class="ht-check">✓</span> Setup in &lt;5 min</span>
+          </div>
+        </div>
+        <div class="hero-workspace-wrap reveal" id="workspace">
+          <div id="mfWorkspace"></div>
+          <p class="hero-demo-caption"><span class="pulse-dot"></span> Live demo · Walk through sign-in → connect → sync → dashboard · Setup in under 5 minutes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line" aria-hidden="true"></div>
+
+  <section class="logos-section">
+    <div class="wrap">
+      <div class="logos-label">RUNS ALONGSIDE THE TOOLS YOU ALREADY USE</div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" id="logoMarquee">
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="snowflake"></span>Snowflake</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="dbt"></span>dbt</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="airflow"></span>Airflow</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="dagster"></span>Dagster</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="bigquery"></span>BigQuery</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="postgres"></span>Postgres</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="fivetran"></span>Fivetran</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="kafka"></span>Kafka</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="databricks"></span>Databricks</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="supabase"></span>Supabase</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="snowflake"></span>Snowflake</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="dbt"></span>dbt</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="airflow"></span>Airflow</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="dagster"></span>Dagster</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="bigquery"></span>BigQuery</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="postgres"></span>Postgres</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="fivetran"></span>Fivetran</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="kafka"></span>Kafka</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="databricks"></span>Databricks</span>
+          <span class="logo-pill hover-pop glow-card"><span class="brand-logo" data-brand="supabase"></span>Supabase</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="mf-logo-strip reveal"><span data-mf-logo="mark" data-mf-logo-size="36" data-mf-logo-text="false"></span><span class="mf-logo-text" style="font-size:15px;color:var(--text-muted)">METROFLOW</span></div>
+      <div class="stats-strip reveal">
+        <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-lbl">Native integrations</div></div>
+        <div class="stat-cell"><div class="stat-num">1</div><div class="stat-lbl">Canonical metric layer</div></div>
+        <div class="stat-cell"><div class="stat-num">&lt;5m</div><div class="stat-lbl">Time to first insight</div></div>
+        <div class="stat-cell"><div class="stat-num">0</div><div class="stat-lbl">Data movement required</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="wrap">
+      <div class="split-section">
+        <div class="section-head reveal">
+          <div class="eyebrow">The problem</div>
+          <h2>Your stack is powerful.<br/>Your metrics still don't agree.</h2>
+          <p>Engineers lack lineage context. Leaders get conflicting KPIs. Generic AI guesses at both — it doesn't understand your pipelines or your business definitions.</p>
+          <p class="quote-block" style="margin-top:20px; border-left-color:var(--accent);">Define once. Trust everywhere — for infrastructure and business metrics alike.</p>
+        </div>
+        <div class="diagram-panel illus-anim reveal hover-pop glow-border" data-diagram="generic-vs-metroflow"></div>
+      </div>
+      <div class="pain-grid reveal" style="margin-top:32px;">
+        <div class="pain-card glow-card hover-pop"><p>Context trapped in people's heads</p></div>
+        <div class="pain-card glow-card hover-pop"><p>Impact analysis still takes hours</p></div>
+        <div class="pain-card glow-card hover-pop"><p>AI SQL misses critical relationships</p></div>
+        <div class="pain-card glow-card hover-pop"><p>Three dashboards, three different revenue numbers</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="content-section alt">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center">How it works</div>
+        <h2>Connect once. Understand everything — technical and business.</h2>
+        <p>One intelligence layer: deep infrastructure graph plus canonical metrics your whole org can trust.</p>
+      </div>
+      <div class="bento-grid reveal">
+        <div class="bento-card glow-card hover-pop accent-green wide">
+          <span class="bento-icon">◈</span>
+          <h3>Living catalog that stays fresh</h3>
+          <p>Schemas, lineage, ownership, and governance — discovered automatically from Snowflake, dbt manifests, and orchestration metadata. Never manually tagged again.</p>
+        </div>
+        <div class="bento-card glow-card hover-pop">
+          <span class="bento-icon">◎</span>
+          <h3>Infrastructure AI</h3>
+          <p>Ask in plain English. Get answers grounded in your actual DAGs and models.</p>
+        </div>
+        <div class="bento-card glow-card hover-pop accent-violet">
+          <span class="bento-icon">{ }</span>
+          <h3>Stack-aware editors</h3>
+          <p>SQL and dbt autocomplete that knows your refs, schemas, and lineage.</p>
+        </div>
+        <div class="bento-card glow-card hover-pop">
+          <span class="bento-icon">⬡</span>
+          <h3>Interactive lineage</h3>
+          <p>Click any node. Trace upstream and downstream impact in seconds.</p>
+        </div>
+        <div class="bento-card glow-card hover-pop accent-amber">
+          <span class="bento-icon">◆</span>
+          <h3>Canonical metrics</h3>
+          <p>Define KPIs once. Standardize across tools. Reconcile with full lineage back to source.</p>
+        </div>
+        <div class="bento-card glow-card hover-pop accent-violet wide">
+          <span class="bento-icon">◎</span>
+          <h3>Enterprise Brain</h3>
+          <p>Infrastructure-aware AI plus business reasoning — ask about lineage, impact, or why churn moved last week. Grounded answers with citations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="use-cases-preview">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center">Use cases</div>
+        <h2>Built for your role. Proven in your industry.</h2>
+        <p style="color:var(--text-muted); max-width:520px; margin:12px auto 0; font-size:15px;">Concrete playbooks — not generic "data workflows." Pick a persona below.</p>
+      </div>
+      <div class="reveal uc-preview-wrap">
+        <label class="uc-preview-label" for="ucPreviewSelect">I am a…</label>
+        <div class="uc-preview-select-wrap">
+          <select id="ucPreviewSelect" class="uc-preview-select" aria-label="Choose a use case by role or industry">
+            <optgroup label="By role">
+              <option value="analytics-engineer" selected>Analytics Engineer</option>
+              <option value="platform-engineer">Data Platform Engineer</option>
+              <option value="head-of-data">Head of Data / VP</option>
+              <option value="finance-ops">Finance &amp; RevOps</option>
+              <option value="bi-lead">BI &amp; Analytics Lead</option>
+              <option value="ml-engineer">ML Engineer</option>
+              <option value="product-manager">Product Manager</option>
+              <option value="governance-lead">Data Governance Lead</option>
+            </optgroup>
+            <optgroup label="By industry">
+              <option value="fintech">Fintech &amp; Banking</option>
+              <option value="b2b-saas">B2B SaaS</option>
+              <option value="ecommerce">E-commerce &amp; Retail</option>
+              <option value="healthcare">Healthcare &amp; Life Sciences</option>
+              <option value="media">Media &amp; Gaming</option>
+              <option value="manufacturing">Manufacturing &amp; Logistics</option>
+            </optgroup>
+          </select>
+          <svg class="uc-preview-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+
+        <div data-uc-panel="analytics-engineer" class="uc-panel active">
+          <div>
+            <span class="uc-preview-tag">Analytics Engineer</span>
+            <h3>Ship dbt PRs without breaking production</h3>
+            <p>Run impact analysis before every merge. Agents generate schema.yml tests from your manifest. PRs ship with lineage diffs attached.</p>
+            <div class="uc-preview-query">"What breaks if I rename customer_id in stg_orders?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>4×</strong><span>faster impact analysis</span></div>
+              <div class="uc-metric"><strong>Fewer</strong><span>rollback PRs</span></div>
+            </div>
+            <a href="use-cases.html#analytics-engineer" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Slack threads for lineage</li><li>Manual impact spreadsheets</li><li>Surprise failures on merge</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Stack-aware editor + impact query</li><li>Agent-generated tests</li><li>Lineage diff on every PR</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="platform-engineer" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Data Platform Engineer</span>
+            <h3>Debug DAG failures with full stack context</h3>
+            <p>See daily_revenue linked to dbt models. Agents read retry logs. Trace downstream dashboards that will go stale — fix with pool-slot recommendations.</p>
+            <div class="uc-preview-query">"Why is extract_charges retrying — and what dashboards are affected?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>60%</strong><span>fewer escalations</span></div>
+              <div class="uc-metric"><strong>&lt;2h</strong><span>mean time to resolve</span></div>
+            </div>
+            <a href="use-cases.html#platform-engineer" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Five browser tabs at 2am</li><li>Grep logs, ping the AE</li><li>No downstream impact view</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>One graph: AF → dbt → dashboards</li><li>Agent reads logs in context</li><li>MTTR under 2 hours</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="head-of-data" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Head of Data / VP</span>
+            <h3>One map of the stack — and ROI you can show</h3>
+            <p>Living catalog with connector health. New hires productive in days. Canonical metrics end exec dashboard debates. Enterprise Brain answers board prep.</p>
+            <div class="uc-preview-query">"Show me everything that feeds our board revenue number."</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>3 days</strong><span>onboarding vs 3 weeks</span></div>
+              <div class="uc-metric"><strong>Trusted</strong><span>exec KPIs</span></div>
+            </div>
+            <a href="use-cases.html#head-of-data" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>No single lineage view</li><li>Weeks to onboard hires</li><li>Metrics disputed in exec meetings</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Stack coverage at a glance</li><li>Guided workspace onboarding</li><li>One certified revenue number</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="finance-ops" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Finance &amp; RevOps</span>
+            <h3>Board-ready metrics without a data ticket</h3>
+            <p>Query certified ARR, churn, and cohort KPIs via Enterprise Brain. See lineage proof. Reconciliation reports when definitions change.</p>
+            <div class="uc-preview-query">"Walk me through how net revenue retention is calculated."</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>Same-day</strong><span>answers</span></div>
+              <div class="uc-metric"><strong>Audit-ready</strong><span>provenance</span></div>
+            </div>
+            <a href="use-cases.html#finance-ops" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Days waiting on analyst SQL</li><li>Numbers change between decks</li><li>No lineage for auditors</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Certified metrics on demand</li><li>Cited lineage for every KPI</li><li>Exportable audit trail</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="bi-lead" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">BI &amp; Analytics Lead</span>
+            <h3>Dashboards that match the certified number</h3>
+            <p>Publish canonical MRR from the metrics layer. BI tools pull certified definitions. Reconcile when finance flags a 2% delta.</p>
+            <div class="uc-preview-query">"Why does Looker MRR differ from the finance sheet by 2%?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>One</strong><span>trusted revenue number</span></div>
+              <div class="uc-metric"><strong>Fewer</strong><span>weekly fire drills</span></div>
+            </div>
+            <a href="use-cases.html#bi-lead" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Three definitions of MRR</li><li>No explore → warehouse lineage</li><li>Weekly reconciliation tickets</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Certified metric in every tool</li><li>Full BI → dbt → source chain</li><li>One-click reconciliation</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="ml-engineer" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">ML Engineer</span>
+            <h3>Feature stores with provenance you can defend</h3>
+            <p>Trace features to source tables. Get alerted on schema drift. Know which training jobs consume each asset.</p>
+            <div class="uc-preview-query">"Which production models consume columns from orders_v2?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>2h</strong><span>debug vs 2 days</span></div>
+              <div class="uc-metric"><strong>100%</strong><span>feature lineage</span></div>
+            </div>
+            <a href="use-cases.html#ml-engineer" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Undocumented feature sources</li><li>Silent schema changes</li><li>Manual lineage notebooks</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Auto-discovered feature DAG</li><li>Drift alerts from catalog</li><li>Agent-assisted debugging</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="product-manager" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Product Manager</span>
+            <h3>Self-serve product metrics — no SQL queue</h3>
+            <p>Ask Enterprise Brain in plain English. Get answers tied to product_event models. Trust certified activation and retention KPIs.</p>
+            <div class="uc-preview-query">"Did activation rate change after the onboarding redesign last Tuesday?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>Hours</strong><span>not weeks</span></div>
+              <div class="uc-metric"><strong>Fewer</strong><span>analyst interrupts</span></div>
+            </div>
+            <a href="use-cases.html#product-manager" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Jira tickets to data team</li><li>Stale numbers by ship date</li><li>No trust in funnel metrics</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Plain-English metric queries</li><li>Certified activation KPIs</li><li>Drill into lineage if off</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="governance-lead" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Data Governance Lead</span>
+            <h3>Policy and lineage without quarterly scrambles</h3>
+            <p>Auto-discovered ownership and classification. Lineage exports for SOC2/GDPR. Impact analysis before policy changes.</p>
+            <div class="uc-preview-query">"List all downstream consumers of tables with email columns."</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>Always-current</strong><span>graph</span></div>
+              <div class="uc-metric"><strong>Faster</strong><span>audit cycles</span></div>
+            </div>
+            <a href="use-cases.html#governance-lead" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Static diagrams</li><li>Manual PII tagging</li><li>Quarterly audit scrambles</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Live ownership graph</li><li>Exportable compliance lineage</li><li>Audit log of sensitive queries</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="fintech" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Fintech &amp; Banking</span>
+            <h3>Regulatory lineage + fraud metrics you can defend</h3>
+            <p>Self-host in VPC. Lineage from transaction models to regulatory reports. Certified fraud-rate and exposure KPIs.</p>
+            <div class="uc-preview-query">"Show lineage from raw_swift_messages to regulatory_report_AML."</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>Audit-ready</strong><span>graph</span></div>
+              <div class="uc-metric"><strong>Single</strong><span>exposure KPI</span></div>
+            </div>
+            <a href="use-cases.html#fintech" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Manual examiner diagrams</li><li>Fraud metrics in silos</li><li>KPIs that don't reconcile</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>VPC self-host · metadata-only</li><li>Regulatory lineage exports</li><li>Certified fraud &amp; exposure metrics</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="b2b-saas" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">B2B SaaS</span>
+            <h3>PLG metrics the whole exec team trusts</h3>
+            <p>Sync Segment + Snowflake + dbt. Certify NRR, logo churn, and activation. Enterprise Brain for weekly business reviews.</p>
+            <div class="uc-preview-query">"Why did NRR drop — pipeline issue or definition change?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>Aligned</strong><span>exec metrics</span></div>
+              <div class="uc-metric"><strong>Faster</strong><span>board prep</span></div>
+            </div>
+            <a href="use-cases.html#b2b-saas" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Churn defined 3 ways</li><li>Product vs finance disputes</li><li>Manual board slide prep</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Certified NRR &amp; activation</li><li>Lineage to board slides</li><li>One number in every review</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="ecommerce" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">E-commerce &amp; Retail</span>
+            <h3>Revenue attribution across Shopify, ads, and warehouse</h3>
+            <p>Connect Fivetran + dbt + Airflow in one graph. Debug inventory sync DAGs. Canonical GMV and contribution margin.</p>
+            <div class="uc-preview-query">"What depends on fct_orders — and will the 2am sync break it?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>One</strong><span>GMV number</span></div>
+              <div class="uc-metric"><strong>Faster</strong><span>peak-season ops</span></div>
+            </div>
+            <a href="use-cases.html#ecommerce" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Black Friday DAG surprises</li><li>Marketing vs finance GMV</li><li>Tab-hop to debug syncs</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Unified connector graph</li><li>Certified GMV metric</li><li>Pre-promo impact analysis</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="healthcare" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Healthcare &amp; Life Sciences</span>
+            <h3>HIPAA-friendly workspace with clinical provenance</h3>
+            <p>Deploy on-prem or private cloud. Tag PHI-adjacent tables. Lineage for trial cohort → outcomes models.</p>
+            <div class="uc-preview-query">"Which models consume patient_id from clinical_staging?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>VPC</strong><span>control</span></div>
+              <div class="uc-metric"><strong>Full</strong><span>clinical provenance</span></div>
+            </div>
+            <a href="use-cases.html#healthcare" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>PHI boundaries unclear</li><li>Months-long audit prep</li><li>Manual trial lineage docs</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>On-prem deployment</li><li>Auto PHI tagging</li><li>Clinical pipeline graph</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="media" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Media &amp; Gaming</span>
+            <h3>Event pipelines and content metrics at scale</h3>
+            <p>Kafka + Flink metadata in the semantic graph. Trace engagement metrics to raw event topics. Certified DAU and watch-time.</p>
+            <div class="uc-preview-query">"What dashboards break if the sessionize_stream job fails?"</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>Unified</strong><span>stream + batch lineage</span></div>
+              <div class="uc-metric"><strong>Certified</strong><span>DAU / watch-time</span></div>
+            </div>
+            <a href="use-cases.html#media" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>Stream vs batch silos</li><li>Engagement KPIs misaligned</li><li>Blind to downstream impact</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>Kafka metadata in graph</li><li>Event → metric traceability</li><li>Stream failure impact view</li></ul></div>
+          </div>
+        </div>
+        <div data-uc-panel="manufacturing" class="uc-panel">
+          <div>
+            <span class="uc-preview-tag">Manufacturing &amp; Logistics</span>
+            <h3>IoT ingestion and supply chain KPIs</h3>
+            <p>Ingest IoT + ERP metadata. Lineage from sensor raw → OTIF dashboards. Canonical supply chain and defect-rate metrics.</p>
+            <div class="uc-preview-query">"Trace OTIF calculation to source plant sensor tables."</div>
+            <div class="uc-metrics">
+              <div class="uc-metric"><strong>One</strong><span>OTIF definition</span></div>
+              <div class="uc-metric"><strong>Fewer</strong><span>plant outages</span></div>
+            </div>
+            <a href="use-cases.html#manufacturing" class="link-arrow" style="margin-top:16px;">Full playbook →</a>
+          </div>
+          <div class="before-after">
+            <div class="ba-card glow-card before"><div class="ba-label">Before</div><ul><li>OTIF calculated 5 ways</li><li>OT/IT data silos</li><li>Blind schema migrations</li></ul></div>
+            <div class="ba-card glow-card after"><div class="ba-label">With Metroflow</div><ul><li>IoT + ERP in one catalog</li><li>Sensor → OTIF lineage</li><li>Pre-migration impact alerts</li></ul></div>
+          </div>
+        </div>
+
+        <p class="uc-preview-all"><a href="use-cases.html" class="link-arrow">All 14 playbooks by role &amp; industry →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="integrations">
+    <div class="wrap">
+      <div class="split-section">
+        <div class="diagram-panel illus-anim reveal hover-pop glow-border" data-diagram="metadata-flow"></div>
+        <div class="reveal">
+          <div class="eyebrow">Integrations</div>
+          <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:14px;">Built for your stack</h2>
+          <p style="color:var(--text-muted); margin-bottom:20px; line-height:1.65;">40+ connectors. No rip-and-replace. Metroflow crawls metadata and builds understanding on top of what you already run.</p>
+          <div class="flow-steps" style="justify-content:flex-start; margin:20px 0;">
+            <span class="flow-step glow-card hover-pop">Connect</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step glow-card hover-pop">Crawl</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step glow-card hover-pop">Link</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step glow-card hover-pop">Query</span>
+          </div>
+          <a href="integrations.html" class="link-arrow">Explore all 40+ integrations →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="content-section alt">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center">Measurable impact</div>
+        <h2>Benefits you can put in a business case</h2>
+        <p>What data teams see after connecting their stack — in hours reclaimed, incidents avoided, and ROI.</p>
+      </div>
+      <div class="impact-grid reveal">
+        <div class="impact-card glow-card hover-pop">
+          <div class="impact-num">4×</div>
+          <h3>Faster impact analysis</h3>
+          <p>Half a day of Slack archaeology → 10-minute lineage query before every schema change.</p>
+          <span class="impact-meta">~12 hrs saved / sprint</span>
+        </div>
+        <div class="impact-card glow-card hover-pop">
+          <div class="impact-num">60%</div>
+          <h3>Fewer escalations</h3>
+          <p>On-call engineers resolve DAG failures with full stack context instead of tab-hopping.</p>
+          <span class="impact-meta">MTTR under 2 hours</span>
+        </div>
+        <div class="impact-card glow-card hover-pop">
+          <div class="impact-num">3 days</div>
+          <h3>Onboarding vs 3 weeks</h3>
+          <p>New hires query a living catalog on day one — not tribal knowledge docs.</p>
+          <span class="impact-meta">per new data engineer</span>
+        </div>
+        <div class="impact-card glow-card hover-pop">
+          <div class="impact-num">1</div>
+          <h3>Trusted revenue number</h3>
+          <p>Canonical metrics end dashboard debates between finance, product, and BI.</p>
+          <span class="impact-meta">certified · reconciled</span>
+        </div>
+        <div class="impact-card glow-card hover-pop">
+          <div class="impact-num">&lt;5 min</div>
+          <h3>Time to first insight</h3>
+          <p>Connect sources, sync metadata, ask your first grounded question — same session.</p>
+          <span class="impact-meta">self-host or demo</span>
+        </div>
+        <div class="impact-card glow-card hover-pop">
+          <div class="impact-num">0</div>
+          <h3>Data movement</h3>
+          <p>Metadata-only crawls. Credentials and row data never leave your network.</p>
+          <span class="impact-meta">VPC · on-prem ready</span>
+        </div>
+      </div>
+      <div class="impact-roi reveal glow-card hover-pop">
+        <div class="impact-roi-copy">
+          <span class="impact-roi-label">Typical ROI · platform team</span>
+          <div class="impact-roi-num">12–18×</div>
+          <p>Platform cost recovered in the first quarter through reduced incident time, fewer rollback PRs, and analyst hours reclaimed from ad-hoc lineage requests.</p>
+        </div>
+        <div class="impact-roi-bars" aria-hidden="true">
+          <div class="impact-bar"><span class="impact-bar-label">Incident response</span><div class="impact-bar-track"><div class="impact-bar-fill" style="--w:72%"></div></div><span class="impact-bar-val">−72%</span></div>
+          <div class="impact-bar"><span class="impact-bar-label">Analyst interrupts</span><div class="impact-bar-track"><div class="impact-bar-fill" style="--w:58%"></div></div><span class="impact-bar-val">−58%</span></div>
+          <div class="impact-bar"><span class="impact-bar-label">Rollback PRs</span><div class="impact-bar-track"><div class="impact-bar-fill" style="--w:45%"></div></div><span class="impact-bar-val">−45%</span></div>
+          <div class="impact-bar"><span class="impact-bar-label">Metric disputes</span><div class="impact-bar-track"><div class="impact-bar-fill" style="--w:80%"></div></div><span class="impact-bar-val">−80%</span></div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:28px;" class="reveal">
+        <a href="customers.html" class="link-arrow">See customer outcomes →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="open-source" class="oss-section">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <h2>Built in public. Shipped for developers first.</h2>
+        <p style="color:var(--text-muted); max-width:520px; margin:0 auto;">Apache 2.0. Run on your infra. No vendor lock-in.</p>
+      </div>
+      <div class="oss-highlights reveal">
+        <div class="oss-highlight glow-card hover-pop"><strong>Self-host in minutes</strong><span>docker compose up</span></div>
+        <div class="oss-highlight glow-card hover-pop"><strong>Full control</strong><span>Your data stays put</span></div>
+        <div class="oss-highlight glow-card hover-pop"><strong>Apache 2.0</strong><span>No lock-in</span></div>
+        <div class="oss-highlight glow-card hover-pop"><strong>Community-driven</strong><span>Shipped in public</span></div>
+      </div>
+      <div class="trust-badges reveal">
+        <span class="trust-badge glow-card">🔒 Metadata-only crawls</span>
+        <span class="trust-badge glow-card">📦 OSS core forever</span>
+        <span class="trust-badge glow-card">🛡️ VPC-friendly</span>
+      </div>
+      <div class="final-ctas reveal" style="padding:28px 0 0;">
+        <a href="https://github.com/metroflow/metroflow" class="btn btn-primary btn-lg hover-pop" target="_blank" rel="noopener">Star on GitHub</a>
+        <a href="compare.html" class="btn btn-ghost btn-lg hover-pop">See how we compare</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="content-section">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item"><button class="faq-q">Does Metroflow move my warehouse data?</button><div class="faq-a"><p>No. Metroflow crawls metadata only — schemas, manifests, DAG definitions, and lineage. Your data never leaves your systems.</p></div></div>
+        <div class="faq-item"><button class="faq-q">How is this different from a generic AI copilot?</button><div class="faq-a"><p>Generic copilots guess from prompts. Metroflow builds a semantic graph from your actual stack and grounds every answer in synced metadata.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can I self-host for compliance?</button><div class="faq-a"><p>Yes. The core is open source under Apache 2.0. Run via Docker in your VPC with full auditability.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Are canonical metrics included at launch?</button><div class="faq-a"><p>Yes. The metrics and trust layer ships with the workspace — define KPIs, standardize across dashboards, and query them through Enterprise Brain from day one.</p></div></div>
+        <div class="faq-item"><button class="faq-q">What does setup actually take?</button><div class="faq-a"><p>Connect your sources, wait for the initial crawl, and you're querying lineage and metrics in under 5 minutes for a typical dbt + warehouse stack.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision-teaser">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <h2>Shipping now. Built to grow.</h2>
+      </div>
+      <div class="vision-teaser reveal">
+        <div class="vision-teaser-item glow-card hover-pop">
+          <div class="vt-label">Launch — Available now</div>
+          <p>Workspace, living catalog, infrastructure AI, canonical metrics, and Enterprise Brain — the full intelligence foundation ships together.</p>
+        </div>
+        <div class="vision-teaser-item glow-card hover-pop">
+          <div class="vt-label">Growing with you</div>
+          <p>Deeper reconciliation, expanded agent library, and richer governance as your semantic graph matures in production.</p>
+        </div>
+        <div class="vision-teaser-item glow-card hover-pop">
+          <div class="vt-label">Next horizon</div>
+          <p>Agentic execution layer — safe, governed environments where AI operates on the understanding it already has.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:28px;" class="reveal">
+        <a href="vision.html" class="link-arrow">Full vision &amp; roadmap →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="brand-logos.js"></script>
+<script src="diagrams.js"></script>
+<script src="illus-anim.js"></script>
+<script src="hero-workspace.js"></script>
+<script src="home.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quickstart — Metroflow</title>
+<meta name="description" content="Get Metroflow running locally in under five minutes with Docker Compose.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="docs">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Quickstart</div>
+      <h1>Self-host Metroflow in minutes.</h1>
+      <p>One command brings up the workspace, crawler, and agent runtime. Point it at a warehouse and it starts building the graph.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <div class="quickstart-grid reveal">
+        <div>
+          <h2 style="font-size:1.5rem; margin-bottom:16px;">Docker Compose</h2>
+          <ul class="cap-list">
+            <li>Works with free-tier Snowflake or local Postgres</li>
+            <li>Helm chart available for Kubernetes production deployments</li>
+            <li>Full control — nothing leaves your network</li>
+          </ul>
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span>shell</span>
+            <button class="copy-btn" id="copyBtn">copy</button>
+          </div>
+          <div class="terminal-body">
+            <div class="term-line"><span class="term-prompt">$</span>git clone https://github.com/metroflow/metroflow.git</div>
+            <div class="term-line"><span class="term-prompt">$</span>cd metroflow</div>
+            <div class="term-line"><span class="term-prompt">$</span>docker compose up</div>
+            <div class="term-line term-comment"># workspace live at localhost:4200</div>
+          </div>
+        </div>
+      </div>
+      <p class="reveal" style="text-align:center; margin-top:40px;">
+        <a href="integrations.html" class="link-arrow">Connect your first data source →</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

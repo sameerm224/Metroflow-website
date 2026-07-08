@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Source — Metroflow</title>
+<meta name="description" content="Metroflow is open source under Apache 2.0. Self-host it, contribute to it, run it in your environment with full control.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="open-source" data-cta-title="Star Metroflow on GitHub" data-cta-sub="" data-cta-primary-href="https://github.com/metroflow/metroflow" data-cta-primary-label="Star on GitHub" data-cta-secondary-href="community.html" data-cta-secondary-label="Join the Discord">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Open Source</div>
+      <h1>Built in public. Shipped for developers first.</h1>
+      <p>Metroflow is open source under the Apache 2.0 license. Self-host it. Contribute to it. Run it in your environment with full control.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <div class="content-block reveal" style="margin:0 auto 48px;">
+        <h2>Why open source matters here</h2>
+        <p>Data infrastructure is too important to be locked behind proprietary walls. We believe the best intelligence layer for enterprise data will be built in the open, with the people who actually run these systems every day.</p>
+      </div>
+
+      <div class="quickstart-grid reveal" id="get-started">
+        <div>
+          <div class="eyebrow">Get started</div>
+          <h2 style="font-size:clamp(1.5rem,2.5vw,2rem); margin-bottom:16px;">Self-host in minutes</h2>
+          <ul class="cap-list">
+            <li><a href="quickstart.html" style="color:var(--accent);">Self-host instructions</a></li>
+            <li>Docker / Kubernetes quickstart</li>
+            <li>Local development guide</li>
+          </ul>
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span>shell</span>
+            <button class="copy-btn" id="copyBtn">copy</button>
+          </div>
+          <div class="terminal-body">
+            <div class="term-line"><span class="term-prompt">$</span>git clone https://github.com/metroflow/metroflow.git</div>
+            <div class="term-line"><span class="term-prompt">$</span>cd metroflow</div>
+            <div class="term-line"><span class="term-prompt">$</span>docker compose up</div>
+            <div class="term-line term-comment"># workspace live at localhost:4200</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section alt">
+    <div class="wrap">
+      <div class="oss-grid reveal">
+        <div class="oss-card">
+          <div class="oss-num">Contribute</div>
+          <h4>GitHub repository</h4>
+          <p>Good first issues, contribution guidelines, and a team that reviews PRs within days.</p>
+          <a href="https://github.com/metroflow/metroflow" class="link-arrow" target="_blank" rel="noopener">View repo →</a>
+        </div>
+        <div class="oss-card">
+          <div class="oss-num">Community</div>
+          <h4>Discord for real-time discussion</h4>
+          <p>Ask questions, share connectors, and ship alongside the core team.</p>
+          <a href="https://discord.gg/metroflow" class="link-arrow" target="_blank" rel="noopener">Join Discord →</a>
+        </div>
+        <div class="oss-card">
+          <div class="oss-num">License</div>
+          <h4>Apache 2.0</h4>
+          <p>Fork it, self-host it, modify it. No source-available tricks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <h2>Community principles</h2>
+      </div>
+      <div class="pain-grid reveal">
+        <div class="pain-card"><p>Developer experience first</p></div>
+        <div class="pain-card"><p>Infrastructure understanding over prompt tricks</p></div>
+        <div class="pain-card"><p>Progressive disclosure of complexity</p></div>
+        <div class="pain-card"><p>Respect for existing tools and workflows</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

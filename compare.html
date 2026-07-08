@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare — Metroflow</title>
+<meta name="description" content="How Metroflow compares to tool categories, the competitive landscape, and the workflows teams use today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="compare" data-cta-title="Stop stitching the pie together" data-cta-sub="Try the live demo or self-host the full intelligence layer this week." data-cta-primary-href="index.html#workspace" data-cta-primary-label="Try the demo" data-cta-secondary-href="open-source.html#get-started" data-cta-secondary-label="Get Started">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Compare</div>
+      <h1>One intelligence layer.<br/>Not another piece of the pie.</h1>
+      <p>See how Metroflow compares to tool categories, point-solution vendors, and the manual workflows teams tolerate today.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+
+      <div class="compare-section reveal">
+        <div class="compare-section-head">
+          <h2>vs. tool categories</h2>
+          <p>Metroflow unifies what teams otherwise stitch together — catalog, copilot, orchestrator UI, and metrics layer.</p>
+        </div>
+        <div class="compare-table-wrap glow-card">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th class="compare-col-mf">Metroflow</th>
+                <th>Generic AI copilot</th>
+                <th>Catalog-only tool</th>
+                <th>Orchestrator UI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Canonical business metrics</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="cross">—</span></td><td>Partial</td><td><span class="cross">—</span></td></tr>
+              <tr><td>Understands dbt manifest</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>Cross-system lineage (warehouse + dbt + AF)</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="cross">—</span></td><td>Partial</td><td><span class="cross">—</span></td></tr>
+              <tr><td>Enterprise Brain (tech + business AI)</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Prompt-only</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>Stack-aware SQL / dbt editor</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Generic</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>Debug Airflow / Dagster runs</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Open source &amp; self-host</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Rare</td><td>Varies</td><td>Partial</td></tr>
+              <tr><td>Time to first insight</td><td class="compare-col-mf"><strong>&lt;5 min</strong></td><td>N/A</td><td>Days–weeks</td><td>N/A</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="compare-section reveal">
+        <div class="compare-section-head">
+          <h2>vs. competitive landscape</h2>
+          <p>Many vendors solve a slice of the problem. Metroflow ships the full foundation — infrastructure graph + trusted metrics + AI — in one open-source workspace.</p>
+        </div>
+        <div class="compare-table-wrap glow-card">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>What you need</th>
+                <th class="compare-col-mf">Metroflow</th>
+                <th>Data catalog<br/><small style="font-weight:400;text-transform:none;letter-spacing:0">Atlan · DataHub · Collibra</small></th>
+                <th>Observability<br/><small style="font-weight:400;text-transform:none;letter-spacing:0">Monte Carlo · Bigeye</small></th>
+                <th>BI / semantic layer<br/><small style="font-weight:400;text-transform:none;letter-spacing:0">Looker · Tableau · dbt Metric Flow</small></th>
+                <th>AI copilots<br/><small style="font-weight:400;text-transform:none;letter-spacing:0">ChatGPT · Copilot · niche SQL bots</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Unified infra + metrics layer</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td>Metrics only</td><td><span class="cross">—</span></td></tr>
+              <tr><td>Lineage across SF + dbt + orchestration</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Strong</td><td>Partial</td><td>Partial</td><td><span class="cross">—</span></td></tr>
+              <tr><td>Living catalog &amp; ownership</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="check">✓</span></td><td>Partial</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>Data quality &amp; incident context</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Partial</td><td><span class="check">✓</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>Certified KPIs &amp; reconciliation</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Glossary</td><td><span class="cross">—</span></td><td><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>AI grounded in your metadata</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Add-on</td><td>Add-on</td><td>Limited</td><td>Prompt-only</td></tr>
+              <tr><td>Edit, test &amp; ship in same UI</td><td class="compare-col-mf"><span class="check">✓</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
+              <tr><td>Open source · self-host</td><td class="compare-col-mf"><span class="check">✓</span></td><td>Rare</td><td>SaaS</td><td>Varies</td><td>SaaS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="compare-section reveal">
+        <div class="compare-section-head">
+          <h2>vs. workflows &amp; workarounds</h2>
+          <p>What data teams actually do today — and what changes when infrastructure intelligence and metrics live in one place.</p>
+        </div>
+        <div class="compare-table-wrap glow-card">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>The job to be done</th>
+                <th>Typical workaround today</th>
+                <th class="compare-col-mf">With Metroflow</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Impact analysis before a schema change</td><td>Slack threads, spreadsheets, 4-hour meetings</td><td class="compare-col-mf"><strong>10 min</strong> · lineage query with downstream list</td></tr>
+              <tr><td>Onboard a new data engineer</td><td>Wiki docs, shadowing, tribal knowledge</td><td class="compare-col-mf"><strong>3 days</strong> · queryable catalog + guided demo data</td></tr>
+              <tr><td>Define &amp; trust a KPI across teams</td><td>Confluence definitions, dueling dashboards</td><td class="compare-col-mf">Canonical metric · certified · reconciled</td></tr>
+              <tr><td>Debug a failing Airflow task</td><td>Tab-hop: AF UI → logs → dbt docs → Snowflake</td><td class="compare-col-mf">One graph · task linked to models &amp; tables</td></tr>
+              <tr><td>Answer "why did revenue drop?"</td><td>Analyst queue, manual SQL, weeks of back-and-forth</td><td class="compare-col-mf">Enterprise Brain · cited lineage + metric diff</td></tr>
+              <tr><td>Generate dbt tests for a new model</td><td>Copy-paste from another project, guess at columns</td><td class="compare-col-mf">Agent reads manifest · suggests schema.yml patch</td></tr>
+              <tr><td>Prove data lineage for compliance</td><td>Manual diagrams, quarterly audit scrambles</td><td class="compare-col-mf">Live graph · exportable · always current</td></tr>
+              <tr><td>Build internal lineage + AI tooling</td><td>2-year eng project, maintenance burden</td><td class="compare-col-mf"><strong>Self-host today</strong> · Apache 2.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

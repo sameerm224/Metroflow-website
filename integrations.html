@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrations — Metroflow</title>
+<meta name="description" content="40+ integrations for Airflow, Dagster, dbt, Snowflake, Kafka, and your entire data stack. Connect once, understand everything.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="integrations" data-cta-title="Don't see your tool?" data-cta-sub="We ship connectors based on what data teams actually use." data-cta-primary-href="contact.html" data-cta-primary-label="Request an integration" data-cta-secondary-href="open-source.html" data-cta-secondary-label="Contribute a connector">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Integrations</div>
+      <h1>Works with the stack you <span class="grad-text">already have</span>.</h1>
+      <p>Connect once. Metroflow crawls metadata and builds understanding — no rip-and-replace.</p>
+    </div>
+  </section>
+
+  <section class="content-section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="int-search-wrap reveal">
+        <span class="int-search-icon">⌕</span>
+        <input type="search" class="int-search glow-card" id="intSearch" placeholder="Search integrations — Snowflake, dbt, Kafka…" autocomplete="off" />
+      </div>
+      <div class="int-filters reveal" id="intFilters"></div>
+      <div id="intGrid"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="integrations-data.js"></script>
+<script src="integrations-logos.js"></script>
+<script src="integrations.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
