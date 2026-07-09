@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metroflow — Agentic Control Plane for Your Data Stack</title>
-<meta name="description" content="The agentic control plane for your data stack. Connect your existing stack, build trusted context, and give AI the understanding it needs to work like a member of your team.">
+<title>Metroflow — The Agentic Control Plane</title>
+<meta name="description" content="The Agentic Control Plane for your data stack. Workspace, Context Graph, and Embedded Analytics — connect your stack, build trusted context, and give AI the understanding it needs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
       <div class="hero-stacked">
         <div class="hero-copy reveal">
           <div class="eyebrow hero-eyebrow">Open source · Agentic AI · Data control plane</div>
-          <h1 class="hero-title">The Agentic Control Plane for Your Data Stack.</h1>
+          <h1 class="hero-title">The Agentic Control Plane</h1>
           <div class="hero-rotator" aria-live="polite" aria-atomic="true">
             <div class="hero-rotator-shell">
               <span class="hero-rotator-glow hero-rotator-glow-a" aria-hidden="true"></span>
@@ -85,34 +85,47 @@
     </div>
   </section>
 
-  <section class="content-section" style="padding-top:0;">
+  <section id="offerings" class="content-section offerings-section">
     <div class="wrap">
-      <div class="mf-logo-strip reveal"><span data-mf-logo="mark" data-mf-logo-size="36" data-mf-logo-text="false"></span><span class="mf-logo-text" style="font-size:15px;color:var(--text-muted)">METROFLOW</span></div>
-      <div class="stats-strip reveal">
-        <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-lbl">Native integrations</div></div>
-        <div class="stat-cell"><div class="stat-num">1</div><div class="stat-lbl">Canonical metric layer</div></div>
-        <div class="stat-cell"><div class="stat-num">&lt;5m</div><div class="stat-lbl">Time to first insight</div></div>
-        <div class="stat-cell"><div class="stat-num">0</div><div class="stat-lbl">Data movement required</div></div>
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center">What Metroflow is</div>
+        <h2>Three offerings. One control plane.</h2>
+        <p style="color:var(--text-muted); max-width:560px; margin:12px auto 0; font-size:15px;">Workspace for builders, Context Graph for understanding, Embedded Analytics for everyone else — unified on the same semantic foundation.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="problem">
-    <div class="wrap">
-      <div class="split-section">
-        <div class="section-head reveal">
-          <div class="eyebrow">The problem</div>
-          <h2>Your stack is powerful.<br/>Your metrics still don't agree.</h2>
-          <p>Engineers lack lineage context. Leaders get conflicting KPIs. Generic AI guesses at both — it doesn't understand your pipelines or your business definitions.</p>
-          <p class="quote-block" style="margin-top:20px; border-left-color:var(--accent);">Define once. Trust everywhere — for infrastructure and business metrics alike.</p>
-        </div>
-        <div class="diagram-panel illus-anim reveal hover-pop glow-border" data-diagram="generic-vs-metroflow"></div>
-      </div>
-      <div class="pain-grid reveal" style="margin-top:32px;">
-        <div class="pain-card glow-card hover-pop"><p>Context trapped in people's heads</p></div>
-        <div class="pain-card glow-card hover-pop"><p>Impact analysis still takes hours</p></div>
-        <div class="pain-card glow-card hover-pop"><p>AI SQL misses critical relationships</p></div>
-        <div class="pain-card glow-card hover-pop"><p>Three dashboards, three different revenue numbers</p></div>
+      <div class="stack-group offerings-stack reveal">
+        <article class="stack-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
+          <span class="stack-card-tag">Workspace</span>
+          <h3>The stack-aware environment data teams actually need</h3>
+          <p>Context-aware editors, a living semantic catalog, and infrastructure understanding in one open-source workspace. Write SQL and dbt with live refs, trace lineage without spreadsheets, and debug DAGs with full downstream context.</p>
+          <ul>
+            <li>Editors that autocomplete from your actual schemas and manifests</li>
+            <li>Catalog that stays fresh from Snowflake, dbt, Airflow, and 40+ connectors</li>
+            <li>Impact analysis and agents grounded in synced metadata</li>
+          </ul>
+          <a href="workspace-offering.html" class="link-arrow" style="margin-top:8px;">Explore Workspace →</a>
+        </article>
+        <article class="stack-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="stack-card-tag">Context Graph</span>
+          <h3>The semantic graph that connects your entire stack</h3>
+          <p>Metroflow builds a unified context graph from orchestration, transformation, warehouse, and BI metadata — then layers canonical business metrics on top. One graph for lineage, ownership, policies, and KPI definitions.</p>
+          <ul>
+            <li>Technical lineage from raw ingest to executive dashboard</li>
+            <li>Business context: metrics, glossaries, and ownership on the same nodes</li>
+            <li>Enterprise Brain reasons over graph + metrics — cited answers only</li>
+          </ul>
+          <a href="context-graph.html" class="link-arrow" style="margin-top:8px;">Explore Context Graph →</a>
+        </article>
+        <article class="stack-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="stack-card-tag">Embedded Analytics</span>
+          <h3>Certified metrics where business users already work</h3>
+          <p>Push trusted KPIs into the tools your org uses daily — Looker, Tableau, notebooks, and internal apps — without rebuilding your stack. Every number traces back to a certified definition on the context graph.</p>
+          <ul>
+            <li>One MRR, NRR, and activation definition across finance, product, and BI</li>
+            <li>Self-serve queries via Enterprise Brain with lineage proof</li>
+            <li>Reconciliation when definitions change — before the board deck ships</li>
+          </ul>
+          <a href="embedded-analytics.html" class="link-arrow" style="margin-top:8px;">Explore Embedded Analytics →</a>
+        </article>
       </div>
     </div>
   </section>
@@ -167,16 +180,15 @@
         <p style="color:var(--text-muted); max-width:520px; margin:12px auto 0; font-size:15px;">Concrete playbooks — not generic "data workflows." Pick a persona below.</p>
       </div>
       <div class="reveal uc-preview-wrap">
-        <label class="uc-preview-label" id="ucPreviewLabel">I am a…</label>
-        <div class="uc-preview-select-wrap">
-          <div class="uc-custom-select" id="ucCustomSelect">
-            <button type="button" class="uc-custom-select-trigger" id="ucCustomSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="ucPreviewLabel">
-              <span class="uc-custom-select-value">Analytics Engineer</span>
-              <svg class="uc-preview-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="uc-custom-select-menu" id="ucCustomSelectMenu" role="listbox" hidden>
-              <div class="uc-custom-select-group" role="group" aria-label="By role">
-                <div class="uc-custom-select-group-label">By role</div>
+        <div class="uc-preview-dual">
+          <div class="uc-preview-field">
+            <span class="uc-preview-field-label" id="ucPreviewRoleLabel">By role</span>
+            <div class="uc-custom-select" id="ucCustomSelectRole" data-uc-scope="role">
+              <button type="button" class="uc-custom-select-trigger" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="ucPreviewRoleLabel">
+                <span class="uc-custom-select-value">Analytics Engineer</span>
+                <svg class="uc-preview-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="uc-custom-select-menu" role="listbox" hidden>
                 <button type="button" class="uc-custom-select-option selected" role="option" data-value="analytics-engineer" aria-selected="true">Analytics Engineer</button>
                 <button type="button" class="uc-custom-select-option" role="option" data-value="platform-engineer">Data Platform Engineer</button>
                 <button type="button" class="uc-custom-select-option" role="option" data-value="head-of-data">Head of Data / VP</button>
@@ -186,9 +198,17 @@
                 <button type="button" class="uc-custom-select-option" role="option" data-value="product-manager">Product Manager</button>
                 <button type="button" class="uc-custom-select-option" role="option" data-value="governance-lead">Data Governance Lead</button>
               </div>
-              <div class="uc-custom-select-group" role="group" aria-label="By industry">
-                <div class="uc-custom-select-group-label">By industry</div>
-                <button type="button" class="uc-custom-select-option" role="option" data-value="fintech">Fintech &amp; Banking</button>
+            </div>
+          </div>
+          <div class="uc-preview-field">
+            <span class="uc-preview-field-label" id="ucPreviewIndustryLabel">By industry</span>
+            <div class="uc-custom-select" id="ucCustomSelectIndustry" data-uc-scope="industry">
+              <button type="button" class="uc-custom-select-trigger" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="ucPreviewIndustryLabel">
+                <span class="uc-custom-select-value">Fintech &amp; Banking</span>
+                <svg class="uc-preview-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="uc-custom-select-menu" role="listbox" hidden>
+                <button type="button" class="uc-custom-select-option selected" role="option" data-value="fintech" aria-selected="true">Fintech &amp; Banking</button>
                 <button type="button" class="uc-custom-select-option" role="option" data-value="b2b-saas">B2B SaaS</button>
                 <button type="button" class="uc-custom-select-option" role="option" data-value="ecommerce">E-commerce &amp; Retail</button>
                 <button type="button" class="uc-custom-select-option" role="option" data-value="healthcare">Healthcare &amp; Life Sciences</button>

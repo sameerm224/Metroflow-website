@@ -25,49 +25,135 @@
     </div>
   </section>
 
-  <section id="definitions" class="content-section">
+  <section class="stack-section">
     <div class="wrap">
-      <div class="feature-grid reveal">
-        <div class="feature-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
-          <span class="fc-num">Canonical definitions</span>
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <div class="eyebrow">Trust layer</div>
+        <h2>From definition to board-ready KPI</h2>
+        <p>Canonical metrics with lineage, standardization, and reconciliation — so finance, product, and engineering stop debating which number is "right."</p>
+      </div>
+      <div class="stack-group reveal">
+        <article id="definitions" class="stack-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
+          <span class="stack-card-tag">Canonical definitions</span>
           <h3>One source of truth per KPI</h3>
-          <p>Revenue, churn, activation — defined once with full lineage to upstream models and source tables.</p>
-        </div>
-        <div id="standardization" class="feature-card glow-card hover-pop">
-          <span class="fc-num">Standardization</span>
+          <p>Every metric in Metroflow is a first-class object — not a saved SQL snippet in a BI tool. Define MRR, churn, activation, and LTV once with explicit logic, filters, grain, and ownership.</p>
+          <p>Each definition links to the dbt models and warehouse tables that compute it. When someone asks "how is revenue calculated?", you open the metric card — not a three-year-old Notion doc.</p>
+          <p>Version history captures who changed a filter, when, and why. Certified metrics require approval before they propagate to downstream tools.</p>
+          <ul>
+            <li>Grain and dimension rules baked in — daily vs. monthly MRR never mixed again</li>
+            <li>Lineage from KPI → semantic model → staging → raw source columns</li>
+            <li>Owner and steward assignments with Slack notifications on changes</li>
+            <li>Certification workflow: draft → reviewed → certified → deprecated</li>
+            <li>Plain-English descriptions leaders can read without opening SQL</li>
+          </ul>
+        </article>
+
+        <article id="standardization" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Standardization</span>
           <h3>Same number in every tool</h3>
-          <p>Push trusted definitions to BI, notebooks, and agents. End the "which dashboard is right?" debate.</p>
-        </div>
-        <div id="trust" class="feature-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
-          <span class="fc-num">Define once. Trust everywhere.</span>
+          <p>Once a metric is certified, Metroflow pushes the definition to BI platforms, notebooks, agents, and APIs. Looker explores, Hex queries, and Enterprise Brain answers all reference the same canonical ID.</p>
+          <p>When finance updates an MRR exclusion rule, every connected surface updates on the next sync — not after someone manually edits twelve dashboards.</p>
+          <p>End the weekly "which dashboard is right?" meeting. One definition, many consumers, zero drift.</p>
+          <ul>
+            <li>Sync to Looker, Tableau, Metabase, and custom apps via API</li>
+            <li>Agents and NL queries resolve "revenue" to the certified metric automatically</li>
+            <li>Environment-aware: staging definitions never leak into exec briefings</li>
+            <li>Consumption logs — see which teams query which KPIs and how often</li>
+            <li>Override detection when a dashboard uses non-certified SQL</li>
+          </ul>
+        </article>
+
+        <article id="trust" class="stack-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="stack-card-tag">Define once. Trust everywhere.</span>
           <h3>End metric drift across teams</h3>
-          <p>Finance, product, and BI pull from certified definitions — not siloed SQL and spreadsheet logic.</p>
-        </div>
-        <div id="reconciliation" class="feature-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
-          <span class="fc-num">Reconciliation</span>
+          <p>Metric drift happens when every team writes their own SQL. Product counts "active users" one way, finance another, and the board deck uses a third. Metroflow makes the certified definition the path of least resistance.</p>
+          <p>Non-certified queries are flagged in the workspace. Analysts can explore freely, but anything shipped to leadership must pull from the trust layer.</p>
+          <p>Leaders get decision intelligence they can defend — not spreadsheet archaeology the night before a board meeting.</p>
+          <ul>
+            <li>Side-by-side diff when two teams define the same KPI differently</li>
+            <li>Alert when a dashboard bypasses certified logic</li>
+            <li>Executive summary view: top KPIs, owners, freshness, and last change</li>
+            <li>Cross-functional glossary — product, finance, and eng share one vocabulary</li>
+            <li>Enterprise Brain answers cite the certified metric, not a guess</li>
+          </ul>
+        </article>
+
+        <article id="reconciliation" class="stack-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="stack-card-tag">Reconciliation</span>
           <h3>Audit trail for business metrics</h3>
-          <p>See how a KPI was calculated, what changed, and which models feed it — with governance built in.</p>
-        </div>
+          <p>When a KPI moves 8% week-over-week, stakeholders need more than a chart — they need provenance. Metroflow records every definition change, upstream model deploy, and data delay that could explain the shift.</p>
+          <p>Reconciliation views compare certified metrics against source-of-record systems (Stripe, Salesforce, ERP) and surface gaps with suggested root causes.</p>
+          <p>Exportable audit trails satisfy finance close, SOC2 reviews, and internal governance without a manual screenshot hunt.</p>
+          <ul>
+            <li>Change log: who edited filters, joins, or grain — with diff view</li>
+            <li>Pipeline attribution — "NRR dropped because stg_orders was 6h late"</li>
+            <li>Scheduled reconciliation jobs against billing and CRM systems</li>
+            <li>PDF/CSV export for audit committees and regulatory filings</li>
+            <li>Enterprise Brain traces "why did churn increase?" to model + metric changes</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="content-section alt">
+  <section class="stack-section content-section alt">
     <div class="wrap">
-      <div class="capability reverse reveal">
-        <div class="cap-text">
-          <h3>Metrics grounded in infrastructure</h3>
-          <p>Because canonical metrics sit on Metroflow's semantic graph, every KPI links back to dbt models, warehouse tables, and lineage — not orphaned SQL in a wiki.</p>
-          <p style="margin-top:12px; color:var(--text-muted); font-size:14px;">For leaders: decision intelligence with metrics you can defend in the boardroom — not spreadsheet archaeology.</p>
-        </div>
-        <div class="cap-visual glow-card hover-pop">
-          <div class="code-block">
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <div class="eyebrow">Infrastructure link</div>
+        <h2>Metrics grounded in infrastructure</h2>
+        <p>Because canonical metrics sit on Metroflow's semantic graph, every KPI links back to real pipelines — not orphaned SQL in a wiki.</p>
+      </div>
+      <div class="stack-group reveal">
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Lineage-backed KPIs</span>
+          <h3>Every metric traces to source tables</h3>
+          <p>Traditional metric stores treat definitions as isolated formulas. Metroflow anchors each KPI to the dbt models, Airflow jobs, and warehouse tables that materialize it — so impact analysis works in both directions.</p>
+          <p>Deprecate a staging model and instantly see which certified metrics break. Change a column type and get warnings before the board deck goes out.</p>
+          <p>For engineers: debug metric anomalies by walking lineage upstream. For leaders: trust that the number on slide 4 is the same one finance certified last quarter.</p>
+          <ul>
+            <li>Click MRR → see fct_revenue → stg_orders → raw_stripe in one graph</li>
+            <li>Blast-radius when a model is renamed or removed from the DAG</li>
+            <li>Freshness inherited from orchestration — stale data flagged on the metric card</li>
+            <li>PII and governance tags propagate from infrastructure to business layer</li>
+            <li>Same graph powers editors, agents, and executive dashboards</li>
+          </ul>
+          <div class="code-block" style="margin-top:18px; max-width:480px;">
 <span class="tok-kw">metric:</span> monthly_recurring_revenue<br>
 <span class="tok-kw">source:</span> <span class="tok-str">fct_revenue</span> → stg_orders → raw_stripe<br>
 <span class="tok-kw">owners:</span> @finance, @data-eng<br>
-<span class="diff-add">status: certified · reconciled</span>
+<span class="diff-add">status: certified · reconciled · fresh</span>
           </div>
-        </div>
+        </article>
+
+        <article class="stack-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="stack-card-tag">Decision intelligence</span>
+          <h3>Boardroom metrics you can defend</h3>
+          <p>Executives don't need to read SQL — they need confidence. Metroflow surfaces certified KPIs with human-readable logic, last reconciliation date, and the teams accountable for each number.</p>
+          <p>When a metric moves, Enterprise Brain summarizes likely causes: pipeline delay, definition change, or genuine business shift — with citations to models and deploy logs.</p>
+          <p>Stop rebuilding trust every quarter. One semantic foundation for infrastructure and business metrics alike.</p>
+          <ul>
+            <li>Executive briefing view: top KPIs with trend, owner, and confidence score</li>
+            <li>"Why did this move?" — NL query returns lineage + change log, not hallucination</li>
+            <li>Reconciliation status badge: matched Stripe, pending CRM sync, etc.</li>
+            <li>Compare week-over-week with annotated events (deploys, definition edits)</li>
+            <li>Share read-only links for board prep — no warehouse credentials required</li>
+          </ul>
+        </article>
+
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Governance built in</span>
+          <h3>Compliance without the spreadsheet hunt</h3>
+          <p>Regulated teams need to prove how a number was calculated, who approved it, and what data it touched. Metroflow's trust layer generates that trail automatically from the same graph that powers daily engineering work.</p>
+          <p>Metric certification requires steward sign-off. Changes trigger notifications to finance and data governance. Audit exports include lineage, owners, and reconciliation history.</p>
+          <p>One platform for builders and auditors — not duplicate documentation that drifts the moment it's written.</p>
+          <ul>
+            <li>Immutable change history with approver identity and timestamp</li>
+            <li>PII lineage: which metrics touch customer email, payment data, etc.</li>
+            <li>Policy rules: block uncertified metrics from exec-facing dashboards</li>
+            <li>SOC2-friendly export: metric definition + lineage + access log</li>
+            <li>Integration with existing GRC tools via API and webhooks</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>

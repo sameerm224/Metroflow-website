@@ -25,87 +25,94 @@
     </div>
   </section>
 
-  <section id="infrastructure-ai" class="content-section">
+  <section class="stack-section">
     <div class="wrap">
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Infrastructure-aware AI</span>
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <div class="eyebrow">Agentic intelligence</div>
+        <h2>AI that reads your stack before it speaks</h2>
+        <p>Every agent in Metroflow is grounded in synced manifests, lineage graphs, and certified metrics — so answers cite real assets, not plausible fiction.</p>
+      </div>
+      <div class="stack-group reveal">
+        <article id="infrastructure-ai" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Infrastructure-aware AI</span>
           <h3>Ask about your actual stack</h3>
-          <ul class="cap-list">
-            <li>"What depends on this table?"</li>
-            <li>"Impact of this schema change?"</li>
-            <li>"Why did this dbt test fail?"</li>
+          <p>Generic copilots guess at table names and hope your schema matches training data. Metroflow agents query your live semantic graph first — then reason over real dependencies, owners, and freshness.</p>
+          <p>Ask "what depends on fct_revenue?" and get the actual downstream models, dashboards, and Airflow tasks — pulled from your last metadata sync, not invented table names.</p>
+          <p>Schema change reviews, incident triage, and onboarding all get faster when AI speaks your environment's language.</p>
+          <ul>
+            <li>"What depends on this table?" — full downstream blast radius in seconds</li>
+            <li>"Impact of renaming customer_id?" — affected models, tests, and metrics listed</li>
+            <li>"Why did this dbt test fail?" — trace to upstream freshness or schema drift</li>
+            <li>Every answer cites manifest nodes with links to open in the workspace</li>
+            <li>Respects RBAC — agents only see assets your role can access</li>
           </ul>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
+          <div class="code-block" style="margin-top:18px; max-width:480px;">
 <span class="tok-kw">you:</span> What depends on fct_revenue?<br>
-<span class="tok-kw">agent:</span> 3 downstream · exec_dashboard<br>
-<span class="diff-add">grounded in synced manifest</span>
+<span class="tok-kw">agent:</span> 3 downstream models · exec_dashboard · board_mrr<br>
+<span class="diff-add">grounded in synced manifest · 2m ago</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <section id="enterprise-brain" class="content-section alt">
-    <div class="wrap">
-      <div class="capability reverse reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Enterprise Brain</span>
+        <article id="enterprise-brain" class="stack-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="stack-card-tag">Enterprise Brain</span>
           <h3>Technical + business reasoning in one layer</h3>
-          <p>Combine infrastructure lineage with canonical metrics. Ask why KPIs moved and get answers that trace to source data and pipeline changes.</p>
-          <ul class="cap-list">
-            <li>"Why did churn increase last week?"</li>
-            <li>"Which models feed our board-level revenue metric?"</li>
-            <li>"Reconcile MRR between finance and product dashboards"</li>
+          <p>Enterprise Brain is Metroflow's unified reasoning layer — it combines infrastructure lineage with canonical metric definitions so you can ask questions that span both worlds.</p>
+          <p>When churn spikes, Brain doesn't stop at "here's a SQL query." It checks whether the certified churn metric changed, whether stg_subscriptions was delayed, and which deploy coincided with the move — then summarizes with citations.</p>
+          <p>One agent for engineers debugging pipelines and executives preparing board decks. Same ground truth, different depth.</p>
+          <ul>
+            <li>"Why did churn increase last week?" — metric change + pipeline delay + deploy log</li>
+            <li>"Which models feed board-level revenue?" — lineage to certified MRR definition</li>
+            <li>"Reconcile MRR between finance and product dashboards" — diff uncertified SQL</li>
+            <li>Cited sources in every answer: models, metrics, owners, timestamps</li>
+            <li>Conversation memory scoped to your workspace — not a public model's training set</li>
           </ul>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
+          <div class="code-block" style="margin-top:18px; max-width:480px;">
 <span class="tok-kw">agent:</span> Enterprise Brain<br>
-<span class="tok-kw">context:</span> lineage + metrics + DAGs<br>
-<span class="diff-add">+ cited sources in every answer</span>
+<span class="tok-kw">context:</span> lineage + metrics + DAGs + change log<br>
+<span class="diff-add">+ 4 cited sources · certified MRR v3.2</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <section id="specialized-agents" class="content-section">
-    <div class="wrap">
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Specialized agents</span>
+        <article id="specialized-agents" class="stack-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="stack-card-tag">Specialized agents</span>
           <h3>Document, test, debug, and orchestrate</h3>
-          <p>Generate documentation, suggest tests, debug pipelines, propose optimizations — with deep understanding of your environment and governance rules.</p>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
+          <p>Beyond Q&amp;A, Metroflow ships task-specific agents that take action inside your governed environment. They understand your naming conventions, test patterns, and ownership rules — not generic best practices from a blog post.</p>
+          <p>Generate model documentation from lineage and column stats. Suggest dbt tests based on upstream constraints. Draft PR descriptions that list blast radius automatically.</p>
+          <p>Outputs are PR-ready and reviewable — agents propose, humans approve. No silent changes to production.</p>
+          <ul>
+            <li>Docs agent: YAML descriptions + README sections from live catalog metadata</li>
+            <li>Test agent: uniqueness, relationships, and freshness tests from lineage gaps</li>
+            <li>Debug agent: parse run logs, map failures to upstream tasks and models</li>
+            <li>Ops agent: propose DAG schedule changes when freshness SLOs slip</li>
+            <li>All outputs include citations and diff previews before you merge</li>
+          </ul>
+          <div class="code-block" style="margin-top:18px; max-width:480px;">
 <span class="tok-kw">agents:</span> docs · tests · lineage · ops<br>
-<span class="diff-add">+ PR-ready outputs</span>
+<span class="tok-kw">output:</span> PR #1842 — 3 tests + doc block<br>
+<span class="diff-add">+ awaiting your review</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <section id="nl-queries" class="content-section alt">
-    <div class="wrap">
-      <div class="capability reverse reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Natural language queries</span>
+        <article id="nl-queries" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Natural language queries</span>
           <h3>Ask in plain English over stack &amp; metrics</h3>
-          <p>Query lineage, impact, and certified KPIs without writing SQL. Every answer cites the models, tables, and metric definitions it used.</p>
-          <a href="index.html#workspace" class="link-arrow" style="margin-top:16px;">Try in the live demo →</a>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
+          <p>Not everyone writes SQL — but everyone has questions about the stack. Natural language queries let analysts, PMs, and leaders ask about lineage, impact, and certified KPIs in plain English.</p>
+          <p>Metroflow resolves entities against your catalog ("revenue" → certified <code class="mono" style="font-size:12px;">monthly_recurring_revenue</code>) before generating an answer. Ambiguous terms prompt clarification instead of silent wrong assumptions.</p>
+          <p>Every response links back to the models, tables, and metric definitions used — so recipients can verify, not just trust.</p>
+          <ul>
+            <li>"Show me everything upstream of the board deck" — subgraph + freshness</li>
+            <li>"Why did NRR drop last week?" — Brain traces pipeline + definition changes</li>
+            <li>"Who owns customer data models?" — owners, Slack contacts, recent deploys</li>
+            <li>Export answers as shareable briefs with embedded lineage screenshots</li>
+            <li>Works in the live demo — try it without connecting your warehouse first</li>
+          </ul>
+          <a href="index.html#workspace" class="link-arrow" style="margin-top:14px; display:inline-block;">Try in the live demo →</a>
+          <div class="code-block" style="margin-top:18px; max-width:480px;">
 <span class="tok-kw">you:</span> Why did NRR drop last week?<br>
-<span class="tok-kw">brain:</span> Pipeline delay in stg_orders<br>
-<span class="diff-add">+ lineage to board MRR metric</span>
+<span class="tok-kw">brain:</span> stg_orders 6h late · MRR metric unchanged<br>
+<span class="diff-add">+ lineage to board_mrr · 3 citations</span>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

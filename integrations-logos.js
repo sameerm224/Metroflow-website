@@ -33,6 +33,7 @@
     'Apache Atlas': { icon: 'atlas.svg', color: '#00A4E4', cls: 'brand-atlas' },
     Collibra: { icon: 'collibra.svg', color: '#00B2A9', cls: 'brand-collibra' },
     'Monte Carlo': { icon: 'montecarlo.svg', color: '#6C2BD9', cls: 'brand-montecarlo' },
+    Acceldata: { icon: 'acceldata.svg', color: '#E85D24', cls: 'brand-acceldata' },
     'Great Expectations': { icon: 'greatexpectations.svg', color: '#FF6310', cls: 'brand-gx' },
     GitHub: { icon: 'github.svg', color: '#181717', cls: 'brand-github', invertDark: true },
     GitLab: { icon: 'gitlab.svg', color: '#FC6D26', cls: 'brand-gitlab' },

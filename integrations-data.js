@@ -29,6 +29,7 @@ window.MF_INTEGRATIONS = [
   { name: 'Apache Atlas', abbr: 'AL', cat: 'Governance', desc: 'Metadata entities, classifications, lineage import.' },
   { name: 'Collibra', abbr: 'CL', cat: 'Governance', desc: 'Business glossary and policy metadata sync.' },
   { name: 'Monte Carlo', abbr: 'MC', cat: 'Governance', desc: 'Observability incidents and data quality signals.' },
+  { name: 'Acceldata', abbr: 'AD', cat: 'Governance', desc: 'Data observability, pipeline health, and anomaly signals.' },
   { name: 'Great Expectations', abbr: 'GX', cat: 'Governance', desc: 'Expectation suites and validation results.' },
   { name: 'GitHub', abbr: 'GH', cat: 'DevOps', desc: 'Repo structure, PR context for dbt and SQL changes.' },
   { name: 'GitLab', abbr: 'GL', cat: 'DevOps', desc: 'CI pipelines tied to data project deployments.' },

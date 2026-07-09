@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workspace — Metroflow Offering</title>
+<meta name="description" content="Metroflow Workspace: context-aware editors, living semantic catalog, and infrastructure understanding for data teams. Open source, self-host ready.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="workspace-offering" data-cta-title="Ready to work in a stack-aware workspace?" data-cta-sub="Self-host in minutes. Metadata-only crawls. Apache 2.0." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started — Open Source" data-cta-secondary-href="index.html#workspace" data-cta-secondary-label="Try the live demo">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Offering · Workspace</div>
+      <h1>The environment where data teams do real work</h1>
+      <p>Not another dashboard — a workspace where SQL, dbt, Python, and orchestration files live alongside live lineage, catalog search, and agents that understand your manifest.</p>
+      <p style="margin-top:16px;"><a href="index.html#offerings" class="link-arrow">← All offerings</a></p>
+    </div>
+  </section>
+
+  <section class="stack-section content-section">
+    <div class="wrap">
+      <div class="section-head center reveal" style="margin-bottom:36px;">
+        <h2>Built for how data teams actually work</h2>
+        <p style="color:var(--text-muted); max-width:560px; margin:12px auto 0;">Editors, catalog, and infrastructure graph — unified so you stop context-switching across five tools.</p>
+      </div>
+      <div class="stack-group reveal">
+        <article class="stack-card glow-card hover-pop" id="editors">
+          <span class="stack-card-tag">Context-aware editors</span>
+          <h3>Write code with your stack in the room</h3>
+          <p>Metroflow editors autocomplete from synced metadata — not generic SQL guesses. When you type <code style="font-family:var(--font-mono);color:var(--accent);">{{ ref('stg_orders') }}</code>, the system validates against your live dbt manifest and surfaces column types, freshness, and downstream consumers inline.</p>
+          <p>dbt models, SQL files, Python transforms, and Airflow DAG definitions open in one workspace with consistent search, lineage peek, and agent assistance. No more alt-tabbing to a wiki that was wrong last Tuesday.</p>
+          <ul>
+            <li>Autocomplete refs, schemas, and columns from synced catalog</li>
+            <li>Inline lineage peek — see upstream/downstream without leaving the file</li>
+            <li>Agents suggest tests, docs, and fixes grounded in manifest context</li>
+            <li>PR-ready outputs with lineage diffs attached</li>
+          </ul>
+          <div class="code-block stack-card-visual" style="width:100%; max-width:420px;">
+<span class="tok-kw">-- models/fct_revenue.sql</span><br>
+<span class="tok-kw">select</span> customer_id, revenue<br>
+<span class="tok-kw">from</span> <span class="tok-str">{{ ref('stg_orders') }}</span><br>
+<span class="tok-comment">-- ✓ validated · 3 downstream · fresh 2h ago</span>
+          </div>
+        </article>
+        <article class="stack-card glow-card hover-pop" id="catalog">
+          <span class="stack-card-tag">Living semantic catalog</span>
+          <h3>Metadata that stays fresh without manual tagging</h3>
+          <p>Metroflow crawls Snowflake, BigQuery, dbt manifests, Airflow DAGs, and 40+ connectors on a schedule you control. Schemas, ownership hints, classifications, and lineage edges rebuild automatically — searchable and explainable in plain language.</p>
+          <p>The catalog is not a static export. It is the semantic foundation for impact analysis, certified metrics, and Enterprise Brain. When a connector syncs or a manifest updates, the graph reflects it within minutes.</p>
+          <ul>
+            <li>Auto-discovered tables, models, DAGs, and BI assets</li>
+            <li>Ownership, freshness, and connector health surfaced per asset</li>
+            <li>Full-text and semantic search across technical + business metadata</li>
+            <li>Governance tags propagated from source systems</li>
+          </ul>
+        </article>
+        <article class="stack-card glow-card hover-pop" id="infrastructure">
+          <span class="stack-card-tag">Infrastructure understanding</span>
+          <h3>One graph across orchestration, transformation, and warehouse</h3>
+          <p>Trace impact from raw ingest through dbt models to Looker explores — without assembling the story manually. When extract_charges retries at 2am, see which dashboards go stale and which models are blocked upstream.</p>
+          <p>Platform engineers, analytics engineers, and BI leads share the same dependency graph. Handoffs become async because context lives in Metroflow, not in someone's head or a stale Lucidchart.</p>
+          <ul>
+            <li>Cross-layer lineage: Fivetran → dbt → Airflow → Snowflake → BI</li>
+            <li>Impact analysis before schema migrations and column renames</li>
+            <li>Connector health and sync failures linked to downstream assets</li>
+            <li>Exportable graphs for audits and onboarding</li>
+          </ul>
+        </article>
+        <article class="stack-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);" id="self-host">
+          <span class="stack-card-tag">Open source &amp; self-host</span>
+          <h3>Your infrastructure. Your rules. Apache 2.0.</h3>
+          <p>Deploy Metroflow in your VPC with Docker Compose in under five minutes. Metadata-only crawls mean credentials never leave your network. Full audit logs, RBAC, and on-prem options for regulated industries.</p>
+          <ul>
+            <li>Apache 2.0 — no license surprise, no vendor trap</li>
+            <li>Metadata-only crawls — read permissions, not data exfiltration</li>
+            <li>Local dev, staging, and production profiles</li>
+            <li>Same workspace powers the live demo on our homepage</li>
+          </ul>
+          <a href="open-source.html#get-started" class="link-arrow" style="margin-top:12px;">Self-host guide →</a>
+          <a href="workspace.html" class="link-arrow" style="margin-top:8px; display:block;">Feature deep-dive →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

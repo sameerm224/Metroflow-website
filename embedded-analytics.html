@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embedded Analytics — Metroflow Offering</title>
+<meta name="description" content="Metroflow Embedded Analytics: certified KPIs in Looker, Tableau, notebooks, and internal apps — every number traceable to the context graph.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="embedded-analytics" data-cta-title="Ready for metrics everyone trusts?" data-cta-sub="Certified KPIs with lineage proof — finance, product, and BI aligned." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started — Open Source" data-cta-secondary-href="metrics-trust.html" data-cta-secondary-label="Metrics &amp; Trust Layer">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Offering · Embedded Analytics</div>
+      <h1>Certified metrics where your org already works</h1>
+      <p>Push trusted KPIs into Looker, Tableau, notebooks, and internal apps — without rebuilding your stack. Every number traces to a certified definition on the Metroflow context graph.</p>
+      <p style="margin-top:16px;"><a href="index.html#offerings" class="link-arrow">← All offerings</a></p>
+    </div>
+  </section>
+
+  <section class="stack-section content-section">
+    <div class="wrap">
+      <div class="stack-group reveal">
+        <article class="stack-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="stack-card-tag">Certified metrics layer</span>
+          <h3>Define once. Trust everywhere.</h3>
+          <p>MRR, NRR, churn, activation, and board-level KPIs are defined once in Metroflow's metrics layer — with full lineage to dbt models and source tables. BI tools, notebooks, and Enterprise Brain all pull from the same certified definitions.</p>
+          <p>When finance and product disagree, reconciliation runs against the graph — not a multi-day SQL archaeology project.</p>
+          <ul>
+            <li>Single source of truth per KPI with owners and audit trail</li>
+            <li>Version history when definitions change</li>
+            <li>Reconciliation reports across tools and teams</li>
+            <li>Status: draft, certified, deprecated — governance built in</li>
+          </ul>
+          <div class="code-block" style="max-width:420px; margin-top:16px;">
+<span class="tok-kw">metric:</span> net_revenue_retention<br>
+<span class="tok-kw">status:</span> <span class="tok-str">certified</span><br>
+<span class="tok-kw">lineage:</span> fct_subscriptions → raw_stripe<br>
+<span class="diff-add">used in: Looker · board deck · Enterprise Brain</span>
+          </div>
+        </article>
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">BI &amp; tool integration</span>
+          <h3>Trusted numbers in Looker, Tableau, and beyond</h3>
+          <p>Metroflow connects to BI metadata — explores, dashboards, calculated fields — and maps them back to warehouse models and certified metrics. When a Looker tile shows MRR, you can prove it matches finance's sheet because both pull the same definition.</p>
+          <ul>
+            <li>Looker, Tableau, Metabase metadata in the context graph</li>
+            <li>Explore-to-warehouse lineage for every dashboard tile</li>
+            <li>Flag explores using non-certified logic</li>
+            <li>Migration path from shadow metrics to certified layer</li>
+          </ul>
+        </article>
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Self-serve for business users</span>
+          <h3>Enterprise Brain — plain English, cited answers</h3>
+          <p>Product managers, finance analysts, and RevOps leads query certified metrics in plain English. No SQL tickets, no week-old CSV exports. Every answer includes lineage proof so stakeholders trust the number before the meeting starts.</p>
+          <ul>
+            <li>"Why did activation drop last Tuesday?" — answered with cited models</li>
+            <li>Drill into lineage when a number looks wrong</li>
+            <li>Guardrails — only certified metrics for exec-facing queries</li>
+            <li>Export audit trail for quarterly close</li>
+          </ul>
+        </article>
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Embedded in your products</span>
+          <h3>API-first metrics for internal apps and portals</h3>
+          <p>Expose certified KPIs via API to customer-facing analytics, internal ops portals, and exec dashboards you build in-house. Consumers get consistent numbers; your team gets lineage and governance without maintaining parallel metric stores.</p>
+          <ul>
+            <li>REST API for metric values and definitions</li>
+            <li>Webhook alerts when definitions or upstream models change</li>
+            <li>Embed lineage proof in customer-facing reports</li>
+            <li>Same graph powers workspace, BI, and embedded apps</li>
+          </ul>
+          <a href="metrics-trust.html" class="link-arrow" style="margin-top:12px;">Metrics &amp; Trust deep-dive →</a>
+          <a href="use-cases.html#finance-ops" class="link-arrow" style="margin-top:8px; display:block;">Finance &amp; RevOps playbook →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

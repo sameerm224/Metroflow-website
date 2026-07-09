@@ -1,5 +1,4 @@
 (function () {
-  // Tabbed use cases
   document.querySelectorAll('.uc-tabs').forEach(tabGroup => {
     const tabs = tabGroup.querySelectorAll('[data-uc-tab]');
     const panels = tabGroup.parentElement.querySelectorAll('[data-uc-panel]');
@@ -12,21 +11,40 @@
     });
   });
 
-  // Use case preview custom dropdown (homepage)
-  const ucCustom = document.getElementById('ucCustomSelect');
-  if (ucCustom) {
-    const trigger = document.getElementById('ucCustomSelectTrigger');
-    const menu = document.getElementById('ucCustomSelectMenu');
-    const valueEl = ucCustom.querySelector('.uc-custom-select-value');
-    const options = ucCustom.querySelectorAll('.uc-custom-select-option');
-    const panels = ucCustom.closest('.uc-preview-wrap')?.querySelectorAll('[data-uc-panel]');
+  const ROLE_PANELS = new Set([
+    'analytics-engineer', 'platform-engineer', 'head-of-data', 'finance-ops',
+    'bi-lead', 'ml-engineer', 'product-manager', 'governance-lead'
+  ]);
+  const INDUSTRY_PANELS = new Set([
+    'fintech', 'b2b-saas', 'ecommerce', 'healthcare', 'media', 'manufacturing'
+  ]);
 
+  function initUcSelect(root) {
+    const scope = root.dataset.ucScope;
+    const trigger = root.querySelector('.uc-custom-select-trigger');
+    const menu = root.querySelector('.uc-custom-select-menu');
+    const valueEl = root.querySelector('.uc-custom-select-value');
+    const options = root.querySelectorAll('.uc-custom-select-option');
+    const panels = root.closest('.uc-preview-wrap')?.querySelectorAll('[data-uc-panel]');
     const showPanel = (id) => {
-      panels?.forEach(p => p.classList.toggle('active', p.dataset.ucPanel === id));
+      panels?.forEach(p => {
+        const pid = p.dataset.ucPanel;
+        const isRole = ROLE_PANELS.has(pid);
+        const isIndustry = INDUSTRY_PANELS.has(pid);
+        if (scope === 'role') {
+          const show = pid === id;
+          p.classList.toggle('active', show);
+          p.style.display = isRole ? (show ? '' : 'none') : 'none';
+        } else {
+          const show = pid === id;
+          p.classList.toggle('active', show);
+          p.style.display = isIndustry ? (show ? '' : 'none') : 'none';
+        }
+      });
     };
 
     const setOpen = (open) => {
-      ucCustom.classList.toggle('is-open', open);
+      root.classList.toggle('is-open', open);
       trigger?.setAttribute('aria-expanded', String(open));
       if (menu) menu.hidden = !open;
     };
@@ -43,28 +61,57 @@
       setOpen(false);
     };
 
-    trigger?.addEventListener('click', () => setOpen(!ucCustom.classList.contains('is-open')));
-
-    options.forEach(opt => {
-      opt.addEventListener('click', () => selectOption(opt));
+    trigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.uc-custom-select.is-open').forEach(el => {
+        if (el !== root) {
+          el.classList.remove('is-open');
+          el.querySelector('.uc-custom-select-trigger')?.setAttribute('aria-expanded', 'false');
+          const m = el.querySelector('.uc-custom-select-menu');
+          if (m) m.hidden = true;
+        }
+      });
+      setOpen(!root.classList.contains('is-open'));
     });
 
-    document.addEventListener('click', (e) => {
-      if (!ucCustom.contains(e.target)) setOpen(false);
-    });
+    options.forEach(opt => opt.addEventListener('click', () => selectOption(opt)));
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setOpen(false);
-    });
-
-    const initial = ucCustom.querySelector('.uc-custom-select-option.selected') || options[0];
+    const initial = root.querySelector('.uc-custom-select-option.selected') || options[0];
     if (initial) {
-      selectOption(initial);
-      setOpen(false);
+      if (scope === 'role') selectOption(initial);
+      else {
+        options.forEach(o => {
+          const on = o === initial;
+          o.classList.toggle('selected', on);
+          o.setAttribute('aria-selected', String(on));
+        });
+        if (valueEl) valueEl.textContent = initial.textContent.trim();
+      }
     }
   }
 
-  // FAQ accordion
+  document.querySelectorAll('.uc-custom-select[data-uc-scope]').forEach(initUcSelect);
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.uc-custom-select.is-open').forEach(el => {
+      el.classList.remove('is-open');
+      el.querySelector('.uc-custom-select-trigger')?.setAttribute('aria-expanded', 'false');
+      const m = el.querySelector('.uc-custom-select-menu');
+      if (m) m.hidden = true;
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.uc-custom-select.is-open').forEach(el => {
+        el.classList.remove('is-open');
+        el.querySelector('.uc-custom-select-trigger')?.setAttribute('aria-expanded', 'false');
+        const m = el.querySelector('.uc-custom-select-menu');
+        if (m) m.hidden = true;
+      });
+    }
+  });
+
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-q');
     if (!btn) return;
@@ -75,8 +122,5 @@
     });
   });
 
-  // Comparison table highlight
-  document.querySelectorAll('.compare-col-mf').forEach(col => {
-    col.classList.add('highlight');
-  });
+  document.querySelectorAll('.compare-col-mf').forEach(col => col.classList.add('highlight'));
 })();

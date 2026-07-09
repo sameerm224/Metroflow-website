@@ -25,58 +25,116 @@
     </div>
   </section>
 
-  <section id="infrastructure-how" class="content-section">
+  <section id="infrastructure-how" class="stack-section">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal" style="margin-bottom:40px;">
         <div class="eyebrow">Infrastructure</div>
         <h2>How Metroflow understands your stack</h2>
-        <p>Metadata crawl → semantic graph → query lineage and impact. No data movement.</p>
+        <p>Metadata crawl → semantic graph → query lineage and impact. No data movement — just the context your team already wishes lived in one place.</p>
       </div>
-      <div class="phase-grid reveal">
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Step 1</div>
+      <div class="stack-group reveal">
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Step 1</span>
           <h3>Connect sources</h3>
-          <p>Pick Snowflake, dbt, Airflow, or 40+ connectors. Credentials stay in your network — metadata-only crawls.</p>
-        </div>
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Step 2</div>
+          <p>Start by pointing Metroflow at the systems you already run. Snowflake, BigQuery, dbt Cloud, Airflow, Dagster, Fivetran, and 40+ connectors ship out of the box — with more added regularly in the open-source repo.</p>
+          <p>Each connection uses read-only metadata crawls. Metroflow never copies row-level data to its servers; it ingests manifests, schemas, DAG definitions, and job histories only.</p>
+          <p>Credentials stay in your network. For self-hosted deployments, secrets live in your vault or environment — not a multi-tenant SaaS database.</p>
+          <ul>
+            <li>Pick connectors from the integrations catalog — OAuth or key-based auth</li>
+            <li>Scope crawls per environment: prod, staging, and dev stay separated</li>
+            <li>Schedule syncs from hourly to daily — or trigger on deploy webhooks</li>
+            <li>Health dashboard shows last sync, errors, and assets discovered per source</li>
+            <li>Under 5 minutes from <code class="mono" style="font-size:12px;">docker compose up</code> to first connector live</li>
+          </ul>
+        </article>
+
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Step 2</span>
           <h3>Build the semantic graph</h3>
-          <p>Manifests, DAGs, and schemas unify into one searchable graph with ownership and freshness.</p>
-        </div>
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Step 3</div>
+          <p>Raw metadata from each connector is normalized into a unified graph. dbt model <code class="mono" style="font-size:12px;">fct_revenue</code> links to its Snowflake table, upstream Airflow task, and downstream Looker explores — automatically.</p>
+          <p>The graph stores ownership, tags, freshness, column types, and test results alongside relationships. Search and AI agents query this layer — not individual siloed APIs.</p>
+          <p>Incremental syncs update only what changed. Large warehouses with thousands of tables stay manageable because Metroflow diffs each crawl.</p>
+          <ul>
+            <li>Manifest parsing for dbt Core, Cloud, and CI artifact uploads</li>
+            <li>DAG-to-model mapping for Airflow, Dagster, and Prefect</li>
+            <li>Column-level lineage merged where connectors expose it</li>
+            <li>Automatic owner inference from repo CODEOWNERS and warehouse tags</li>
+            <li>Graph API for custom tools, agents, and internal portals</li>
+          </ul>
+        </article>
+
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Step 3</span>
           <h3>Query &amp; act</h3>
-          <p>Impact analysis, lineage traces, and stack-aware editors — grounded in live metadata.</p>
-          <a href="workspace.html" class="link-arrow" style="margin-top:12px;">Workspace features →</a>
-        </div>
+          <p>Once the graph is live, your team queries lineage, runs impact analysis, and works in stack-aware editors — all grounded in the same metadata.</p>
+          <p>Rename a column and preview blast radius before opening a PR. Ask Enterprise Brain why a dashboard is stale and get a trace to the Airflow task that slipped.</p>
+          <p>Infrastructure understanding becomes daily workflow — not a quarterly lineage initiative that rots in a wiki.</p>
+          <ul>
+            <li>Interactive lineage: click any node, walk upstream or downstream</li>
+            <li>Impact reports exportable for architecture reviews and change management</li>
+            <li>Editors surface refs, schemas, and warnings inline as you type</li>
+            <li>Agents answer stack questions with citations to graph nodes</li>
+            <li>RBAC ensures analysts see only the environments they're cleared for</li>
+          </ul>
+          <a href="workspace.html" class="link-arrow" style="margin-top:14px; display:inline-block;">Workspace features →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="metrics-how" class="content-section alt">
+  <section id="metrics-how" class="stack-section content-section alt">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal" style="margin-bottom:40px;">
         <div class="eyebrow">Metrics</div>
         <h2>How canonical metrics work</h2>
-        <p>From definition to trusted KPI — with reconciliation and full provenance.</p>
+        <p>From definition to trusted KPI — with reconciliation and full provenance on the same graph that powers your engineering workflows.</p>
       </div>
-      <div class="phase-grid reveal">
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Define</div>
+      <div class="stack-group reveal">
+        <article class="stack-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="stack-card-tag">Define</span>
           <h3>Certify on the semantic layer</h3>
-          <p>Define KPIs once with lineage to source tables and dbt models.</p>
-        </div>
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Standardize</div>
+          <p>Create metric definitions that reference your dbt semantic models or warehouse tables directly. Grain, filters, dimensions, and business logic live in one object — not scattered across BI folders.</p>
+          <p>Link each KPI to stewards in finance and data. Draft definitions go through review before the certified badge appears — preventing "quick fixes" from becoming exec-facing truth.</p>
+          <p>Because metrics sit on the infrastructure graph, every definition inherits lineage to source columns automatically.</p>
+          <ul>
+            <li>Start from templates: MRR, churn, DAU, conversion — customize filters</li>
+            <li>Attach to dbt metrics, semantic layer, or raw SQL with governance wrapper</li>
+            <li>Plain-English description field for non-technical stakeholders</li>
+            <li>Version history with approver sign-off on every publish</li>
+            <li>Preview lineage before certifying — see upstream models and PII exposure</li>
+          </ul>
+        </article>
+
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Standardize</span>
           <h3>Push to every tool</h3>
-          <p>BI, notebooks, and agents pull the same certified number.</p>
-        </div>
-        <div class="phase-card glow-card hover-pop">
-          <div class="phase-label">Reconcile</div>
+          <p>Certified metrics sync to the surfaces your teams already use. BI explores, notebooks, internal APIs, and Metroflow agents all resolve to the same canonical ID.</p>
+          <p>When a definition updates, consumers get notified — not surprised in a Monday leadership meeting. Override detection flags dashboards still running rogue SQL.</p>
+          <p>Standardization is push, not policy PDFs. Make the right number the easiest number to use.</p>
+          <ul>
+            <li>API and SDK for embedding certified metrics in custom apps</li>
+            <li>Looker, Tableau, Metabase, and Hex integration guides in docs</li>
+            <li>Agents auto-resolve ambiguous terms to certified definitions</li>
+            <li>Consumption analytics — which teams use which KPIs</li>
+            <li>Environment gates — staging metrics never appear in prod dashboards</li>
+          </ul>
+        </article>
+
+        <article class="stack-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
+          <span class="stack-card-tag">Reconcile</span>
           <h3>Audit when definitions change</h3>
-          <p>Exportable trails for finance, product, and governance teams.</p>
-          <a href="metrics-trust.html" class="link-arrow" style="margin-top:12px;">Metrics layer →</a>
-        </div>
+          <p>Trust requires verification. Schedule reconciliation jobs that compare certified metrics against billing systems, CRMs, and ERP exports — surfacing gaps with suggested causes.</p>
+          <p>When definitions change, exportable audit trails capture the diff, approver, and affected dashboards. Finance close and governance reviews get evidence — not screenshots.</p>
+          <p>Enterprise Brain ties reconciliation results to infrastructure events — "gap explained by 6h pipeline delay in stg_orders."</p>
+          <ul>
+            <li>Scheduled Stripe, Salesforce, and warehouse cross-checks</li>
+            <li>Alert when certified vs. source-of-record delta exceeds threshold</li>
+            <li>PDF/CSV audit export with lineage, owners, and change log</li>
+            <li>Board prep mode: top KPIs with reconciliation status badges</li>
+            <li>Webhook notifications to Slack when metrics need steward review</li>
+          </ul>
+          <a href="metrics-trust.html" class="link-arrow" style="margin-top:14px; display:inline-block;">Metrics layer →</a>
+        </article>
       </div>
     </div>
   </section>

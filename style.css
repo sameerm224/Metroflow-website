@@ -270,9 +270,17 @@ header.nav {
 }
 .nav-mega-menu.nav-mega-wide { width: min(720px, calc(100vw - 48px)); }
 .nav-mega-menu.nav-mega-uc { width: min(960px, calc(100vw - 48px)); }
+.nav-mega-menu.nav-mega-narrow { width: min(360px, calc(100vw - 48px)); }
+.nav-mega-grid.cols-1 { grid-template-columns: 1fr; }
 .nav-mega-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .nav-mega-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .nav-mega-grid.cols-3 { grid-template-columns: 1fr; } }
+.offerings-section { padding-top: 48px; }
+.offerings-stack { max-width: 720px; margin: 0 auto; padding-bottom: 48px; }
+.uc-preview-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 640px; margin: 0 auto 28px; }
+@media (max-width: 640px) { .uc-preview-dual { grid-template-columns: 1fr; } }
+.uc-preview-field-label { display: block; font-family: var(--font-display); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 8px; }
+html[data-theme="light"] .uc-preview-field-label { color: var(--accent-dim); }
 .nav-mega-inner { padding: 22px 24px 20px; }
 .nav-mega-head {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
@@ -986,6 +994,51 @@ html[data-theme="light"] .uc-custom-select-group-label { color: var(--accent-dim
   font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; flex: 1;
 }
 .feature-hub-card .link-arrow { margin-top: 8px; font-size: 13px; }
+/* Stacking sticky cards */
+.stack-section { padding: 48px 0 80px; }
+.stack-group { display: flex; flex-direction: column; gap: 0; }
+.stack-card {
+  position: sticky;
+  padding: 32px 36px 36px;
+  margin-bottom: 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.stack-card:nth-child(1) { top: 88px; z-index: 1; }
+.stack-card:nth-child(2) { top: 108px; z-index: 2; }
+.stack-card:nth-child(3) { top: 128px; z-index: 3; }
+.stack-card:nth-child(4) { top: 148px; z-index: 4; }
+.stack-card:nth-child(5) { top: 168px; z-index: 5; }
+.stack-card-tag { font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 8px; display: block; }
+.stack-card h3 { font-size: 1.35rem; font-weight: 600; margin: 0 0 12px; letter-spacing: -0.03em; }
+.stack-card p { color: var(--text-muted); font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+.stack-card ul { list-style: none; margin: 0; }
+.stack-card li { font-size: 14px; color: var(--text-body); padding: 6px 0 6px 18px; position: relative; line-height: 1.55; }
+.stack-card li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+.stack-card .code-block { margin-top: 18px; max-width: 100%; }
+.stack-card-visual { margin-top: 20px; padding: 16px; min-height: 200px; display: flex; align-items: center; justify-content: center; }
+.stack-card-visual .code-block { margin-top: 0; }
+@media (max-width: 720px) {
+  .stack-card:nth-child(1) { top: 72px; }
+  .stack-card:nth-child(2) { top: 84px; }
+  .stack-card:nth-child(3) { top: 96px; }
+  .stack-card:nth-child(4) { top: 108px; }
+  .stack-card:nth-child(5) { top: 120px; }
+  .stack-card { padding: 24px 22px 28px; }
+}
+
+.feature-hub-card ul {
+  list-style: none; margin: 8px 0 0; padding: 0;
+}
+.feature-hub-card li {
+  font-size: 13px; color: var(--text-body); padding: 4px 0 4px 16px;
+  position: relative; line-height: 1.5;
+}
+.feature-hub-card li::before {
+  content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 10px;
+}
+
 .phase-card { padding: 22px 24px 26px; }
 .phase-label {
   font-family: var(--font-display); font-size: 13px; font-weight: 600;
@@ -1853,6 +1906,7 @@ html[data-theme="dark"] .brand-github { color: #e8e8e8; }
 .brand-azure { color: #0078D4; font-size: 13px; }
 .brand-trino { color: #DD00A9; }
 .brand-presto { color: #5890FF; }
+.brand-acceldata { color: #E85D24; font-weight: 700; }
 
 @media (prefers-reduced-motion: reduce) {
   *, .marquee-track, .glow-border::before, .glow-card::after, .mf-logo-spin,

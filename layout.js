@@ -73,7 +73,7 @@
     return `<a href="${link.href}"${cls}>${link.label}</a>`;
   }
 
-  const useCasesMenu = [
+  const useCasesByRoleMenu = [
     {
       title: 'By Role',
       href: 'use-cases.html#by-role',
@@ -90,19 +90,6 @@
       ]
     },
     {
-      title: 'By Industry',
-      href: 'use-cases.html#by-industry',
-      desc: 'Sector-specific compliance and velocity',
-      links: [
-        { href: 'use-cases.html#fintech', label: 'Fintech & Banking', sub: 'Regulatory lineage, fraud metrics' },
-        { href: 'use-cases.html#ecommerce', label: 'E-commerce & Retail', sub: 'Revenue attribution, inventory DAGs' },
-        { href: 'use-cases.html#healthcare', label: 'Healthcare & Life Sciences', sub: 'HIPAA VPC, clinical data provenance' },
-        { href: 'use-cases.html#b2b-saas', label: 'B2B SaaS', sub: 'Product analytics, churn, NRR' },
-        { href: 'use-cases.html#media', label: 'Media & Gaming', sub: 'Real-time events, content metrics' },
-        { href: 'use-cases.html#manufacturing', label: 'Manufacturing & Logistics', sub: 'IoT pipelines, supply chain KPIs' }
-      ]
-    },
-    {
       title: 'Teams',
       href: 'use-cases.html#teams',
       desc: 'Cross-functional combos on one control plane',
@@ -115,9 +102,27 @@
     }
   ];
 
+  const useCasesByIndustryMenu = [
+    {
+      title: 'By Industry',
+      href: 'use-cases.html#by-industry',
+      desc: 'Sector-specific compliance and velocity',
+      links: [
+        { href: 'use-cases.html#fintech', label: 'Fintech & Banking', sub: 'Regulatory lineage, fraud metrics' },
+        { href: 'use-cases.html#ecommerce', label: 'E-commerce & Retail', sub: 'Revenue attribution, inventory DAGs' },
+        { href: 'use-cases.html#healthcare', label: 'Healthcare & Life Sciences', sub: 'HIPAA VPC, clinical data provenance' },
+        { href: 'use-cases.html#b2b-saas', label: 'B2B SaaS', sub: 'Product analytics, churn, NRR' },
+        { href: 'use-cases.html#media', label: 'Media & Gaming', sub: 'Real-time events, content metrics' },
+        { href: 'use-cases.html#manufacturing', label: 'Manufacturing & Logistics', sub: 'IoT pipelines, supply chain KPIs' }
+      ]
+    }
+  ];
+
+  const useCasesMenu = [...useCasesByRoleMenu, ...useCasesByIndustryMenu];
+
   function renderMegaDropdown(id, triggerId, menuId, label, isActive, menu, cols, headTitle, headSub, allHref) {
-    const gridCls = cols === 3 ? 'nav-mega-grid cols-3' : cols === 2 ? 'nav-mega-grid cols-2' : 'nav-mega-grid';
-    const menuCls = cols === 3 ? 'nav-mega-menu nav-mega-uc' : cols === 2 ? 'nav-mega-menu nav-mega-wide' : 'nav-mega-menu';
+    const gridCls = cols === 3 ? 'nav-mega-grid cols-3' : cols === 2 ? 'nav-mega-grid cols-2' : cols === 1 ? 'nav-mega-grid cols-1' : 'nav-mega-grid';
+    const menuCls = cols === 3 ? 'nav-mega-menu nav-mega-uc' : cols === 2 ? 'nav-mega-menu nav-mega-wide' : cols === 1 ? 'nav-mega-menu nav-mega-narrow' : 'nav-mega-menu';
     return `<div class="nav-dropdown" id="${id}">
       <button type="button" class="nav-dropdown-trigger${isActive ? ' active' : ''}" id="${triggerId}" aria-expanded="false" aria-haspopup="true">
         ${label}
@@ -158,8 +163,16 @@
   function renderUseCasesMega(active) {
     return renderMegaDropdown(
       'navUseCasesDropdown', 'navUseCasesTrigger', 'navUseCasesMenu', 'Use Cases',
-      active === 'use-cases', useCasesMenu, 3,
-      'Who is Metroflow for?', 'Playbooks by role, industry, and cross-functional teams', 'use-cases.html'
+      active === 'use-cases', useCasesByRoleMenu, 2,
+      'Who is Metroflow for?', 'Playbooks by role and cross-functional teams', 'use-cases.html'
+    );
+  }
+
+  function renderIndustryMega(active) {
+    return renderMegaDropdown(
+      'navIndustryDropdown', 'navIndustryTrigger', 'navIndustryMenu', 'By Industry',
+      active === 'use-cases', useCasesByIndustryMenu, 1,
+      'Sector playbooks', 'Compliance, velocity, and metrics that matter in your industry', 'use-cases.html#by-industry'
     );
   }
 
@@ -184,6 +197,7 @@
     <nav class="nav-links" id="navLinks">
       ${renderFeaturesMega(active)}
       ${renderUseCasesMega(active)}
+      ${renderIndustryMega(active)}
       ${navLinks.filter(l => l.id !== 'home').map(l => navLink(l, active)).join('')}
     </nav>
     <div class="nav-end">
@@ -207,7 +221,8 @@ ${THEME_FLOAT}
 <nav class="nav-mobile" id="navMobile" aria-hidden="true">
   <a href="index.html"${active === 'home' ? ' class="active"' : ''}>Home</a>
   ${renderMobileDropdown('mf', 'mobileFeaturesToggle', 'mobileFeaturesPanel', 'Features', featuresMenu, 'features.html', 'All features →')}
-  ${renderMobileDropdown('uc', 'mobileUseCasesToggle', 'mobileUseCasesPanel', 'Use Cases', useCasesMenu, 'use-cases.html', 'All use cases →')}
+  ${renderMobileDropdown('uc', 'mobileUseCasesToggle', 'mobileUseCasesPanel', 'Use Cases', useCasesByRoleMenu, 'use-cases.html', 'All use cases →')}
+  ${renderMobileDropdown('ind', 'mobileIndustryToggle', 'mobileIndustryPanel', 'By Industry', useCasesByIndustryMenu, 'use-cases.html#by-industry', 'All industries →')}
   ${navLinks.filter(l => l.id !== 'home').map(l => navLink(l, active)).join('')}
   <div class="nav-mobile-theme">
     <button class="theme-toggle hover-pop" data-theme-toggle aria-label="Toggle theme">
@@ -366,7 +381,8 @@ ${THEME_FLOAT}
 
   const dropdowns = [
     { dropdown: 'navFeaturesDropdown', trigger: 'navFeaturesTrigger', menu: 'navMegaMenu' },
-    { dropdown: 'navUseCasesDropdown', trigger: 'navUseCasesTrigger', menu: 'navUseCasesMenu' }
+    { dropdown: 'navUseCasesDropdown', trigger: 'navUseCasesTrigger', menu: 'navUseCasesMenu' },
+    { dropdown: 'navIndustryDropdown', trigger: 'navIndustryTrigger', menu: 'navIndustryMenu' }
   ];
 
   function setDropdownOpen(id, open) {

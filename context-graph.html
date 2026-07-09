@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context Graph — Metroflow Offering</title>
+<meta name="description" content="Metroflow Context Graph: unified semantic graph connecting orchestration, transformation, warehouse, BI, and canonical business metrics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="context-graph" data-cta-title="Ready for a graph your whole org can trust?" data-cta-sub="Technical lineage and business metrics on one semantic foundation." data-cta-primary-href="open-source.html#get-started" data-cta-primary-label="Get Started — Open Source" data-cta-secondary-href="index.html#workspace" data-cta-secondary-label="Try the live demo">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Offering · Context Graph</div>
+      <h1>The semantic graph that makes your stack intelligible</h1>
+      <p>Metroflow builds a unified context graph from every layer of your data stack — then layers canonical business metrics and governance on the same nodes. One graph for lineage, ownership, policies, and KPIs.</p>
+      <p style="margin-top:16px;"><a href="index.html#offerings" class="link-arrow">← All offerings</a></p>
+    </div>
+  </section>
+
+  <section class="stack-section content-section">
+    <div class="wrap">
+      <div class="stack-group reveal">
+        <article class="stack-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
+          <span class="stack-card-tag">Technical lineage</span>
+          <h3>From raw ingest to executive dashboard — one traceable path</h3>
+          <p>The context graph ingests metadata from Fivetran syncs, dbt manifests, Airflow DAGs, warehouse catalogs, and BI tools. Every edge is grounded in synced metadata — not LLM guesses. Click any node and traverse upstream sources or downstream consumers in seconds.</p>
+          <p>Impact analysis runs on this graph: rename a column in stg_orders and see every model, DAG task, and dashboard that breaks before you merge.</p>
+          <ul>
+            <li>Cross-system lineage without manual diagram maintenance</li>
+            <li>Column-level dependencies where metadata supports it</li>
+            <li>Freshness and ownership propagated to every node</li>
+            <li>Export for SOC2, GDPR, and examiner requests</li>
+          </ul>
+          <div class="cap-visual illus-anim stack-card-visual" data-diagram-inline="lineage-dag"></div>
+        </article>
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Business context layer</span>
+          <h3>Metrics, glossaries, and policies on the same nodes</h3>
+          <p>Technical assets do not exist in isolation. The context graph attaches certified metric definitions, business glossary terms, data classifications, and ownership to warehouse tables, dbt models, and BI explores — so "MRR" is not just a name but a node with lineage, owners, and reconciliation history.</p>
+          <p>Finance, product, and engineering query the same graph from different angles. No parallel wiki, no spreadsheet of definitions that diverged in Q2.</p>
+          <ul>
+            <li>Canonical KPIs linked to upstream models and source tables</li>
+            <li>Business glossary terms mapped to technical assets</li>
+            <li>PII and classification tags with downstream consumer lists</li>
+            <li>Reconciliation events when definitions change</li>
+          </ul>
+        </article>
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Enterprise Brain</span>
+          <h3>AI that reasons over graph + metrics — with citations</h3>
+          <p>Generic copilots guess table names. Enterprise Brain reads the context graph and metric layer before answering. Ask "why did NRR drop" and get a response that cites pipeline delays, definition changes, and the models involved — not hallucinated SQL.</p>
+          <ul>
+            <li>Plain-English queries over lineage and certified metrics</li>
+            <li>Every answer cites nodes in the graph</li>
+            <li>Combines technical and business reasoning in one layer</li>
+            <li>Agents for docs, tests, debug, and governance checks</li>
+          </ul>
+          <div class="code-block" style="max-width:420px; margin-top:16px;">
+<span class="tok-kw">you:</span> What feeds board MRR?<br>
+<span class="tok-kw">brain:</span> fct_revenue → stg_orders → raw_stripe<br>
+<span class="diff-add">+ certified metric node · reconciled 2d ago</span>
+          </div>
+        </article>
+        <article class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Graph operations</span>
+          <h3>Always current, always queryable</h3>
+          <p>The graph rebuilds incrementally as connectors sync and manifests update. Search by table name, owner, tag, or metric. API access for custom tooling. No quarterly "lineage refresh" project — the graph is a living control plane.</p>
+          <ul>
+            <li>Incremental sync — minutes, not overnight batch jobs</li>
+            <li>Graph API for internal tools and CI checks</li>
+            <li>Impact alerts on schema drift and connector failures</li>
+            <li>Self-host — graph metadata stays in your VPC</li>
+          </ul>
+          <a href="metrics-trust.html" class="link-arrow" style="margin-top:12px;">Metrics &amp; Trust Layer →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-final-cta"></div>
+<div id="site-footer"></div>
+<script src="logo.js"></script>
+<script src="layout.js"></script>
+<script src="diagrams.js"></script>
+<script src="illus-anim.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -6,10 +6,7 @@
     'Build your Enterprise Brain.',
     'Unify your data.',
     'Standardize your metrics.',
-    'Understand your business.',
-    'Power every AI agent.',
-    'Deploy with confidence.',
-    'Deploy autonomous AI.'
+    'Understand your business.'
   ];
 
   let index = 0;

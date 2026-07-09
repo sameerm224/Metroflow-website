@@ -25,72 +25,83 @@
     </div>
   </section>
 
-  <section id="editors" class="content-section">
+  <section class="stack-section">
     <div class="wrap">
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Context-aware editors</span>
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <div class="eyebrow">Workspace capabilities</div>
+        <h2>Everything your stack knows — in one place</h2>
+        <p>Editors, catalog, infrastructure graph, and deployment — unified so you stop tab-hopping between Snowflake, dbt, Airflow, and wikis.</p>
+      </div>
+      <div class="stack-group reveal">
+        <article id="editors" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Context-aware editors</span>
           <h3>Write with live context from your stack</h3>
-          <p>SQL, dbt models, Python, and orchestration files with autocomplete that knows your schemas, refs, and lineage — not generic suggestions.</p>
-        </div>
-        <div class="cap-visual">
-          <div class="code-block" style="width:100%; max-width:340px;">
+          <p>Metroflow editors are wired to your synced metadata — not a generic language server. When you type <code class="mono" style="font-size:13px;color:var(--accent);">{{ ref('stg_orders') }}</code>, the suggestion is validated against your actual dbt manifest and warehouse schema.</p>
+          <p>SQL, dbt models, Python transforms, and orchestration configs all share the same semantic context. Rename a column upstream and see warnings before you merge — not after a failed nightly run.</p>
+          <p>Jump from any symbol to its lineage, owners, and freshness without leaving the file. Your IDE finally understands what "production" means in your environment.</p>
+          <ul>
+            <li>Autocomplete for refs, sources, and warehouse tables from live crawls</li>
+            <li>Inline lineage preview on hover — upstream models and downstream dashboards</li>
+            <li>Schema drift warnings when a model's columns no longer match the catalog</li>
+            <li>One-click navigation from a failing test to the model and its dependencies</li>
+            <li>Shared context across SQL, YAML, and Python in the same workspace</li>
+          </ul>
+          <div class="code-block" style="margin-top:18px; max-width:480px;">
 <span class="tok-kw">-- models/fct_revenue.sql</span><br>
-<span class="tok-kw">select</span> customer_id, revenue<br>
+<span class="tok-kw">select</span> customer_id, revenue, plan_tier<br>
 <span class="tok-kw">from</span> <span class="tok-str">{{ ref('stg_orders') }}</span><br>
-<span class="tok-comment">-- ↑ validated against catalog</span>
+<span class="tok-comment">-- ↑ validated · 3 downstream · @data-eng</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <section id="catalog" class="content-section alt">
-    <div class="wrap">
-      <div class="capability reverse reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Living semantic catalog</span>
+        <article id="catalog" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Living semantic catalog</span>
           <h3>Lineage that stays fresh automatically</h3>
-          <p>Schemas, ownership, governance, and dependencies — discovered from Snowflake, dbt manifests, and orchestration metadata. Searchable and explainable.</p>
-        </div>
-        <div class="cap-visual illus-anim" data-diagram-inline="lineage-dag"></div>
-      </div>
-    </div>
-  </section>
+          <p>The catalog is not a quarterly documentation sprint. Metroflow crawls Snowflake information schema, dbt manifests, Airflow DAG metadata, and 40+ connectors on a schedule you control — then merges everything into one searchable graph.</p>
+          <p>Every table, model, column, and job carries ownership, tags, freshness, and governance status. Search "revenue" and get certified metrics, staging models, and raw Stripe tables — with lineage between them, not a Confluence page from 2022.</p>
+          <p>When a PR merges or a DAG changes, the graph updates. Your team always works against what is actually running — not what someone remembered to document.</p>
+          <ul>
+            <li>Automatic discovery from dbt Cloud, Core manifests, and local projects</li>
+            <li>Column-level lineage where connectors expose it — trace KPIs to source fields</li>
+            <li>Ownership and Slack/email contacts surfaced on every asset</li>
+            <li>Freshness badges tied to orchestration runs and warehouse load times</li>
+            <li>Governance tags: PII, certified, deprecated — filterable across the graph</li>
+          </ul>
+          <div class="stack-card-visual illus-anim" data-diagram-inline="lineage-dag"></div>
+        </article>
 
-  <section id="infrastructure" class="content-section">
-    <div class="wrap">
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Infrastructure understanding</span>
+        <article id="infrastructure" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Infrastructure understanding</span>
           <h3>DAGs, models, and dependencies unified</h3>
-          <p>One graph connects orchestration, transformation, and warehouse layers. Trace impact across Airflow, dbt, and Snowflake without tab-hopping.</p>
-          <ul class="cap-list">
-            <li>Upstream and downstream impact in seconds</li>
-            <li>Connector health alongside semantic context</li>
-            <li>Ownership and freshness surfaced automatically</li>
+          <p>Most teams keep orchestration in Airflow, transforms in dbt, and tables in Snowflake — with no single view of how a failure in one layer ripples to board-level dashboards. Metroflow stitches those layers into one traversable graph.</p>
+          <p>Click any node and see upstream sources, downstream consumers, and the orchestration jobs that materialize it. Impact analysis that used to take an afternoon of Slack threads becomes a 30-second trace.</p>
+          <p>Connector health sits alongside semantic context — so you know whether a stale KPI is a pipeline delay or a definition change, not both at once.</p>
+          <ul>
+            <li>Cross-layer traces: Airflow task → dbt model → warehouse table → Looker explore</li>
+            <li>Blast-radius preview before renaming columns or deprecating models</li>
+            <li>Filter by team, domain, or environment — prod vs. staging in one click</li>
+            <li>Sync status per connector with last-crawl timestamp and error details</li>
+            <li>Export lineage subgraphs for compliance reviews and architecture docs</li>
           </ul>
-        </div>
-        <div class="cap-visual illus-anim" data-diagram-inline="lineage-dag"></div>
-      </div>
-    </div>
-  </section>
+          <div class="stack-card-visual illus-anim" data-diagram-inline="lineage-dag"></div>
+        </article>
 
-  <section id="self-host" class="content-section alt">
-    <div class="wrap">
-      <div class="capability reveal glow-card hover-pop">
-        <div class="cap-text">
-          <span class="cap-tag">Self-host &amp; local development</span>
+        <article id="self-host" class="stack-card glow-card hover-pop">
+          <span class="stack-card-tag">Self-host &amp; local development</span>
           <h3>Your infrastructure. Your rules.</h3>
-          <p>Apache 2.0. Docker Compose in minutes. Metadata-only crawls — credentials never leave your network.</p>
-          <ul class="cap-list">
-            <li>Run locally or in your VPC</li>
-            <li>Full audit logs and RBAC</li>
-            <li>Open source core, forever</li>
+          <p>Metroflow ships Apache 2.0 with Docker Compose for local dev and production-style VPC deployment. Metadata crawls are read-only — credentials and query results never leave your network.</p>
+          <p>Run the full workspace on a laptop for evaluation, then promote the same images to your Kubernetes cluster or EC2 instance. RBAC, audit logs, and SSO hooks are built in — not gated behind an enterprise tier.</p>
+          <p>Open source core, forever. No surprise license changes when your team scales from five engineers to fifty.</p>
+          <ul>
+            <li><code class="mono" style="font-size:12px;">docker compose up</code> — workspace live in under 5 minutes</li>
+            <li>Metadata-only crawls: no row-level data replication to Metroflow servers</li>
+            <li>Full audit trail of queries, agent actions, and definition changes</li>
+            <li>Role-based access aligned to your IdP — engineer, analyst, executive views</li>
+            <li>Air-gapped and on-prem friendly for regulated industries</li>
           </ul>
-          <a href="open-source.html#get-started" class="link-arrow" style="margin-top:16px;">Self-host guide →</a>
-        </div>
-        <div class="cap-visual illus-anim" data-diagram-inline="self-host-vpc"></div>
+          <a href="open-source.html#get-started" class="link-arrow" style="margin-top:14px; display:inline-block;">Self-host guide →</a>
+          <div class="stack-card-visual illus-anim" data-diagram-inline="self-host-vpc"></div>
+        </article>
       </div>
     </div>
   </section>
