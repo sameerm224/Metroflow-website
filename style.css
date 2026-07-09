@@ -192,15 +192,30 @@ header.nav {
 .nav-inner {
   max-width: 1320px; margin: 0 auto; padding: 0 28px; height: 64px;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
   align-items: center;
   column-gap: 28px;
   position: relative;
 }
+.nav-inner > .brand {
+  grid-column: 1;
+  justify-self: start;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  padding-right: 6px;
+}
 .nav-links {
-  display: flex; align-items: center; justify-content: center;
-  gap: 2px; font-size: 13px; color: var(--text-muted); overflow: visible;
+  grid-column: 2;
+  display: flex; align-items: center;
+  justify-content: center;
+  justify-content: safe center;
+  gap: 2px; font-size: 13px; color: var(--text-muted);
   min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 .nav-links > a,
 .nav-links > .nav-dropdown {
@@ -312,8 +327,12 @@ header.nav {
 }
 
 .nav-end {
+  grid-column: 3;
   display: flex; align-items: center; gap: 10px;
   justify-self: end;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
 }
 .nav-right {
   display: flex; align-items: center; gap: 8px;
@@ -1254,12 +1273,20 @@ footer { padding: 56px 0 28px; }
 .btn-discord { display: none; }
 @media (min-width: 900px) { .btn-discord { display: inline-flex; } }
 
+@media (max-width: 1280px) {
+  .nav-links > a,
+  .nav-dropdown-trigger { padding: 8px 9px; }
+  .nav-links > a.active::after,
+  .nav-dropdown-trigger.active::after { left: 9px; right: 9px; }
+  .nav-inner { column-gap: 20px; }
+}
 @media (max-width: 1100px) {
   .nav-links > a,
-  .nav-dropdown-trigger { padding: 8px 10px; }
+  .nav-dropdown-trigger { padding: 8px 8px; }
   .nav-links > a.active::after,
-  .nav-dropdown-trigger.active::after { left: 10px; right: 10px; }
-  .nav-inner { column-gap: 16px; padding: 0 20px; }
+  .nav-dropdown-trigger.active::after { left: 8px; right: 8px; }
+  .nav-inner { column-gap: 14px; padding: 0 20px; }
+  .nav-right { gap: 6px; padding-left: 8px; }
 }
 @media (max-width: 900px) {
   .nav-links { display: none; }
