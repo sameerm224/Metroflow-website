@@ -169,23 +169,25 @@
     return `<header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="brand mf-logo-brand hover-pop" data-mf-logo="brand" data-mf-logo-size="28"></a>
-    <button class="nav-toggle hover-pop" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
     <nav class="nav-links" id="navLinks">
       ${navLink({ href: 'index.html', label: 'Home', id: 'home' }, active)}
       ${renderFeaturesMega(active)}
       ${renderUseCasesMega(active)}
       ${navLinks.filter(l => l.id !== 'home').map(l => navLink(l, active)).join('')}
     </nav>
-    <div class="nav-right">
-      <a href="${GITHUB}" class="btn btn-ghost btn-github hover-pop" target="_blank" rel="noopener">
-        ${GITHUB_ICON}
-        <span>Star on GitHub</span>
-      </a>
-      <a href="${DISCORD}" class="btn btn-ghost btn-discord hover-pop" target="_blank" rel="noopener">Join Discord</a>
-      <a href="open-source.html#get-started" class="btn btn-primary hover-pop">Get Started</a>
-      ${THEME_ICON}
+    <div class="nav-end">
+      <div class="nav-right">
+        <a href="${GITHUB}" class="btn btn-ghost btn-github hover-pop" target="_blank" rel="noopener">
+          ${GITHUB_ICON}
+          <span>Star on GitHub</span>
+        </a>
+        <a href="${DISCORD}" class="btn btn-ghost btn-discord hover-pop" target="_blank" rel="noopener">Join Discord</a>
+        <a href="open-source.html#get-started" class="btn btn-primary hover-pop">Get Started</a>
+        ${THEME_ICON}
+      </div>
+      <button class="nav-toggle hover-pop" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
