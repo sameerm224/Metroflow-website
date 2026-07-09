@@ -50,8 +50,8 @@
         <div class="int-grid">
           ${list.map(i => `
             <div class="int-card-v2 glow-card hover-pop" data-name="${i.name}">
-              <div class="int-brand-row">
-                ${window.MF_getIntegrationLogo ? window.MF_getIntegrationLogo(i.name) : `<span class="int-wm-name">${i.name}</span>`}
+              <div class="int-card-head">
+                ${window.MF_getIntegrationLogo ? window.MF_getIntegrationLogo(i.name) : `<div class="int-brand-mark"><span class="int-wm-name">${i.name}</span></div>`}
                 <span class="int-wm-cat">${i.cat}</span>
               </div>
               <p>${i.desc}</p>

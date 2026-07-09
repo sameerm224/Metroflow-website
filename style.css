@@ -1682,27 +1682,108 @@ html[data-theme="light"] .dm-sidebar { background: rgba(0,0,0,0.03); }
 .impact-bar-val { font-family: var(--font-mono); font-size: 11px; color: var(--accent); text-align: right; }
 
 /* Integration brand logos */
-.int-brand-row {
-  display: flex; align-items: center; gap: 12px; margin-bottom: 4px; min-height: 36px;
+.int-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+  min-height: 40px;
 }
+.int-brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+.int-brand-mark.wordmark-only { min-height: 32px; }
 .int-brand-img {
-  width: 32px; height: 32px; flex-shrink: 0; object-fit: contain;
-  border-radius: 6px; background: rgba(255,255,255,0.04); padding: 4px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  object-fit: contain;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+  padding: 4px;
 }
 html[data-theme="light"] .int-brand-img { background: rgba(0,0,0,0.04); }
+html[data-theme="dark"] .int-brand-img.int-icon-invert { filter: brightness(0) invert(1); opacity: 0.92; }
 .int-brand-name {
-  font-family: var(--font-display); line-height: 1.15; letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 .int-brand-fallback .int-brand-letter {
   width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
   background: var(--accent-wash); border: 1px solid var(--accent-dim);
   font-family: var(--font-display); font-weight: 700; color: var(--accent); font-size: 14px;
+  flex-shrink: 0;
 }
 .int-card-v2 .int-wm-cat {
-  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--text-faint); margin-left: 44px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  padding-top: 2px;
+  text-align: right;
+  max-width: 42%;
 }
 .int-card-v2:hover .int-brand-img { transform: scale(1.04); transition: transform 0.2s ease; }
+
+/* Per-brand typography & color */
+.brand-dbt {
+  color: #FF694B;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+}
+.brand-dagster { color: #4F43DD; font-weight: 600; font-size: 15px; letter-spacing: -0.025em; }
+.brand-airflow { color: #017CEE; }
+.brand-prefect { color: #2D6FF6; }
+.brand-spark { color: #E25A1C; font-size: 13px; }
+.brand-sqlmesh { color: #22E59A; }
+.brand-dataform { color: #4285F4; }
+.brand-coalesce { color: #5B4FE8; }
+.brand-snowflake { color: #29B5E8; font-weight: 600; }
+.brand-bigquery { color: #669DF6; }
+.brand-databricks { color: #FF3621; font-weight: 700; font-size: 13px; }
+.brand-redshift { color: #8C4FFF; }
+.brand-athena { color: #FF9900; font-size: 13px; }
+.brand-postgres { color: #4169E1; }
+.brand-supabase { color: #3FCF8E; }
+.brand-mysql { color: #4479A1; }
+.brand-mongodb { color: #47A248; }
+.brand-clickhouse { color: #FFCC01; }
+.brand-fivetran { color: #0073FF; font-weight: 700; }
+.brand-airbyte { color: #6554FF; }
+.brand-stitch { color: #FF6D70; }
+.brand-kafka { color: #231F20; }
+html[data-theme="dark"] .brand-kafka,
+html[data-theme="dark"] .brand-github { color: #e8e8e8; }
+.brand-confluent { color: #4299FF; }
+.brand-flink { color: #E6526F; }
+.brand-looker { color: #4285F4; }
+.brand-tableau { color: #E97627; font-weight: 700; }
+.brand-metabase { color: #509EE3; }
+.brand-atlas { color: #00A4E4; font-size: 13px; }
+.brand-collibra { color: #00B2A9; }
+.brand-montecarlo { color: #6C2BD9; font-size: 13px; }
+.brand-gx { color: #FF6310; font-size: 12px; }
+.brand-github { color: #181717; }
+.brand-gitlab { color: #FC6D26; }
+.brand-k8s { color: #326CE5; }
+.brand-docker { color: #2496ED; }
+.brand-s3 { color: #569A31; font-weight: 700; }
+.brand-gcs { color: #4285F4; font-weight: 700; }
+.brand-azure { color: #0078D4; font-size: 13px; }
+.brand-trino { color: #DD00A9; }
+.brand-presto { color: #5890FF; }
 
 @media (prefers-reduced-motion: reduce) {
   *, .marquee-track, .glow-border::before, .glow-card::after, .mf-logo-spin,

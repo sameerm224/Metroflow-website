@@ -1,0 +1,5 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Monte Carlo">
+  <rect width="24" height="24" rx="5" fill="#6C2BD9"/>
+  <path d="M7 16l3-8h1l3 8h-1.6l-.7-2H9.3l-.7 2H7zm2.8-3.4h2.4L12 9.8l-2.2 2.8z" fill="#fff"/>
+  <circle cx="17.5" cy="9.5" r="2.5" fill="#fff" opacity=".9"/>
+</svg>
