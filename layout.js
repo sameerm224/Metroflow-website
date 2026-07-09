@@ -14,7 +14,6 @@
     { href: 'index.html', label: 'Home', id: 'home' },
     { href: 'integrations.html', label: 'Integrations', id: 'integrations' },
     { href: 'compare.html', label: 'Compare', id: 'compare' },
-    { href: 'customers.html', label: 'Customers', id: 'customers' },
     { href: 'open-source.html', label: 'Open Source', id: 'open-source' },
     { href: 'docs.html', label: 'Docs', id: 'docs' }
   ];
@@ -170,7 +169,6 @@
   <div class="nav-inner">
     <a href="index.html" class="brand mf-logo-brand hover-pop" data-mf-logo="brand" data-mf-logo-size="28"></a>
     <nav class="nav-links" id="navLinks">
-      ${navLink({ href: 'index.html', label: 'Home', id: 'home' }, active)}
       ${renderFeaturesMega(active)}
       ${renderUseCasesMega(active)}
       ${navLinks.filter(l => l.id !== 'home').map(l => navLink(l, active)).join('')}
