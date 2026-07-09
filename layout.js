@@ -76,6 +76,7 @@
   const useCasesMenu = [
     {
       title: 'By Role',
+      href: 'use-cases.html#by-role',
       desc: 'Specific workflows for your job title',
       links: [
         { href: 'use-cases.html#analytics-engineer', label: 'Analytics Engineer', sub: 'dbt PRs, lineage impact, test generation' },
@@ -90,6 +91,7 @@
     },
     {
       title: 'By Industry',
+      href: 'use-cases.html#by-industry',
       desc: 'Sector-specific compliance and velocity',
       links: [
         { href: 'use-cases.html#fintech', label: 'Fintech & Banking', sub: 'Regulatory lineage, fraud metrics' },
@@ -99,12 +101,23 @@
         { href: 'use-cases.html#media', label: 'Media & Gaming', sub: 'Real-time events, content metrics' },
         { href: 'use-cases.html#manufacturing', label: 'Manufacturing & Logistics', sub: 'IoT pipelines, supply chain KPIs' }
       ]
+    },
+    {
+      title: 'Teams',
+      href: 'use-cases.html#teams',
+      desc: 'Cross-functional combos on one control plane',
+      links: [
+        { href: 'use-cases.html#team-data-pod', label: 'Data pod', sub: 'DBA · DE · DS · DA — shared lineage & metrics' },
+        { href: 'use-cases.html#team-gtm', label: 'GTM squad', sub: 'BD · BA · Marketing — one funnel truth' },
+        { href: 'use-cases.html#team-platform-analytics', label: 'Platform + Analytics', sub: 'Infra, dbt, and BI without handoffs' },
+        { href: 'use-cases.html#team-exec-finance', label: 'Exec + Finance + Product', sub: 'Board metrics everyone trusts' }
+      ]
     }
   ];
 
   function renderMegaDropdown(id, triggerId, menuId, label, isActive, menu, cols, headTitle, headSub, allHref) {
-    const gridCls = cols === 2 ? 'nav-mega-grid cols-2' : 'nav-mega-grid';
-    const menuCls = cols === 2 ? 'nav-mega-menu nav-mega-wide' : 'nav-mega-menu';
+    const gridCls = cols === 3 ? 'nav-mega-grid cols-3' : cols === 2 ? 'nav-mega-grid cols-2' : 'nav-mega-grid';
+    const menuCls = cols === 3 ? 'nav-mega-menu nav-mega-uc' : cols === 2 ? 'nav-mega-menu nav-mega-wide' : 'nav-mega-menu';
     return `<div class="nav-dropdown" id="${id}">
       <button type="button" class="nav-dropdown-trigger${isActive ? ' active' : ''}" id="${triggerId}" aria-expanded="false" aria-haspopup="true">
         ${label}
@@ -145,8 +158,8 @@
   function renderUseCasesMega(active) {
     return renderMegaDropdown(
       'navUseCasesDropdown', 'navUseCasesTrigger', 'navUseCasesMenu', 'Use Cases',
-      active === 'use-cases', useCasesMenu, 2,
-      'Who is Metroflow for?', 'Concrete playbooks by role and industry', 'use-cases.html'
+      active === 'use-cases', useCasesMenu, 3,
+      'Who is Metroflow for?', 'Playbooks by role, industry, and cross-functional teams', 'use-cases.html'
     );
   }
 

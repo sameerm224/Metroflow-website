@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Use Cases — Metroflow</title>
-<meta name="description" content="Concrete Metroflow playbooks by role and industry — analytics engineers, platform teams, finance, healthcare, fintech, and more.">
+<meta name="description" content="Concrete Metroflow playbooks by role, industry, and cross-functional team — with before/after impact, real queries, and measurable outcomes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="use-cases" data-cta-title="See your playbook in the live demo" data-cta-sub="Walk through sign-in ? connect ? workspace with synthetic data and working queries." data-cta-primary-href="index.html#workspace" data-cta-primary-label="Try the demo" data-cta-secondary-href="open-source.html#get-started" data-cta-secondary-label="Get Started">
+<body data-page="use-cases" data-cta-title="See your playbook in the live demo" data-cta-sub="Walk through sign-in → connect → workspace with synthetic data and working queries." data-cta-primary-href="index.html#workspace" data-cta-primary-label="Try the demo" data-cta-secondary-href="open-source.html#get-started" data-cta-secondary-label="Get Started">
 
 <div id="site-header"></div>
 
@@ -19,8 +19,8 @@
   <section class="page-hero">
     <div class="wrap">
       <div class="eyebrow" style="justify-content:center">Use Cases</div>
-      <h1>Built for your role.<br/>Proven in your industry.</h1>
-      <p>Not generic "data workflows" — specific playbooks with real queries, outcomes, and time saved. Pick your role or sector below.</p>
+      <h1>Built for your role.<br/>Proven in your industry.<br/>Aligned across your teams.</h1>
+      <p>Not generic "data workflows" — specific playbooks with before/after impact, real queries, and time saved. Pick your role, sector, or team combo below.</p>
     </div>
   </section>
 
@@ -28,7 +28,7 @@
     <div class="wrap-wide">
       <div class="uc-section-title reveal">
         <h2>By role</h2>
-        <p>What you do Monday morning — and how Metroflow changes it.</p>
+        <p>What you do Monday morning — and what changes after Metroflow.</p>
       </div>
       <div class="uc-role-grid reveal">
 
@@ -36,120 +36,240 @@
           <span class="uc-card-tag">Analytics Engineer</span>
           <h3>Ship dbt PRs without breaking production</h3>
           <p class="uc-persona">You own the staging → analytics layer. Every column rename is a guessing game.</p>
-          <p class="uc-pain"><strong>Before:</strong> Slack asks, manual lineage spreadsheets, surprise failures on merge.</p>
-          <ul class="uc-steps">
-            <li>Open fct_revenue in the stack-aware editor</li>
-            <li>Run impact query before opening PR</li>
-            <li>Agent generates schema.yml tests from manifest</li>
-            <li>PR ships with lineage diff attached</li>
-          </ul>
-          <div class="uc-query">"What breaks if I rename customer_id in stg_orders?"</div>
-          <p class="uc-outcome">Outcome: <span>4× faster</span> impact analysis · fewer rollback PRs</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Slack asks, manual lineage spreadsheets, surprise failures on merge.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Open fct_revenue in the stack-aware editor</li>
+                <li>Run impact query before opening PR</li>
+                <li>Agent generates schema.yml tests from manifest</li>
+                <li>PR ships with lineage diff attached</li>
+              </ul>
+              <div class="uc-query">"What breaks if I rename customer_id in stg_orders?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Lineage graph replaces tribal knowledge — no more spreadsheet archaeology</li>
+                <li>Impact analysis runs in minutes, not half-day Slack threads</li>
+                <li>Tests auto-generated from manifest so PRs ship with guardrails</li>
+                <li>Downstream owners notified before merge, not after production breaks</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>4× faster</span> impact analysis · fewer rollback PRs</p>
+            </div>
+          </div>
         </article>
 
         <article id="platform-engineer" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">Data Platform Engineer</span>
           <h3>Debug DAG failures with full stack context</h3>
           <p class="uc-persona">You're on-call for Airflow, Snowflake, and the 2am pages.</p>
-          <p class="uc-pain"><strong>Before:</strong> Five browser tabs, grep logs, ping the AE who wrote the model two years ago.</p>
-          <ul class="uc-steps">
-            <li>See daily_revenue DAG linked to dbt models</li>
-            <li>Agent reads retry logs + rate-limit context</li>
-            <li>Trace downstream dashboards that will stale</li>
-            <li>Apply fix with pool-slot recommendation</li>
-          </ul>
-          <div class="uc-query">"Why is extract_charges retrying — and what dashboards are affected?"</div>
-          <p class="uc-outcome">Outcome: <span>60% fewer</span> escalations · MTTR under 2 hours</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Five browser tabs, grep logs, ping the AE who wrote the model two years ago.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>See daily_revenue DAG linked to dbt models</li>
+                <li>Agent reads retry logs + rate-limit context</li>
+                <li>Trace downstream dashboards that will stale</li>
+                <li>Apply fix with pool-slot recommendation</li>
+              </ul>
+              <div class="uc-query">"Why is extract_charges retrying — and what dashboards are affected?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>One pane links orchestration, warehouse, and BI dependencies</li>
+                <li>Agents surface root cause with cited logs — fewer blind retries</li>
+                <li>Downstream stale dashboards identified before users notice</li>
+                <li>AEs aren't pulled into every on-call — context is self-serve</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>60% fewer</span> escalations · MTTR under 2 hours</p>
+            </div>
+          </div>
         </article>
 
         <article id="head-of-data" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">Head of Data / VP</span>
           <h3>One map of the stack — and ROI you can show</h3>
           <p class="uc-persona">You answer to the CEO about data team velocity and platform spend.</p>
-          <p class="uc-pain"><strong>Before:</strong> No single view of lineage, onboarding takes weeks, metrics disputed in exec meetings.</p>
-          <ul class="uc-steps">
-            <li>Living catalog shows coverage &amp; connector health</li>
-            <li>New hires productive in days with guided workspace</li>
-            <li>Canonical metrics end dashboard debates</li>
-            <li>Enterprise Brain answers board prep questions</li>
-          </ul>
-          <div class="uc-query">"Show me everything that feeds our board revenue number."</div>
-          <p class="uc-outcome">Outcome: <span>3-day</span> onboarding vs 3 weeks · trusted exec KPIs</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> No single view of lineage, onboarding takes weeks, metrics disputed in exec meetings.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Living catalog shows coverage &amp; connector health</li>
+                <li>New hires productive in days with guided workspace</li>
+                <li>Canonical metrics end dashboard debates</li>
+                <li>Enterprise Brain answers board prep questions</li>
+              </ul>
+              <div class="uc-query">"Show me everything that feeds our board revenue number."</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Exec-ready stack visibility without a quarterly audit project</li>
+                <li>Onboarding drops from weeks to days — faster time-to-PR for new hires</li>
+                <li>One certified revenue definition ends cross-functional arguments</li>
+                <li>ROI story backed by coverage metrics and time-saved playbooks</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>3-day</span> onboarding vs 3 weeks · trusted exec KPIs</p>
+            </div>
+          </div>
         </article>
 
         <article id="ml-engineer" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">ML Engineer</span>
           <h3>Feature stores with provenance you can defend</h3>
           <p class="uc-persona">You train models on warehouse features — until schema drift silently degrades AUC.</p>
-          <p class="uc-pain"><strong>Before:</strong> Undocumented feature sources, manual notebooks tracing columns.</p>
-          <ul class="uc-steps">
-            <li>Trace churn_features → dim_customers → raw_hubspot</li>
-            <li>Get alerted when upstream schema changes</li>
-            <li>Agent explains which training jobs consume the asset</li>
-            <li>Document feature DAG for compliance review</li>
-          </ul>
-          <div class="uc-query">"Which production models consume columns from orders_v2?"</div>
-          <p class="uc-outcome">Outcome: <span>2h</span> debug vs 2 days · 100% feature lineage</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Undocumented feature sources, manual notebooks tracing columns.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Trace churn_features → dim_customers → raw_hubspot</li>
+                <li>Get alerted when upstream schema changes</li>
+                <li>Agent explains which training jobs consume the asset</li>
+                <li>Document feature DAG for compliance review</li>
+              </ul>
+              <div class="uc-query">"Which production models consume columns from orders_v2?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>End-to-end feature lineage from raw ingest to production model</li>
+                <li>Schema drift caught upstream — before silent AUC degradation</li>
+                <li>Compliance documentation generated from live graph, not stale diagrams</li>
+                <li>Faster root-cause when a feature pipeline changes overnight</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>2h</span> debug vs 2 days · 100% feature lineage</p>
+            </div>
+          </div>
         </article>
 
         <article id="bi-lead" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">BI &amp; Analytics Lead</span>
           <h3>Dashboards that match the certified number</h3>
           <p class="uc-persona">You own Looker/Tableau — and the weekly "why doesn't this match finance?" ticket.</p>
-          <p class="uc-pain"><strong>Before:</strong> Three definitions of MRR, no lineage from explore to warehouse.</p>
-          <ul class="uc-steps">
-            <li>Publish canonical MRR from metrics layer</li>
-            <li>BI tools pull certified definition</li>
-            <li>Lineage shows explore → dbt model → source</li>
-            <li>Reconcile when finance flags a delta</li>
-          </ul>
-          <div class="uc-query">"Why does Looker MRR differ from the finance sheet by 2%?"</div>
-          <p class="uc-outcome">Outcome: <span>One</span> trusted revenue number · fewer fire drills</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Three definitions of MRR, no lineage from explore to warehouse.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Publish canonical MRR from metrics layer</li>
+                <li>BI tools pull certified definition</li>
+                <li>Lineage shows explore → dbt model → source</li>
+                <li>Reconcile when finance flags a delta</li>
+              </ul>
+              <div class="uc-query">"Why does Looker MRR differ from the finance sheet by 2%?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Certified metrics flow into BI — explores match finance by default</li>
+                <li>Lineage proves every calculated field back to warehouse source</li>
+                <li>Reconciliation in hours when deltas appear, not multi-team war rooms</li>
+                <li>Trust restored with stakeholders who stopped believing dashboards</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>One</span> trusted revenue number · fewer fire drills</p>
+            </div>
+          </div>
         </article>
 
         <article id="finance-ops" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">Finance &amp; RevOps</span>
           <h3>Board-ready metrics without a data ticket</h3>
           <p class="uc-persona">You need ARR, churn, and cohort numbers you can cite in audits.</p>
-          <p class="uc-pain"><strong>Before:</strong> Wait days for analyst SQL, numbers change between decks.</p>
-          <ul class="uc-steps">
-            <li>Query certified metrics via Enterprise Brain</li>
-            <li>See lineage proof for every KPI</li>
-            <li>Reconciliation report when definitions change</li>
-            <li>Export audit trail for quarterly close</li>
-          </ul>
-          <div class="uc-query">"Walk me through how net revenue retention is calculated."</div>
-          <p class="uc-outcome">Outcome: <span>Same-day</span> answers · audit-ready provenance</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Wait days for analyst SQL, numbers change between decks.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Query certified metrics via Enterprise Brain</li>
+                <li>See lineage proof for every KPI</li>
+                <li>Reconciliation report when definitions change</li>
+                <li>Export audit trail for quarterly close</li>
+              </ul>
+              <div class="uc-query">"Walk me through how net revenue retention is calculated."</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Self-serve certified KPIs — no Jira queue for board prep</li>
+                <li>Every number traceable to source tables for auditor questions</li>
+                <li>Definition changes flagged with reconciliation before decks go out</li>
+                <li>Finance and data speak the same language on MRR, NRR, churn</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>Same-day</span> answers · audit-ready provenance</p>
+            </div>
+          </div>
         </article>
 
         <article id="product-manager" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">Product Manager</span>
           <h3>Self-serve product metrics — no SQL queue</h3>
           <p class="uc-persona">You ship features and need activation, retention, and funnel data weekly.</p>
-          <p class="uc-pain"><strong>Before:</strong> Jira tickets to data team, stale numbers by the time you decide.</p>
-          <ul class="uc-steps">
-            <li>Ask Enterprise Brain in plain English</li>
-            <li>Get answers tied to product_event models</li>
-            <li>Trust certified activation &amp; retention KPIs</li>
-            <li>Drill into lineage if something looks off</li>
-          </ul>
-          <div class="uc-query">"Did activation rate change after the onboarding redesign last Tuesday?"</div>
-          <p class="uc-outcome">Outcome: <span>Hours</span> not weeks · fewer analyst interrupts</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Jira tickets to data team, stale numbers by the time you decide.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Ask Enterprise Brain in plain English</li>
+                <li>Get answers tied to product_event models</li>
+                <li>Trust certified activation &amp; retention KPIs</li>
+                <li>Drill into lineage if something looks off</li>
+              </ul>
+              <div class="uc-query">"Did activation rate change after the onboarding redesign last Tuesday?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Decisions made on fresh, certified metrics — not week-old exports</li>
+                <li>Plain-English queries with cited lineage build PM confidence</li>
+                <li>Fewer interrupts to analytics — PMs self-serve within guardrails</li>
+                <li>Feature launches measured against the same KPIs finance uses</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>Hours</span> not weeks · fewer analyst interrupts</p>
+            </div>
+          </div>
         </article>
 
         <article id="governance-lead" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">Data Governance Lead</span>
           <h3>Policy and lineage without quarterly scrambles</h3>
           <p class="uc-persona">You map PII, ownership, and retention — always one audit behind.</p>
-          <p class="uc-pain"><strong>Before:</strong> Static diagrams, manual tagging, no link to live pipelines.</p>
-          <ul class="uc-steps">
-            <li>Auto-discovered ownership &amp; classification</li>
-            <li>Lineage exports for SOC2 / GDPR reviews</li>
-            <li>Impact analysis before policy changes</li>
-            <li>Audit log of who queried sensitive assets</li>
-          </ul>
-          <div class="uc-query">"List all downstream consumers of tables with email columns."</div>
-          <p class="uc-outcome">Outcome: <span>Always-current</span> graph · faster audit cycles</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Static diagrams, manual tagging, no link to live pipelines.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Auto-discovered ownership &amp; classification</li>
+                <li>Lineage exports for SOC2 / GDPR reviews</li>
+                <li>Impact analysis before policy changes</li>
+                <li>Audit log of who queried sensitive assets</li>
+              </ul>
+              <div class="uc-query">"List all downstream consumers of tables with email columns."</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Living governance graph tied to production pipelines — not slide decks</li>
+                <li>Audit exports generated on demand for SOC2 and GDPR reviews</li>
+                <li>Policy changes tested with impact analysis before rollout</li>
+                <li>Always-current ownership — no quarterly scramble to catch up</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>Always-current</span> graph · faster audit cycles</p>
+            </div>
+          </div>
         </article>
 
       </div>
@@ -160,92 +280,341 @@
     <div class="wrap-wide">
       <div class="uc-section-title reveal">
         <h2>By industry</h2>
-        <p>Sector-specific constraints — compliance, velocity, and the metrics that matter.</p>
+        <p>Sector-specific constraints — and how Metroflow delivers compliance, velocity, and trusted metrics.</p>
       </div>
       <div class="uc-role-grid reveal">
 
         <article id="fintech" class="uc-card glow-card hover-pop accent-green" style="border-color:var(--accent-dim);">
           <span class="uc-card-tag">Fintech &amp; Banking</span>
           <h3>Regulatory lineage + fraud metrics you can defend</h3>
-          <p class="uc-pain">Regulators ask for provenance. Fraud teams need real-time feature lineage. Every KPI must reconcile.</p>
-          <ul class="uc-steps">
-            <li>Self-host in VPC · metadata-only crawls</li>
-            <li>Lineage from transaction models to regulatory reports</li>
-            <li>Certified fraud-rate &amp; exposure metrics</li>
-            <li>Enterprise Brain for examiner questions</li>
-          </ul>
-          <div class="uc-query">"Show lineage from raw_swift_messages to regulatory_report_AML."</div>
-          <p class="uc-outcome">Outcome: audit-ready graph · <span>single</span> certified exposure KPI</p>
+          <p class="uc-persona">Regulators ask for provenance. Fraud teams need real-time feature lineage. Every KPI must reconcile.</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Manual lineage for examiner requests, fraud models untraceable, exposure metrics disputed across risk and finance.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Self-host in VPC · metadata-only crawls</li>
+                <li>Lineage from transaction models to regulatory reports</li>
+                <li>Certified fraud-rate &amp; exposure metrics</li>
+                <li>Enterprise Brain for examiner questions</li>
+              </ul>
+              <div class="uc-query">"Show lineage from raw_swift_messages to regulatory_report_AML."</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Examiner-ready lineage exports in minutes, not multi-week projects</li>
+                <li>Fraud feature provenance defensible under regulatory scrutiny</li>
+                <li>Single certified exposure KPI across risk, finance, and ops</li>
+                <li>VPC deployment keeps sensitive metadata inside your perimeter</li>
+              </ul>
+              <p class="uc-outcome">Outcome: audit-ready graph · <span>single</span> certified exposure KPI</p>
+            </div>
+          </div>
         </article>
 
         <article id="ecommerce" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">E-commerce &amp; Retail</span>
           <h3>Revenue attribution across Shopify, ads, and warehouse</h3>
-          <p class="uc-pain">Black Friday DAGs fail silently. Marketing and finance report different GMV.</p>
-          <ul class="uc-steps">
-            <li>Connect Fivetran + dbt + Airflow in one graph</li>
-            <li>Debug inventory sync DAGs with linked models</li>
-            <li>Canonical GMV &amp; contribution margin metrics</li>
-            <li>Impact analysis before promo-season schema changes</li>
-          </ul>
-          <div class="uc-query">"What depends on fct_orders — and will the 2am sync break it?"</div>
-          <p class="uc-outcome">Outcome: <span>one</span> GMV number · faster peak-season ops</p>
+          <p class="uc-persona">Black Friday DAGs fail silently. Marketing and finance report different GMV.</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Attribution spreadsheets, silent DAG failures during peak season, three versions of GMV in exec meetings.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Connect Fivetran + dbt + Airflow in one graph</li>
+                <li>Debug inventory sync DAGs with linked models</li>
+                <li>Canonical GMV &amp; contribution margin metrics</li>
+                <li>Impact analysis before promo-season schema changes</li>
+              </ul>
+              <div class="uc-query">"What depends on fct_orders — and will the 2am sync break it?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Peak-season failures caught with linked DAG + model context</li>
+                <li>Marketing and finance align on one GMV definition</li>
+                <li>Schema changes tested for downstream impact before Black Friday</li>
+                <li>Attribution traced from ad spend to warehouse order — no black boxes</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>one</span> GMV number · faster peak-season ops</p>
+            </div>
+          </div>
         </article>
 
         <article id="healthcare" class="uc-card glow-card hover-pop accent-violet" style="border-color:rgba(139,92,246,0.35);">
           <span class="uc-card-tag">Healthcare &amp; Life Sciences</span>
           <h3>HIPAA-friendly workspace with clinical provenance</h3>
-          <p class="uc-pain">PHI boundaries, clinical trial pipelines, and months-long audit prep.</p>
-          <ul class="uc-steps">
-            <li>Deploy on-prem or private cloud</li>
-            <li>Tag &amp; trace PHI-adjacent tables automatically</li>
-            <li>Lineage for trial cohort → outcomes models</li>
-            <li>Governance agents for access policy checks</li>
-          </ul>
-          <div class="uc-query">"Which models consume patient_id from clinical_staging?"</div>
-          <p class="uc-outcome">Outcome: VPC control · <span>full</span> clinical data provenance</p>
+          <p class="uc-persona">PHI boundaries, clinical trial pipelines, and months-long audit prep.</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> PHI tagging in spreadsheets, trial cohort lineage undocumented, audits require months of manual tracing.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Deploy on-prem or private cloud</li>
+                <li>Tag &amp; trace PHI-adjacent tables automatically</li>
+                <li>Lineage for trial cohort → outcomes models</li>
+                <li>Governance agents for access policy checks</li>
+              </ul>
+              <div class="uc-query">"Which models consume patient_id from clinical_staging?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>PHI-adjacent assets auto-tagged with live downstream consumers</li>
+                <li>Clinical trial provenance documented from cohort to outcomes</li>
+                <li>On-prem deployment satisfies HIPAA boundary requirements</li>
+                <li>Audit prep shrinks from months to exportable lineage reports</li>
+              </ul>
+              <p class="uc-outcome">Outcome: VPC control · <span>full</span> clinical data provenance</p>
+            </div>
+          </div>
         </article>
 
         <article id="b2b-saas" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">B2B SaaS</span>
           <h3>Product-led growth metrics the whole exec team trusts</h3>
-          <p class="uc-pain">Churn, NRR, and activation defined differently in product, finance, and sales ops.</p>
-          <ul class="uc-steps">
-            <li>Sync Segment + Snowflake + dbt manifest</li>
-            <li>Certify NRR, logo churn, and activation</li>
-            <li>Enterprise Brain for weekly business reviews</li>
-            <li>Lineage from product events to board slides</li>
-          </ul>
-          <div class="uc-query">"Why did NRR drop — pipeline issue or definition change?"</div>
-          <p class="uc-outcome">Outcome: <span>aligned</span> exec metrics · faster board prep</p>
+          <p class="uc-persona">Churn, NRR, and activation defined differently in product, finance, and sales ops.</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Three NRR definitions in three tools, board slides rebuilt when numbers don't match, product events disconnected from revenue.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Sync Segment + Snowflake + dbt manifest</li>
+                <li>Certify NRR, logo churn, and activation</li>
+                <li>Enterprise Brain for weekly business reviews</li>
+                <li>Lineage from product events to board slides</li>
+              </ul>
+              <div class="uc-query">"Why did NRR drop — pipeline issue or definition change?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Product, finance, and sales ops share one NRR and churn definition</li>
+                <li>Board prep answers in plain English with cited lineage</li>
+                <li>Pipeline issues separated from definition drift in minutes</li>
+                <li>PLG metrics traced from event stream to executive KPI</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>aligned</span> exec metrics · faster board prep</p>
+            </div>
+          </div>
         </article>
 
         <article id="media" class="uc-card glow-card hover-pop accent-amber" style="border-color:rgba(245,158,11,0.35);">
           <span class="uc-card-tag">Media &amp; Gaming</span>
           <h3>Event pipelines and content metrics at scale</h3>
-          <p class="uc-pain">Kafka streams, session data, and content KPIs — owned by different teams, never aligned.</p>
-          <ul class="uc-steps">
-            <li>Kafka + Flink metadata in semantic graph</li>
-            <li>Trace engagement metrics to raw event topics</li>
-            <li>Debug stream job failures with warehouse impact</li>
-            <li>Certified DAU / watch-time definitions</li>
-          </ul>
-          <div class="uc-query">"What dashboards break if the sessionize_stream job fails?"</div>
-          <p class="uc-outcome">Outcome: <span>unified</span> stream + batch lineage</p>
+          <p class="uc-persona">Kafka streams, session data, and content KPIs — owned by different teams, never aligned.</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Stream and batch silos, DAU defined five ways, no one knows which dashboards break when a Flink job fails.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Kafka + Flink metadata in semantic graph</li>
+                <li>Trace engagement metrics to raw event topics</li>
+                <li>Debug stream job failures with warehouse impact</li>
+                <li>Certified DAU / watch-time definitions</li>
+              </ul>
+              <div class="uc-query">"What dashboards break if the sessionize_stream job fails?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Unified stream + batch lineage in one semantic graph</li>
+                <li>Certified DAU and watch-time end cross-team metric debates</li>
+                <li>Flink/Kafka failures traced to stale dashboards before users complain</li>
+                <li>Content and growth teams share one engagement definition</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>unified</span> stream + batch lineage</p>
+            </div>
+          </div>
         </article>
 
         <article id="manufacturing" class="uc-card glow-card hover-pop">
           <span class="uc-card-tag">Manufacturing &amp; Logistics</span>
           <h3>IoT ingestion and supply chain KPIs</h3>
-          <p class="uc-pain">Sensor data, ERP exports, and OT/IT silos — OTIF calculated five different ways.</p>
-          <ul class="uc-steps">
-            <li>Ingest IoT + ERP metadata into catalog</li>
-            <li>Lineage from sensor raw → OTIF dashboards</li>
-            <li>Canonical supply chain &amp; defect-rate metrics</li>
-            <li>Impact alerts before plant schema migrations</li>
-          </ul>
-          <div class="uc-query">"Trace OTIF calculation to source plant sensor tables."</div>
-          <p class="uc-outcome">Outcome: <span>one</span> OTIF definition · fewer plant outages</p>
+          <p class="uc-persona">Sensor data, ERP exports, and OT/IT silos — OTIF calculated five different ways.</p>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> OT and IT data never meet, OTIF differs by plant, schema migrations cause unplanned downtime.</p>
+              <p class="uc-panel-label">Your workflow with Metroflow</p>
+              <ul class="uc-steps">
+                <li>Ingest IoT + ERP metadata into catalog</li>
+                <li>Lineage from sensor raw → OTIF dashboards</li>
+                <li>Canonical supply chain &amp; defect-rate metrics</li>
+                <li>Impact alerts before plant schema migrations</li>
+              </ul>
+              <div class="uc-query">"Trace OTIF calculation to source plant sensor tables."</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>OT/IT metadata unified — sensor to dashboard in one graph</li>
+                <li>One OTIF definition across plants and logistics partners</li>
+                <li>Schema migrations tested for supply-chain impact before rollout</li>
+                <li>Defect-rate KPIs certified and traceable for quality audits</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>one</span> OTIF definition · fewer plant outages</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="teams" class="content-section uc-page">
+    <div class="wrap-wide">
+      <div class="uc-section-title reveal">
+        <h2>Teams</h2>
+        <p>Fragmented teams finally share context — how cross-functional groups work together on Metroflow.</p>
+      </div>
+      <div class="uc-role-grid reveal">
+
+        <article id="team-data-pod" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Data pod</span>
+          <h3>DBA · Data Engineer · Data Scientist · Data Analyst</h3>
+          <p class="uc-persona">Four specialists, four tools, one warehouse — and nobody agrees which table is canonical.</p>
+          <div class="uc-team-roster">
+            <span class="uc-team-chip">DBA</span>
+            <span class="uc-team-chip">Data Engineer</span>
+            <span class="uc-team-chip">Data Scientist</span>
+            <span class="uc-team-chip">Data Analyst</span>
+          </div>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> DBAs guard schemas in tickets, DEs ship pipelines DEs-only understand, DS notebooks fork tables, analysts rebuild logic in spreadsheets.</p>
+              <p class="uc-panel-label">How this pod works on Metroflow</p>
+              <ul class="uc-steps">
+                <li>DBA sees who queries prod tables and what breaks on migration</li>
+                <li>DE ships dbt models with lineage visible to DS and analysts</li>
+                <li>DS traces features to certified warehouse assets</li>
+                <li>Analysts query certified metrics — not shadow SQL</li>
+              </ul>
+              <div class="uc-query">"Who downstream depends on orders_v2 before we add a column?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>One semantic graph replaces four parallel mental models of the stack</li>
+                <li>Schema changes coordinated — DBAs, DEs, DS, and analysts see the same impact</li>
+                <li>Certified metrics end analyst shadow tables and DS notebook forks</li>
+                <li>Handoffs become async — context lives in Metroflow, not Slack threads</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>70% fewer</span> cross-role escalations · shared source of truth</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="team-gtm" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">GTM squad</span>
+          <h3>Business Development · Business Analyst · Marketing Head</h3>
+          <p class="uc-persona">Pipeline, campaigns, and revenue — three leaders, three spreadsheets, one board meeting.</p>
+          <div class="uc-team-roster">
+            <span class="uc-team-chip">Business Development</span>
+            <span class="uc-team-chip">Business Analyst</span>
+            <span class="uc-team-chip">Marketing Head</span>
+          </div>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> BD reports pipeline one way, marketing reports MQL→SQL another, BA reconciles in Excel before every exec review.</p>
+              <p class="uc-panel-label">How this squad works on Metroflow</p>
+              <ul class="uc-steps">
+                <li>Certified funnel metrics from lead to closed-won</li>
+                <li>Marketing attributes campaigns to warehouse revenue</li>
+                <li>BD drills into pipeline lineage — source to forecast</li>
+                <li>BA publishes one weekly GTM dashboard everyone trusts</li>
+              </ul>
+              <div class="uc-query">"Does paid social ROI use the same revenue definition as the board deck?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>GTM leaders align on one funnel truth — no pre-meeting reconciliation</li>
+                <li>Campaign ROI tied to certified revenue, not platform exports</li>
+                <li>BA time shifts from firefighting definitions to actual analysis</li>
+                <li>Exec reviews run on metrics everyone already trusts</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>One</span> GTM narrative · same-day funnel answers</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="team-platform-analytics" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Platform + Analytics</span>
+          <h3>Data Platform Engineer · Analytics Engineer · BI Lead</h3>
+          <p class="uc-persona">Infra keeps the lights on, dbt ships models, BI serves dashboards — but outages and drift fall between the cracks.</p>
+          <div class="uc-team-roster">
+            <span class="uc-team-chip">Platform Engineer</span>
+            <span class="uc-team-chip">Analytics Engineer</span>
+            <span class="uc-team-chip">BI Lead</span>
+          </div>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Platform fixes DAGs without knowing BI impact, AEs merge dbt PRs blind to orchestration, BI discovers stale explores after users complain.</p>
+              <p class="uc-panel-label">How this trio works on Metroflow</p>
+              <ul class="uc-steps">
+                <li>Platform sees DAG failures linked to dbt models and explores</li>
+                <li>AEs run impact analysis across orchestration and BI layers</li>
+                <li>BI publishes explores on certified metrics with lineage proof</li>
+                <li>Shared on-call runbooks cite the same dependency graph</li>
+              </ul>
+              <div class="uc-query">"If Snowflake throttles tonight, which dashboards go stale by 8am?"</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Infra, dbt, and BI dependencies in one graph — no more blame ping-pong</li>
+                <li>Incidents resolved with full downstream context, not isolated fixes</li>
+                <li>BI explores certified at source — drift caught before users see it</li>
+                <li>On-call load drops when every layer shares the same playbook</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>50% faster</span> incident resolution · zero surprise stale dashboards</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="team-exec-finance" class="uc-card glow-card hover-pop">
+          <span class="uc-card-tag">Exec + Finance + Product</span>
+          <h3>Head of Data · Finance / RevOps · Product Manager</h3>
+          <p class="uc-persona">Board prep, product bets, and budget decisions — all need numbers, none trust the same definition.</p>
+          <div class="uc-team-roster">
+            <span class="uc-team-chip">Head of Data</span>
+            <span class="uc-team-chip">Finance &amp; RevOps</span>
+            <span class="uc-team-chip">Product Manager</span>
+          </div>
+          <div class="uc-card-split">
+            <div class="uc-card-panel">
+              <p class="uc-panel-label">The reality today</p>
+              <p class="uc-pain"><strong>Before:</strong> Head of Data mediates metric fights, finance waits on SQL tickets, PMs ship features without trusted before/after measurement.</p>
+              <p class="uc-panel-label">How this group works on Metroflow</p>
+              <ul class="uc-steps">
+                <li>Head of Data certifies KPIs once — NRR, activation, burn</li>
+                <li>Finance self-serves with audit-ready lineage</li>
+                <li>PMs measure launches against the same certified baselines</li>
+                <li>Enterprise Brain answers exec questions with cited proof</li>
+              </ul>
+              <div class="uc-query">"Walk the board through NRR — and show what changed since last quarter."</div>
+            </div>
+            <div class="uc-card-panel uc-panel-impact">
+              <p class="uc-panel-label uc-panel-label-accent">Impact after adopting Metroflow</p>
+              <ul class="uc-impact">
+                <li>Head of Data stops mediating — certified metrics settle debates upfront</li>
+                <li>Finance gets same-day answers with provenance for auditors</li>
+                <li>PMs ship with trusted before/after — no post-hoc metric hunting</li>
+                <li>Board prep becomes narration, not reconciliation</li>
+              </ul>
+              <p class="uc-outcome">Outcome: <span>Trusted</span> exec metrics · <span>3× faster</span> board prep</p>
+            </div>
+          </div>
         </article>
 
       </div>
