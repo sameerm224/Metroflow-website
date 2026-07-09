@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Metroflow — Agentic Control Plane for Your Data Stack</title>
-<meta name="description" content="The open-source agentic control plane for modern data teams. AI agents grounded in lineage, DAGs, and canonical metrics — above Snowflake, dbt, and Airflow. No prompts. No guesswork.">
+<meta name="description" content="The agentic control plane for your data stack. Connect your existing stack, build trusted context, and give AI the understanding it needs to work like a member of your team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,10 +22,14 @@
     <div class="wrap-wide">
       <div class="hero-stacked">
         <div class="hero-copy reveal">
-          <div class="mf-logo-hero" data-mf-logo="brand" data-mf-logo-size="64" data-mf-logo-text="false"></div>
+          <div class="mf-logo-hero" data-mf-logo="brand" data-mf-logo-size="56" data-mf-logo-text="false"></div>
           <div class="eyebrow" style="justify-content:center">Open source · Agentic AI · Data control plane</div>
-          <h1>The <span class="grad-text">agentic control plane</span> for your data stack.</h1>
-          <p class="hero-sub">AI agents that reason over live lineage, DAGs, and canonical metrics — not prompts and guesses. One layer above Snowflake, dbt, and Airflow to operate pipelines, certify KPIs, and deploy agentic AI with governed context.</p>
+          <h1 class="hero-title">The Agentic Control Plane for Your Data Stack.</h1>
+          <div class="hero-rotator" aria-live="polite" aria-atomic="true">
+            <span class="hero-rotator-glow" aria-hidden="true"></span>
+            <span class="hero-rotator-text" id="heroRotatorText">Build your Enterprise Brain.</span>
+          </div>
+          <p class="hero-sub">Connect your existing stack. Build trusted context. Give AI the understanding it needs to work like a member of your team.</p>
           <div class="hero-ctas">
             <a href="open-source.html#get-started" class="btn btn-primary btn-lg hover-pop">Get Started — Open Source</a>
             <a href="#workspace" class="btn btn-ghost btn-lg hover-pop">Try the live demo ↓</a>
@@ -598,6 +602,7 @@
 <script src="diagrams.js"></script>
 <script src="illus-anim.js"></script>
 <script src="hero-workspace.js"></script>
+<script src="hero-rotator.js"></script>
 <script src="home.js"></script>
 <script src="script.js"></script>
 </body>
